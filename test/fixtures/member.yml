@@ -1,0 +1,27 @@
+tony_abbott:
+  member_id: 1
+  person_id: 10001
+  first_name: Tony
+  last_name: Abbott
+  house: 1
+  constituency: Warringah
+  party: Liberal Party
+  entered_house: 1994-03-26
+  entered_reason: by_election
+  left_house: 9999-12-31
+  left_reason: still_in_office
+  lastupdate: <%= DateTime.now %>
+
+dick_adams:
+  member_id: 3
+  person_id: 10004
+  first_name: Dick
+  last_name: Adams
+  house: 1
+  constituency: Lyons
+  party: Australian Labor Party
+  entered_house: 1993-03-13
+  entered_reason: general_election
+  left_house: 9999-12-31
+  left_reason: still_in_office
+  lastupdate: <%= DateTime.now %>
