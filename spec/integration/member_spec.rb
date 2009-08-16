@@ -22,16 +22,18 @@ describe "MembersController" do
   fixtures :member
 
   it "should render the representatives page exactly the same as the php version" do
-    expected = Hpricot(open("http://dev.openaustralia.org/mps")).to_html
+    unless File.exists?("expected.html")
+      expected = Hpricot(open("http://dev.openaustralia.org/mps")).to_html
+      File.open("expected.html", "w") {|f| f.write(expected) }
+    end
     get "/member"
     result = Hpricot(@response.body).to_html
     # Write out the expected and resulting html
-    File.open("expected.html", "w") {|f| f.write(expected) }
     File.open("result.html", "w") {|f| f.write(result) }
-    system("tidy -q -m expected.html")
-    system("tidy -q -m result.html")
-    expected = File.read("expected.html")
-    result = File.read("result.html")
+    system("tidy -q expected.html > expected_tidy.html")
+    system("tidy -q result.html > result_tidy.html")
+    expected = File.read("expected_tidy.html")
+    result = File.read("result_tidy.html")
     result.should == expected
   end
 end
