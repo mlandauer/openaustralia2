@@ -28,6 +28,10 @@ describe "MembersController" do
     # Write out the expected and resulting html
     File.open("expected.html", "w") {|f| f.write(expected) }
     File.open("result.html", "w") {|f| f.write(result) }
+    system("tidy -q -m expected.html")
+    system("tidy -q -m result.html")
+    expected = File.read("expected.html")
+    result = File.read("result.html")
     result.should == expected
   end
 end
