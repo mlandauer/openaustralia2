@@ -96,7 +96,7 @@
                     %td{ :class => row_class }
                       = m.constituency
                     %td{ :class => row_class }
-                      \&nbsp;
+                      = nbsp_if_empty(m.current_minister_positions.join('<br>'))
           / end .main
           .sidebar
             .block

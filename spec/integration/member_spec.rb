@@ -19,7 +19,7 @@ module Hpricot
 end
 
 describe "MembersController" do
-  fixtures :member
+  fixtures :member, :moffice
 
   it "should render the representatives page exactly the same as the php version" do
     unless File.exists?("expected.html")
