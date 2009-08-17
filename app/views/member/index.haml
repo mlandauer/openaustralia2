@@ -99,7 +99,7 @@
                       %img.portrait{ :src => "/images/mps/#{m.person_id}.jpg", :alt => "" }
                     %td{ :class => row_class }
                       %a{ :href => "/mp/#{m.first_name.downcase}_#{m.last_name.downcase}/#{m.constituency.downcase}" }
-                        = m.first_name + " " + m.last_name
+                        = m.name
                     %td{ :class => row_class }
                       = m.party
                     %td{ :class => row_class }
