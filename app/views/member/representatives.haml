@@ -34,10 +34,10 @@
         #topmenu
           %ul#user
             %li
-              %a{ :href => "/user/login/?ret=%2Fmps%2F", :title => "If you've already joined, log in to post comments" }
+              %a{ :href => "/user/login/?ret=#{url_for(:trailing_slash => true).gsub('/','%2F')}", :title => "If you've already joined, log in to post comments" }
                 Log in
             %li
-              %a{ :href => "/user/?pg=join&amp;ret=%2Fmps%2F", :title => "Joining is free and allows you to post comments" }
+              %a{ :href => "/user/?pg=join&amp;ret=#{url_for(:trailing_slash => true).gsub('/','%2F')}", :title => "Joining is free and allows you to post comments" }
                 Join
             / <li><a href="/getinvolved/?pg=getinvolved" title="Contribute to OpenAustralia.org">Get involved</a></li>
           %br
@@ -56,11 +56,9 @@
               %a{ :href => "/comments/recent/", :title => "Recently posted comments" }
                 Recent comments
             %li
-              %a.on{ :href => "/mps/", :title => "Your Representative and list of all Members of the House of Representatives" }
-                Representatives
+              = link_to_on_if_current "Representatives", {:controller => "member", :action => "representatives", :trailing_slash => true}, {:title => "Your Representative and list of all Members of the House of Representatives"}
             %li
-              %a{ :href => "/senators/", :title => "List of all Senators" }
-                Senators
+              = link_to_on_if_current "Senators", {:controller => "member", :action => "senators", :trailing_slash => true}, {:title => "List of all Senators"}
             %li
               %a{ :href => "/help/", :title => "Answers to your questions" }
                 Help
@@ -84,15 +82,12 @@
                 %th
                   Photo
                 %th
-                  %a{ :href => "/mps/?o=f" }
-                    First
+                  = link_to "First", :o => "f", :trailing_slash => true
                   \&amp; last name
                 %th
-                  %a{ :href => "/mps/?o=p" }
-                    Party
+                  = link_to "Party", :o => "p", :trailing_slash => true
                 %th
-                  %a{ :href => "/mps/?o=c" }
-                    Constituency
+                  = link_to "Constituency", :o => "c", :trailing_slash => true
                 %th
                   Positions
               %tbody
@@ -114,11 +109,9 @@
           .sidebar
             .block
               %h4
-                %a{ :href => "/mps/?f=csv" }
-                  This data as a spreadsheet
+                = link_to "This data as a spreadsheet", :f => "csv", :trailing_slash => true
               %p
-                %a{ :href => "/mps/?f=csv" }
-                  Download a CSV
+                = link_to "Download a CSV", :f => "csv", :trailing_slash => true
                 (Comma Separated Values) file that you can load into your favourite spreadsheet program or data-mashing software.
             / end .block
             #help.block
