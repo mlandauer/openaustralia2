@@ -36,5 +36,23 @@ describe "MembersController" do
     result = File.read("result_tidy.html")
     result.should == expected
   end
+  
+  it "should render the senators page exactly the same as the php version" do
+    unless File.exists?("expected_senators.html")
+      expected = Hpricot(open("http://dev.openaustralia.org/senators")).to_html
+      File.open("expected_senators.html", "w") {|f| f.write(expected) }
+    end
+
+    get "/member/senators"
+    result = Hpricot(@response.body).to_html
+    # Write out the expected and resulting html
+    File.open("result_senators.html", "w") {|f| f.write(result) }
+    system("tidy -q expected_senators.html > expected_senators_tidy.html")
+    system("tidy -q result_senators.html > result_senators_tidy.html")
+    expected = File.read("expected_senators_tidy.html")
+    result = File.read("result_senators_tidy.html")
+    result.should == expected
+  end
+  
 end
 
