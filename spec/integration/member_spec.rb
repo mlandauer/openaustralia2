@@ -27,25 +27,22 @@ describe "MembersController" do
     File.read(temp_file)
   end
   
-  it "should render the representatives page exactly the same as the php version" do
+  def compare_with_php(url)
     # Setting User-Agent so that the php code outputs the default stylesheets
-    expected = Hpricot(open("http://dev.openaustralia.org/mps/", "User-Agent" => "Ruby/#{RUBY_VERSION}")).to_html
-    get "/mps/"
+    expected = Hpricot(open("http://dev.openaustralia.org#{url}", "User-Agent" => "Ruby/#{RUBY_VERSION}")).to_html
+    get url
     result = Hpricot(@response.body).to_html
 
     tidy(result, "result.html").should == tidy(expected, "expected.html")
     ["expected.html", "result.html"].each {|f| File.delete(f)}
   end
   
-  it "should render the senators page exactly the same as the php version" do
-    # Setting User-Agent so that the php code outputs the default stylesheets
-    expected = Hpricot(open("http://dev.openaustralia.org/senators/", "User-Agent" => "Ruby/#{RUBY_VERSION}")).to_html
-    get "/senators/"
-    result = Hpricot(@response.body).to_html
-
-    tidy(result, "result_senators.html").should == tidy(expected, "expected_senators.html")
-    ["expected_senators.html", "result_senators.html"].each {|f| File.delete(f)}
+  it "should render the representatives page exactly the same as the php version" do
+    compare_with_php("/mps/")
   end
   
+  it "should render the senators page exactly the same as the php version" do
+    compare_with_php("/senators/")
+  end  
 end
 
