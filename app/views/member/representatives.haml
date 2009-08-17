@@ -92,7 +92,7 @@
                 %th
                   Positions
               %tbody
-                - Member.find(:all).each do |m|
+                - Member.find_all_by_house(1).each do |m|
                   - row_class = cycle("row-1", "row-2")
                   %tr
                     %td.row

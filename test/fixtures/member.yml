@@ -25,3 +25,30 @@ dick_adams:
   left_house: 9999-12-31
   left_reason: still_in_office
   lastupdate: <%= DateTime.now %>
+
+eric_abetz:
+  member_id: 100001
+  person_id: 10003
+  first_name: Eric
+  last_name: Abetz
+  house: 2
+  constituency: Tasmania
+  party: Liberal Party
+  entered_house: 1994-02-22
+  left_house: 9999-12-31
+  left_reason: still_in_office
+  lastupdate: <%= DateTime.now %>
+ 
+judith_adams:
+  member_id: 100002
+  person_id: 10005
+  first_name: Judith
+  last_name: Adams
+  house: 2
+  constituency: WA
+  party: Liberal Party
+  entered_house: 2005-07-01
+  entered_reason: general_election
+  left_house: 9999-12-31
+  left_reason: still_in_office
+  lastupdate: <%= DateTime.now %>
