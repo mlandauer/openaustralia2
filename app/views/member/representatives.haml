@@ -13,6 +13,9 @@
     %link{ :href => "/", :title => "Home", :rel => "start" }
     / skin: default
     %link{ :href => "/style/default/global.css", :rel => "stylesheet", :type => "text/css" }
+    %style{ :type => "text/css" }
+      ~ "          @import url(/style/default/global_non_ns4.css);"
+    %link{ :href => "/style/default/print.css", :rel => "stylesheet", :type => "text/css", :media => "print" }
   %body
     #container
       %a{ :name => "top" }

@@ -23,7 +23,8 @@ describe "MembersController" do
 
   it "should render the representatives page exactly the same as the php version" do
     unless File.exists?("expected.html")
-      expected = Hpricot(open("http://dev.openaustralia.org/mps")).to_html
+      # Setting User-Agent so that the php code outputs the default stylesheets
+      expected = Hpricot(open("http://dev.openaustralia.org/mps", "User-Agent" => "Ruby/#{RUBY_VERSION}")).to_html
       File.open("expected.html", "w") {|f| f.write(expected) }
     end
     get "/mps"
@@ -40,7 +41,8 @@ describe "MembersController" do
   
   it "should render the senators page exactly the same as the php version" do
     unless File.exists?("expected_senators.html")
-      expected = Hpricot(open("http://dev.openaustralia.org/senators")).to_html
+      # Setting User-Agent so that the php code outputs the default stylesheets
+      expected = Hpricot(open("http://dev.openaustralia.org/senators", "User-Agent" => "Ruby/#{RUBY_VERSION}")).to_html
       File.open("expected_senators.html", "w") {|f| f.write(expected) }
     end
 
