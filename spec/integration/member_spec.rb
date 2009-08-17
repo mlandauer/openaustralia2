@@ -35,6 +35,7 @@ describe "MembersController" do
     expected = File.read("expected_tidy.html")
     result = File.read("result_tidy.html")
     result.should == expected
+    ["expected_tidy.html", "result.html", "result_tidy.html"].each {|f| File.delete(f)}
   end
   
   it "should render the senators page exactly the same as the php version" do
@@ -52,6 +53,7 @@ describe "MembersController" do
     expected = File.read("expected_senators_tidy.html")
     result = File.read("result_senators_tidy.html")
     result.should == expected
+    ["expected_senators_tidy.html", "result_senators.html", "result_senators_tidy.html"].each {|f| File.delete(f)}
   end
   
 end
