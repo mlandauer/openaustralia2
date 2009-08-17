@@ -92,30 +92,20 @@
                 %th
                   Positions
               %tbody
-                %tr
-                  %td.row
-                    %img.portrait{ :src => "/images/mps/10001.jpg", :alt => "" }
-                  %td.row-1
-                    %a{ :href => "/mp/tony_abbott/warringah" }
-                      Tony Abbott
-                  %td.row-1
-                    Liberal Party
-                  %td.row-1
-                    Warringah
-                  %td.row-1
-                    \&nbsp;
-                %tr
-                  %td.row
-                    %img.portrait{ :src => "/images/mps/10004.jpg", :alt => "" }
-                  %td.row-2
-                    %a{ :href => "/mp/dick_adams/lyons" }
-                      Dick Adams
-                  %td.row-2
-                    Australian Labor Party
-                  %td.row-2
-                    Lyons
-                  %td.row-2
-                    \&nbsp;
+                - Member.find(:all).each do |m|
+                  - row_class = cycle("row-1", "row-2")
+                  %tr
+                    %td.row
+                      %img.portrait{ :src => "/images/mps/#{m.person_id}.jpg", :alt => "" }
+                    %td{ :class => row_class }
+                      %a{ :href => "/mp/#{m.first_name.downcase}_#{m.last_name.downcase}/#{m.constituency.downcase}" }
+                        = m.first_name + " " + m.last_name
+                    %td{ :class => row_class }
+                      = m.party
+                    %td{ :class => row_class }
+                      = m.constituency
+                    %td{ :class => row_class }
+                      \&nbsp;
           / end .main
           .sidebar
             .block
