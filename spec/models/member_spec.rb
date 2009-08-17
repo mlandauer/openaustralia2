@@ -1,7 +1,7 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe Member do
-  fixtures :member
+  fixtures :member, :moffice
 
   it "should return a list of ministerial positions" do
     member(:eric_abetz).current_minister_positions.should == ["Deputy Leader of the Opposition in the Senate",

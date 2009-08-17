@@ -1,0 +1,98 @@
+tony_abbott_1:
+  moffice_id: 1735
+  position: Parliamentary Secretary to the Minister for Employment, Education, Training and Youth Affairs
+  from_date: 1996-03-11
+  to_date: 1998-10-21
+  person: 10001
+
+tony_abbott_2:
+  moffice_id: 1959
+  position: Minister for Employment Services
+  from_date: 1998-10-21
+  to_date: 2001-01-30
+  person: 10001
+
+tony_abbott_3:
+  moffice_id: 2018
+  position: Minister for Employment, Workplace Relations and Small Business
+  from_date: 2001-01-30
+  to_date: 2001-11-26
+  person: 10001
+
+tony_abbott_4:
+  moffice_id: 2077
+  position: Minister for Employment and Workplace Relations
+  from_date: 2001-11-26
+  to_date: 2003-10-07
+  person: 10001
+
+tony_abbott_5:
+  moffice_id: 2104
+  position: Leader of the House
+  from_date: 2002-03-19
+  to_date: 2007-12-03
+  person: 10001
+
+tony_abbott_6:
+  moffice_id: 2166
+  position: Minister for Health and Ageing
+  from_date: 2003-10-07
+  to_date: 2007-12-03
+  person: 10001
+
+tony_abbott_7:
+  moffice_id: 2490
+  position: Shadow Minister for Families, Community Services, Indigenous Affairs and the Voluntary Sector
+  from_date: 2007-12-06
+  to_date: 2008-09-22
+  person: 10001
+
+tony_abbott_8:
+  moffice_id: 2551
+  position: Shadow Minister for Families, Housing, Community Services and Indigenous Affairs
+  from_date: 2008-09-22
+  to_date: 9999-12-31
+  person: 10001
+
+eric_abetz_1:
+  moffice_id: 1960
+  position: Parliamentary Secretary to the Minister for Defence
+  from_date: 1998-10-21
+  to_date: 2001-01-30
+  person: 10003
+
+eric_abetz_2:
+  moffice_id: 2019
+  position: Special Minister of State
+  from_date: 2001-01-30
+  to_date: 2006-01-27
+  person: 10003
+
+eric_abetz_3:
+  moffice_id: 2341
+  position: Minister for Fisheries, Forestry and Conservation
+  from_date: 2006-01-27
+  to_date: 2007-12-03
+  person: 10003
+
+eric_abetz_4:
+  moffice_id: 2425
+  position: Manager of Government Business in the Senate
+  from_date: 2007-03-09
+  to_date: 2007-12-03
+  person: 10003
+
+eric_abetz_5:
+  moffice_id: 2491
+  position: Deputy Leader of the Opposition in the Senate
+  from_date: 2007-12-06
+  to_date: 9999-12-31
+  person: 10003
+
+eric_abetz_6:
+  moffice_id: 2492
+  position: Shadow Minister for Innovation, Industry, Science and Research
+  from_date: 2007-12-06
+  to_date: 9999-12-31
+  person: 10003
+
