@@ -39,7 +39,7 @@
             %li
               %a{ :href => "/user/?pg=join&amp;ret=#{url_for(:trailing_slash => true).gsub('/','%2F')}", :title => "Joining is free and allows you to post comments" }
                 Join
-            / <li><a href="/getinvolved/?pg=getinvolved" title="Contribute to OpenAustralia.org">Get involved</a></li>
+            ~ "<!--                    <li><a href=\"/getinvolved/?pg=getinvolved\" title=\"Contribute to OpenAustralia.org\">Get involved</a></li> -->"
           %br
         #bottommenu
           %ul
