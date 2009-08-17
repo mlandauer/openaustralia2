@@ -21,35 +21,29 @@ end
 describe "MembersController" do
   fixtures :member, :moffice
 
+  def tidy(text, temp_file)
+    File.open(temp_file, "w") {|f| f.write(text) }
+    system("tidy -q -m #{temp_file}")
+    File.read(temp_file)
+  end
+  
   it "should render the representatives page exactly the same as the php version" do
     # Setting User-Agent so that the php code outputs the default stylesheets
     expected = Hpricot(open("http://dev.openaustralia.org/mps/", "User-Agent" => "Ruby/#{RUBY_VERSION}")).to_html
-    File.open("expected.html", "w") {|f| f.write(expected) }
     get "/mps/"
     result = Hpricot(@response.body).to_html
-    # Write out the expected and resulting html
-    File.open("result.html", "w") {|f| f.write(result) }
-    system("tidy -q -m expected.html")
-    system("tidy -q -m result.html")
-    expected = File.read("expected.html")
-    result = File.read("result.html")
-    result.should == expected
+
+    tidy(result, "result.html").should == tidy(expected, "expected.html")
     ["expected.html", "result.html"].each {|f| File.delete(f)}
   end
   
   it "should render the senators page exactly the same as the php version" do
     # Setting User-Agent so that the php code outputs the default stylesheets
     expected = Hpricot(open("http://dev.openaustralia.org/senators/", "User-Agent" => "Ruby/#{RUBY_VERSION}")).to_html
-    File.open("expected_senators.html", "w") {|f| f.write(expected) }
     get "/senators/"
     result = Hpricot(@response.body).to_html
-    # Write out the expected and resulting html
-    File.open("result_senators.html", "w") {|f| f.write(result) }
-    system("tidy -q -m expected_senators.html")
-    system("tidy -q -m result_senators.html")
-    expected = File.read("expected_senators.html")
-    result = File.read("result_senators.html")
-    result.should == expected
+
+    tidy(result, "result_senators.html").should == tidy(expected, "expected_senators.html")
     ["expected_senators.html", "result_senators.html"].each {|f| File.delete(f)}
   end
   
