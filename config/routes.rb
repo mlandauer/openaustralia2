@@ -1,4 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
+  map.connect 'mps', :controller => 'member', :action => 'representatives'
+  map.connect 'senators', :controller => 'member', :action => 'senators'
+  
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:

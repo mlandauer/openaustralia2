@@ -26,7 +26,7 @@ describe "MembersController" do
       expected = Hpricot(open("http://dev.openaustralia.org/mps")).to_html
       File.open("expected.html", "w") {|f| f.write(expected) }
     end
-    get "/member/representatives"
+    get "/mps"
     result = Hpricot(@response.body).to_html
     # Write out the expected and resulting html
     File.open("result.html", "w") {|f| f.write(result) }
@@ -44,7 +44,7 @@ describe "MembersController" do
       File.open("expected_senators.html", "w") {|f| f.write(expected) }
     end
 
-    get "/member/senators"
+    get "/senators"
     result = Hpricot(@response.body).to_html
     # Write out the expected and resulting html
     File.open("result_senators.html", "w") {|f| f.write(result) }
