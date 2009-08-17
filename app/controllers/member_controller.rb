@@ -1,4 +1,4 @@
 class MemberController < ApplicationController
-  def index
+  def representatives
   end
 end
