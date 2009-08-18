@@ -10,5 +10,6 @@ class MemberController < ApplicationController
   end
   
   def senator
+    @title = "Senator Eric Abetz, Tasmania"
   end
 end
