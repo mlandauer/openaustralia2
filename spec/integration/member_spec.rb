@@ -30,9 +30,17 @@ describe "MembersController" do
     r.gsub("--><", "-->\n<")
   end
   
-  def compare_with_php(url, name)
-    # Setting User-Agent so that the php code outputs the default stylesheets
-    expected = Hpricot(open("http://dev.openaustralia.org#{url}", "User-Agent" => "Ruby/#{RUBY_VERSION}")).to_html
+  def compare_with_php(url, name, use_cache_file = false)
+    if use_cache_file && File.exists?("cached_#{name}.html")
+      expected = File.read("cached_#{name}.html")
+    else
+      # Setting User-Agent so that the php code outputs the default stylesheets
+      expected = Hpricot(open("http://dev.openaustralia.org#{url}", "User-Agent" => "Ruby/#{RUBY_VERSION}")).to_html
+    end
+    if use_cache_file && !File.exists?("cached_#{name}.html")
+      File.open("cached_#{name}.html", "w") {|f| f.write(expected)}
+    end
+    
     get url
     result = Hpricot(@response.body).to_html
 
@@ -57,7 +65,7 @@ describe "MembersController" do
   end
   
   it "should render the page of an individual senator the same as the php version" do
-    compare_with_php("/senator/eric_abetz/tasmania", "senator")
+    compare_with_php("/senator/eric_abetz/tasmania", "senator", true)
   end
 end
 
