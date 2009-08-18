@@ -25,8 +25,9 @@ describe "MembersController" do
     File.open("temp.html", "w") {|f| f.write(text) }
     system("tidy -q -m temp.html")
     r = File.read("temp.html")
+    # Make sure that comments of the form <!-- comment --> are followed by a new line
     File.delete("temp.html")
-    r
+    r.gsub("--><", "-->\n<")
   end
   
   def compare_with_php(url, name)
@@ -35,14 +36,16 @@ describe "MembersController" do
     get url
     result = Hpricot(@response.body).to_html
 
-    expected = tidy(expected)
-    result = tidy(result)
-    if result != expected
+    expected_tidy = tidy(expected)
+    result_tidy = tidy(result)
+    if result_tidy != expected_tidy
       # If failed then write out result for easy comparison
       File.open("expected_#{name}.html", "w") {|f| f.write(expected)}
       File.open("result_#{name}.html", "w") {|f| f.write(result)}
+      File.open("expected_#{name}_tidy.html", "w") {|f| f.write(expected_tidy)}
+      File.open("result_#{name}_tidy.html", "w") {|f| f.write(result_tidy)}
     end
-    result.should == expected
+    result_tidy.should == expected_tidy
   end
   
   it "should render the representatives page exactly the same as the php version" do
@@ -51,6 +54,10 @@ describe "MembersController" do
   
   it "should render the senators page exactly the same as the php version" do
     compare_with_php("/senators/", "senators")
-  end  
+  end
+  
+  it "should render the page of an individual senator the same as the php version" do
+    compare_with_php("/senator/eric_abetz/tasmania", "senator")
+  end
 end
 

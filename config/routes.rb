@@ -1,6 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
   map.connect 'mps', :controller => 'member', :action => 'representatives'
   map.connect 'senators', :controller => 'member', :action => 'senators'
+  map.connect 'senator/:name/:constituency', :controller => 'member', :action => 'senator'
   
   # The priority is based upon order of creation: first created -> highest priority.
 

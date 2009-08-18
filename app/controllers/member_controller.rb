@@ -8,4 +8,7 @@ class MemberController < ApplicationController
     @title = "All Senators"
     @members = Member.find_all_by_house(2)
   end
+  
+  def senator
+  end
 end
