@@ -1,231 +1,133 @@
-!!!
-%html
-  %head
-    %meta{ :content => "text/html; charset=iso-8859-1", "http-equiv" => "Content-Type" }
-    %title
-      = @title
-      (OpenAustralia.org)
-    %meta{ :name => "description", :content => "Making parliament easy." }
-    %meta{ :name => "keywords", :content => "Parliament, government, House of Representatives, Senate, Senator, MP, Member of Parliament, MPs, Australia, Australian, #{@title}" }
-    %meta{ :name => "verify-v1", :content => "5FBaCDi8kCKdo4s64NEdB5EOJDNc310SwcLLYHmEbgg=" }
-    %link{ :href => "mailto:contact@openaustralia.org", :title => "Send feedback", :rel => "author" }
-    %link{ :href => "http://dev.openaustralia.org/", :title => "Home", :rel => "home" }
-    %link{ :href => "/", :title => "Home", :rel => "start" }
-    / skin: default
-    %link{ :href => "/style/default/global.css", :rel => "stylesheet", :type => "text/css" }
-    %style{ :type => "text/css" }
-      ~ "          @import url(/style/default/global_non_ns4.css);"
-    %link{ :href => "/style/default/print.css", :rel => "stylesheet", :type => "text/css", :media => "print" }
-  %body
-    #container
-      %a{ :name => "top" }
-      #banner
-        #title
-          %h1
-            %a{ :href => "/", :title => "To the front page of the site" }
-              %img{ :src => "/images/openaustraliaorgbeta.gif", :height => "32", :alt => "OpenAustralia.org beta", :width => "262" }
-        #search
-          %form{ :action => "/search/", :method => "get" }
-            %p{ :style => "padding-left: 5px" }
-              %input{ :name => "s", :size => "15" }
-              %input.submit{ :type => "submit", :value => "Search" }
-      / end #banner
-      #menu
-        #topmenu
-          %ul#user
-            %li
-              %a{ :href => "/user/login/?ret=#{@controller.request.request_uri.gsub('/','%2F')}", :title => "If you've already joined, log in to post comments" }
-                Log in
-            %li
-              %a{ :href => "/user/?pg=join&amp;ret=#{@controller.request.request_uri.gsub('/','%2F')}", :title => "Joining is free and allows you to post comments" }
-                Join
-            ~ "<!--                    <li><a href=\"/getinvolved/?pg=getinvolved\" title=\"Contribute to OpenAustralia.org\">Get involved</a></li> -->"
+.main
+  %p.printonly
+    This data was produced by OpenAustralia from a variety of sources.
+  #mp.block
+    %h4
+      Senator Eric Abetz
+    .blockbody
+      %img.portrait{ :src => "/images/mpsL/10003.jpg", :alt => "Photo of Eric Abetz" }
+      %ul.hilites
+        %li
+          %strong
+            Liberal Party Senator for Tasmania
+        %li
+          Deputy Leader of the Opposition in the Senate (since 6 Dec 2007)
           %br
-        #bottommenu
-          %ul
-            %li
-              %a{ :href => "/", :title => "The front page of the site" }
-                Home
-            %li
-              %a{ :href => "/news/", :title => "News about changes to this website" }
-                News
-            %li
-              %a{ :href => "/hansard/", :title => "House of Representatives and Senate debates" }
-                Debates
-            %li
-              %a{ :href => "/comments/recent/", :title => "Recently posted comments" }
-                Recent comments
-            %li
-              %a{ :href => "/mps/", :title => "Your Representative and list of all Members of the House of Representatives" }
-                Representatives
-            %li
-              %a{ :href => "/senators/", :title => "List of all Senators" }
-                Senators
-            %li
-              %a{ :href => "/help/", :title => "Answers to your questions" }
-                Help
-      / end #menu
-      #content
-        .stripe-side
-          .main
-            %p.printonly
-              This data was produced by OpenAustralia from a variety of sources.
-            #mp.block
-              %h4
-                Senator Eric Abetz
-              .blockbody
-                %img.portrait{ :src => "/images/mpsL/10003.jpg", :alt => "Photo of Eric Abetz" }
-                %ul.hilites
-                  %li
-                    %strong
-                      Liberal Party Senator for Tasmania
-                  %li
-                    Deputy Leader of the Opposition in the Senate (since 6 Dec 2007)
-                    %br
-                    Shadow Minister for Innovation, Industry, Science and Research (since 6 Dec 2007)
-                  %li
-                    %strong
-                      Became a Senator on 22 February 1994
-                    \&mdash; unknown
-                  %li
-                    %a{ :href => "/alert/?only=1&amp;pid=10003" }
-                      %strong
-                        Email me whenever Eric Abetz speaks
-                    (no more than once per day)
-                %ul.jumpers
-                  %li
-                    %a{ :href => "#hansard" }
-                      Recent appearances
-                  %li
-                    %a{ :href => "#numbers" }
-                      Numbers
-                  %li
-                    %a{ :href => "#register" }
-                      Register of Interests
-            / end .block
-            %a{ :name => "hansard" }
-            #hansard.block
-              %h4
-                Most recent appearances in parliament
-              .blockbody
-                %p
-                  No data to display.
-                %p#moreappear
-                  %a{ :href => "/search/?pid=10003&amp;pop=1#n4" }
-                    More of Eric Abetz's recent appearances
-            / end .block
-            %a{ :name => "numbers" }
-            #numbers.block
-              %h4
-                Numbers
-              .blockbody
-                %p
-                  %em
-                    Please note that numbers do not measure quality.
-                    Also, Senators may do other things not currently covered
-                    by this site.
-                  (
-                  %a{ :href => "/help/#numbers" }> More about this
-                  )
-                %ul
-                  %li
-                    %strong 0
-                    people are tracking whenever this Senator speaks &mdash;
-                    ~ " "
-                    %a{ :href => "/alert/?only=1&amp;pid=10003" }> email me whenever Eric Abetz speaks
-                    \.
-            / end .block
-            %a{ :name => "register" }
-            #register.block
-              %h4
-                Register of Interests
-                %small
-                  (
-                  %a{ :href => "/help/#regmem" }> What's this?
-                  )
-              .blockbody
-                %a{ :href => "/regmem/scan/register_interests_10003.pdf" } Scan of Eric Abetz's latest entry (including amendments)
-                %img{ :src => "/images/pdficon_small.gif", :alt => "PDF" }>
-            / end .block
-          / end .main
-          .sidebar
-            #help.block
-              %h4
-                Did you know this site is run by a group of volunteers?
-              .blockbody
-                %p{ :style => "padding-bottom: 30px" }
-                  %a{ :href => "http://blog.openaustralia.org/join-us/" }
-                    %img{ :src => "/images/donate_greenL.png", :vspace => "5", :border => "0", :height => "43", :hspace => "4", :alt => "Donate", :align => "right", :width => "108" }
-                  Your donation would enable
-                  us to continue to add new features.
-            / end .block
-            #mpsearch.block
-              %h4
-                Search this person's speeches
-              .blockbody
-                .mpsearchbox
-                  %form{ :action => "/search/", :method => "get" }
-                    %p
-                      %input{ :name => "s", :size => "24", :maxlength => "200" }
-                      %input{ :name => "pid", :type => "hidden", :value => "10003" }
-                      %input.submit{ :type => "submit", :value => "GO" }
-            / end .block
-            .block
-              %h4
-                More useful links for this person
-              .blockbody
-                %ul
-            / end block
-            .block
-              %h4
-                Other offices held in the past
-              .blockbody
-                %ul
-                  %li
-                    Manager of Government Business in the Senate (9 Mar 2007 to 3 Dec 2007)
-                  %li
-                    Minister for Fisheries, Forestry and Conservation (27 Jan 2006 to 3 Dec 2007)
-                  %li
-                    Special Minister of State (30 Jan 2001 to 27 Jan 2006)
-                  %li
-                    Parliamentary Secretary to the Minister for Defence (21 Oct 1998 to 30 Jan 2001)
-            .block
-              %h4
-                Journalist?
-              .blockbody
-                %p
-                  Please feel free to use the data
-                  on this page, but if you do you must cite OpenAustralia.org in the
-                  body of your articles as the source of any analysis or
-                  data you get off this site. If you ignore this, we might have to start
-                  keeping these sorts of records on you...
-          / end .sidebar
-          .break
-        / end .stripe-*
-        #footer
+          Shadow Minister for Innovation, Industry, Science and Research (since 6 Dec 2007)
+        %li
+          %strong
+            Became a Senator on 22 February 1994
+          \&mdash; unknown
+        %li
+          %a{ :href => "/alert/?only=1&amp;pid=10003" }
+            %strong
+              Email me whenever Eric Abetz speaks
+          (no more than once per day)
+      %ul.jumpers
+        %li
+          %a{ :href => "#hansard" }
+            Recent appearances
+        %li
+          %a{ :href => "#numbers" }
+            Numbers
+        %li
+          %a{ :href => "#register" }
+            Register of Interests
+  / end .block
+  %a{ :name => "hansard" }
+  #hansard.block
+    %h4
+      Most recent appearances in parliament
+    .blockbody
+      %p
+        No data to display.
+      %p#moreappear
+        %a{ :href => "/search/?pid=10003&amp;pop=1#n4" }
+          More of Eric Abetz's recent appearances
+  / end .block
+  %a{ :name => "numbers" }
+  #numbers.block
+    %h4
+      Numbers
+    .blockbody
+      %p
+        %em
+          Please note that numbers do not measure quality.
+          Also, Senators may do other things not currently covered
+          by this site.
+        (
+        %a{ :href => "/help/#numbers" }> More about this
+        )
+      %ul
+        %li
+          %strong 0
+          people are tracking whenever this Senator speaks &mdash;
+          ~ " "
+          %a{ :href => "/alert/?only=1&amp;pid=10003" }> email me whenever Eric Abetz speaks
+          \.
+  / end .block
+  %a{ :name => "register" }
+  #register.block
+    %h4
+      Register of Interests
+      %small
+        (
+        %a{ :href => "/help/#regmem" }> What's this?
+        )
+    .blockbody
+      %a{ :href => "/regmem/scan/register_interests_10003.pdf" } Scan of Eric Abetz's latest entry (including amendments)
+      %img{ :src => "/images/pdficon_small.gif", :alt => "PDF" }>
+  / end .block
+/ end .main
+.sidebar
+  #help.block
+    %h4
+      Did you know this site is run by a group of volunteers?
+    .blockbody
+      %p{ :style => "padding-bottom: 30px" }
+        %a{ :href => "http://blog.openaustralia.org/join-us/" }
+          %img{ :src => "/images/donate_greenL.png", :vspace => "5", :border => "0", :height => "43", :hspace => "4", :alt => "Donate", :align => "right", :width => "108" }
+        Your donation would enable
+        us to continue to add new features.
+  / end .block
+  #mpsearch.block
+    %h4
+      Search this person's speeches
+    .blockbody
+      .mpsearchbox
+        %form{ :action => "/search/", :method => "get" }
           %p
-            %a{ :href => "/about/" }
-              About us
-            \&nbsp;&nbsp;&nbsp;
-            %a{ :href => "/contact/" }
-              Contact OpenAustralia.org
-            \&nbsp;&nbsp;&nbsp;
-            %a{ :href => "/help/linktous/" }
-              Link to us
-            \&nbsp;&nbsp;&nbsp;
-            %a{ :href => "/houserules/" }
-              House rules
-            \&nbsp;&nbsp;&nbsp;
-            %a{ :href => "/api/" }
-              API
-            \/
-            %a{ :href => "http://data.openaustralia.org" }
-              XML
-            \&nbsp;&nbsp;&nbsp;
-            %a{ :href => "http://software.openaustralia.org" }
-              Source code
-            \&nbsp;&nbsp;&nbsp;
-            %a{ :href => "http://blog.openaustralia.org" }
-              Blog
-      / end #content
-    / end #container
+            %input{ :name => "s", :size => "24", :maxlength => "200" }
+            %input{ :name => "pid", :type => "hidden", :value => "10003" }
+            %input.submit{ :type => "submit", :value => "GO" }
+  / end .block
+  .block
+    %h4
+      More useful links for this person
+    .blockbody
+      %ul
+  / end block
+  .block
+    %h4
+      Other offices held in the past
+    .blockbody
+      %ul
+        %li
+          Manager of Government Business in the Senate (9 Mar 2007 to 3 Dec 2007)
+        %li
+          Minister for Fisheries, Forestry and Conservation (27 Jan 2006 to 3 Dec 2007)
+        %li
+          Special Minister of State (30 Jan 2001 to 27 Jan 2006)
+        %li
+          Parliamentary Secretary to the Minister for Defence (21 Oct 1998 to 30 Jan 2001)
+  .block
+    %h4
+      Journalist?
+    .blockbody
+      %p
+        Please feel free to use the data
+        on this page, but if you do you must cite OpenAustralia.org in the
+        body of your articles as the source of any analysis or
+        data you get off this site. If you ignore this, we might have to start
+        keeping these sorts of records on you...
+/ end .sidebar
