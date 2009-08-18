@@ -46,7 +46,11 @@ describe "MembersController" do
 
     expected_tidy = tidy(expected)
     result_tidy = tidy(result)
-    if result_tidy != expected_tidy
+    if result_tidy == expected_tidy
+      ["expected_#{name}.html", "result_#{name}.html", "expected_#{name}_tidy.html", "result_#{name}_tidy.html"].each do |f|
+        File.delete(f) if File.exists?(f)
+      end
+    else
       # If failed then write out result for easy comparison
       File.open("expected_#{name}.html", "w") {|f| f.write(expected)}
       File.open("result_#{name}.html", "w") {|f| f.write(result)}
