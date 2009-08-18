@@ -34,10 +34,10 @@
         #topmenu
           %ul#user
             %li
-              %a{ :href => "/user/login/?ret=#{url_for(:trailing_slash => true).gsub('/','%2F')}", :title => "If you've already joined, log in to post comments" }
+              %a{ :href => "/user/login/?ret=#{@controller.request.request_uri.gsub('/','%2F')}", :title => "If you've already joined, log in to post comments" }
                 Log in
             %li
-              %a{ :href => "/user/?pg=join&amp;ret=#{url_for(:trailing_slash => true).gsub('/','%2F')}", :title => "Joining is free and allows you to post comments" }
+              %a{ :href => "/user/?pg=join&amp;ret=#{@controller.request.request_uri.gsub('/','%2F')}", :title => "Joining is free and allows you to post comments" }
                 Join
             ~ "<!--                    <li><a href=\"/getinvolved/?pg=getinvolved\" title=\"Contribute to OpenAustralia.org\">Get involved</a></li> -->"
           %br
