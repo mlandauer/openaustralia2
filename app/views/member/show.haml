@@ -10,8 +10,8 @@
         %li
           %strong
             #{@member.party} #{@member.generic_reference} for #{@member.constituency}
-        %li
-          = @member.current_minister_offices.map{|o| "#{o.position} (since #{o.from_date.to_formatted_s(:simple_short)})"}.join('<br>')
+        - unless @member.current_minister_offices.empty?
+          %li= @member.current_minister_offices.map{|o| "#{o.position} (since #{o.from_date.to_formatted_s(:simple_short)})"}.join('<br>')
         %li
           %strong
             - if @member.representative?
