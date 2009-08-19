@@ -1,11 +1,7 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe MemberHelper do
-
-  #Delete this example and add some real ones or delete this file
-  it "should be included in the object returned by #helper" do
-    included_modules = (class << helper; self; end).send :included_modules
-    included_modules.should include(MemberHelper)
+  it "should have access to a nice and simple date formatter" do
+    Date.new(2008, 11, 5).to_formatted_s(:simple).should == "5 November 2008"
   end
-
 end
