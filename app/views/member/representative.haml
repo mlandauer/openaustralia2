@@ -1,0 +1,117 @@
+.main
+  %p.printonly
+    This data was produced by OpenAustralia from a variety of sources.
+  #mp.block
+    %h4
+      #{@member.name} MP
+    .blockbody
+      %img.portrait{ :src => "/images/mpsL/#{@member.person_id}.jpg", :alt => "Photo of #{@member.name}" }
+      %ul.hilites
+        %li
+          %strong
+            #{@member.party} Representative for #{@member.constituency}
+        %li
+          = @member.current_minister_offices.map{|o| "#{o.position} (since #{o.from_date.to_formatted_s(:simple_short)})"}.join('<br>')
+        %li
+          %strong
+            Entered House of Representatives on #{@member.entered_house.to_formatted_s(:simple)}
+          \&mdash; #{@member.entered_reason_text}
+        %li
+          %a{ :href => "/alert/?only=1&amp;pid=#{@member.person_id}" }
+            %strong
+              Email me whenever #{@member.name} speaks
+          (no more than once per day)
+      %ul.jumpers
+        %li
+          %a{ :href => "#numbers" }
+            Numbers
+        %li
+          %a{ :href => "#register" }
+            Register of Interests
+  / end .block
+  %a{ :name => "hansard" }
+  #hansard.block
+    %h4
+      Most recent appearances in parliament
+    .blockbody
+      %p
+        No data to display.
+      %p#moreappear
+        %a{ :href => "/search/?pid=#{@member.person_id}&amp;pop=1#n4" }
+          More of #{@member.name}'s recent appearances
+  / end .block
+  %a{ :name => "numbers" }
+  #numbers.block
+    %h4
+      Numbers
+    .blockbody
+      %p
+        %em
+          Please note that numbers do not measure quality. Also, Representatives may do other things
+          not currently covered by this site.
+        (
+        %a{ :href => "/help/#numbers" }> More about this
+        )
+      %ul
+        %li
+          %strong 0
+          people are tracking whenever this Representative speaks &mdash;
+          ~ " "
+          %a{ :href => "/alert/?only=1&amp;pid=#{@member.person_id}" }> email me whenever #{@member.name} speaks
+          \.
+  / end .block
+  %a{ :name => "register" }
+  #register.block
+    %h4
+      Register of Interests
+      %small
+        (
+        %a{ :href => "/help/#regmem" }> What's this?
+        )
+    .blockbody
+      %a{ :href => "/regmem/scan/register_interests_#{@member.person_id}.pdf" } Scan of #{@member.name}'s latest entry (including amendments)
+      %img{ :src => "/images/pdficon_small.gif", :alt => "PDF" }>
+  / end .block
+/ end .main
+.sidebar
+  #help.block
+    %h4
+      Did you know this site is run by a group of volunteers?
+    .blockbody
+      %p{ :style => "padding-bottom: 30px" }
+        %a{ :href => "http://blog.openaustralia.org/join-us/" }
+          %img{ :src => "/images/donate_greenL.png", :vspace => "5", :border => "0", :height => "43", :hspace => "4", :alt => "Donate", :align => "right", :width => "108" }
+        Your donation would enable us to continue to add new features.
+  / end .block
+  #mpsearch.block
+    %h4
+      Search this person's speeches
+    .blockbody
+      .mpsearchbox
+        %form{ :action => "/search/", :method => "get" }
+          %p
+            %input{ :name => "s", :size => "24", :maxlength => "200" }
+            %input{ :name => "pid", :type => "hidden", :value => @member.person_id }
+            %input.submit{ :type => "submit", :value => "GO" }
+  / end .block
+  .block
+    %h4 More useful links for this person
+    .blockbody
+      %ul
+  / end block
+  - unless @member.non_current_minister_offices.empty?
+    .block
+      %h4 Other offices held in the past
+      .blockbody
+        %ul
+          - @member.non_current_minister_offices.sort{|a,b| b.from_date <=> a.from_date}.each do |o|
+            %li= "#{o.position} (#{o.from_date.to_formatted_s(:simple_short)} to #{o.to_date.to_formatted_s(:simple_short).strip})"
+  .block
+    %h4
+      Journalist?
+    .blockbody
+      %p
+        Please feel free to use the data on this page, but if you do you must cite OpenAustralia.org in the
+        body of your articles as the source of any analysis or data you get off this site. If you ignore this,
+        we might have to start keeping these sorts of records on you...
+/ end .sidebar

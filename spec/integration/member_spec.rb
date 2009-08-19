@@ -75,5 +75,9 @@ describe "MembersController" do
   it "should render judith adam's page correctly" do
     compare_with_php("/senator/judith_adams/wa", "judith_adams", true)
   end
+  
+  it "should render tony abbott's page correctly" do
+    compare_with_php("/mp/tony_abbott/warringah", "tony_abbott", true)
+  end
 end
 

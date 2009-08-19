@@ -23,6 +23,8 @@ class Member < ActiveRecord::Base
     case entered_reason
     when "general_election"
       "General election"
+    when "by_election"
+      "Byelection"
     when "unknown"
       "unknown"
     else

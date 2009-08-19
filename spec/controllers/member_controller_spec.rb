@@ -7,8 +7,7 @@ describe MemberController do
   
   it "should lookup the correct person" do
     member = mock_model(Member)
-    member.stub!(:first_name).and_return("Joe")
-    member.stub!(:last_name).and_return("Smith")
+    member.stub!(:name).and_return("Joe Smith")
     member.stub!(:constituency).and_return("Sydney")
 
     Member.should_receive(:first).with(:conditions => {:first_name => "joe", :last_name => "smith", :constituency => "sydney"}).and_return(member)
