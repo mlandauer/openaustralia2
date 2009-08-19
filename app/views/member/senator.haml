@@ -11,7 +11,7 @@
           %strong
             #{@member.party} Senator for #{@member.constituency}
         %li
-          = @member.current_minister_offices.map{|o| "#{o.position} (since #{o.from_date.to_formatted_s(:rfc822)})"}.join('<br>')
+          = @member.current_minister_offices.map{|o| "#{o.position} (since #{o.from_date.to_formatted_s(:simple_short)})"}.join('<br>')
         %li
           %strong
             Became a Senator on #{@member.entered_house.to_formatted_s(:simple)}
@@ -108,7 +108,7 @@
       .blockbody
         %ul
           - @member.non_current_minister_offices.sort{|a,b| b.from_date <=> a.from_date}.each do |o|
-            %li= "#{o.position} (#{o.from_date.to_formatted_s(:rfc822).strip} to #{o.to_date.to_formatted_s(:rfc822).strip})"
+            %li= "#{o.position} (#{o.from_date.to_formatted_s(:simple_short)} to #{o.to_date.to_formatted_s(:simple_short).strip})"
   .block
     %h4
       Journalist?
