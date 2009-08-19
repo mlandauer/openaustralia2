@@ -71,5 +71,9 @@ describe "MembersController" do
   it "should render the page of an individual senator the same as the php version" do
     compare_with_php("/senator/eric_abetz/tasmania", "senator", true)
   end
+  
+  it "should render judith adam's page correctly" do
+    compare_with_php("/senator/judith_adams/wa", "judith_adams", true)
+  end
 end
 

@@ -18,4 +18,15 @@ class Member < ActiveRecord::Base
   def non_current_minister_offices
     minister_offices.find_all{|m| !m.current?}
   end
+  
+  def entered_reason_text
+    case entered_reason
+    when "general_election"
+      "General election"
+    when "unknown"
+      "unknown"
+    else
+      throw "Unsupported value '#{entered_reason}'for 'entered_reason'"
+    end
+  end
 end
