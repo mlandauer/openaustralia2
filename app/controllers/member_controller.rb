@@ -16,6 +16,7 @@ class MemberController < ApplicationController
     else
       # TODO: Add error handling here
     end
+    render :show
   end
   
   def senator
@@ -25,5 +26,6 @@ class MemberController < ApplicationController
     else
       # TODO: Add error handling here
     end
+    render :show
   end
 end

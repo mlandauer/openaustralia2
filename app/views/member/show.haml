@@ -14,7 +14,11 @@
           = @member.current_minister_offices.map{|o| "#{o.position} (since #{o.from_date.to_formatted_s(:simple_short)})"}.join('<br>')
         %li
           %strong
-            Became a Senator on #{@member.entered_house.to_formatted_s(:simple)}
+            - if @member.representative?
+              Entered House of Representatives
+            - elsif @member.senator?
+              Became a Senator
+            on #{@member.entered_house.to_formatted_s(:simple)}
           \&mdash; #{@member.entered_reason_text}
         %li
           %a{ :href => "/alert/?only=1&amp;pid=#{@member.person_id}" }
