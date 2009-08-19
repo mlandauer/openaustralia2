@@ -106,10 +106,8 @@
     %h4 Other offices held in the past
     .blockbody
       %ul
-        %li Manager of Government Business in the Senate (9 Mar 2007 to 3 Dec 2007)
-        %li Minister for Fisheries, Forestry and Conservation (27 Jan 2006 to 3 Dec 2007)
-        %li Special Minister of State (30 Jan 2001 to 27 Jan 2006)
-        %li Parliamentary Secretary to the Minister for Defence (21 Oct 1998 to 30 Jan 2001)
+        - @member.non_current_minister_offices.sort{|a,b| b.from_date <=> a.from_date}.each do |o|
+          %li= "#{o.position} (#{o.from_date.to_formatted_s(:rfc822).strip} to #{o.to_date.to_formatted_s(:rfc822).strip})"
   .block
     %h4
       Journalist?

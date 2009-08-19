@@ -14,4 +14,8 @@ class Member < ActiveRecord::Base
   def current_minister_offices
     minister_offices.find_all{|m| m.current?}
   end
+
+  def non_current_minister_offices
+    minister_offices.find_all{|m| !m.current?}
+  end
 end
