@@ -19,7 +19,7 @@
         %li
           %a{ :href => "/alert/?only=1&amp;pid=10003" }
             %strong
-              Email me whenever Eric Abetz speaks
+              Email me whenever #{@member.name} speaks
           (no more than once per day)
       %ul.jumpers
         %li
@@ -41,7 +41,7 @@
         No data to display.
       %p#moreappear
         %a{ :href => "/search/?pid=10003&amp;pop=1#n4" }
-          More of Eric Abetz's recent appearances
+          More of #{@member.name}'s recent appearances
   / end .block
   %a{ :name => "numbers" }
   #numbers.block
@@ -61,7 +61,7 @@
           %strong 0
           people are tracking whenever this Senator speaks &mdash;
           ~ " "
-          %a{ :href => "/alert/?only=1&amp;pid=10003" }> email me whenever Eric Abetz speaks
+          %a{ :href => "/alert/?only=1&amp;pid=10003" }> email me whenever #{@member.name} speaks
           \.
   / end .block
   %a{ :name => "register" }
@@ -73,7 +73,7 @@
         %a{ :href => "/help/#regmem" }> What's this?
         )
     .blockbody
-      %a{ :href => "/regmem/scan/register_interests_10003.pdf" } Scan of Eric Abetz's latest entry (including amendments)
+      %a{ :href => "/regmem/scan/register_interests_10003.pdf" } Scan of #{@member.name}'s latest entry (including amendments)
       %img{ :src => "/images/pdficon_small.gif", :alt => "PDF" }>
   / end .block
 / end .main
