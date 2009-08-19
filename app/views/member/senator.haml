@@ -3,13 +3,13 @@
     This data was produced by OpenAustralia from a variety of sources.
   #mp.block
     %h4
-      Senator #{@member.name}
+      #{@member.formal_name}
     .blockbody
       %img.portrait{ :src => "/images/mpsL/#{@member.person_id}.jpg", :alt => "Photo of #{@member.name}" }
       %ul.hilites
         %li
           %strong
-            #{@member.party} Senator for #{@member.constituency}
+            #{@member.party} #{@member.generic_reference} for #{@member.constituency}
         %li
           = @member.current_minister_offices.map{|o| "#{o.position} (since #{o.from_date.to_formatted_s(:simple_short)})"}.join('<br>')
         %li
@@ -50,7 +50,7 @@
     .blockbody
       %p
         %em
-          Please note that numbers do not measure quality. Also, Senators may do other things
+          Please note that numbers do not measure quality. Also, #{@member.generic_reference.pluralize} may do other things
           not currently covered by this site.
         (
         %a{ :href => "/help/#numbers" }> More about this
@@ -58,7 +58,7 @@
       %ul
         %li
           %strong 0
-          people are tracking whenever this Senator speaks &mdash;
+          people are tracking whenever this #{@member.generic_reference} speaks &mdash;
           ~ " "
           %a{ :href => "/alert/?only=1&amp;pid=#{@member.person_id}" }> email me whenever #{@member.name} speaks
           \.

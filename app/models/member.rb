@@ -31,4 +31,32 @@ class Member < ActiveRecord::Base
       throw "Unsupported value '#{entered_reason}'for 'entered_reason'"
     end
   end
+  
+  def representative?
+    house == 1
+  end
+  
+  def senator?
+    house == 2
+  end
+  
+  def formal_name
+    if representative?
+      "#{name} MP"
+    elsif senator?
+      "Senator #{name}"
+    else
+      throw "Unknown house"
+    end
+  end
+  
+  def generic_reference
+    if representative?
+      "Representative"
+    elsif senator?
+      "Senator"
+    else
+      throw "Unknown house"
+    end
+  end
 end
