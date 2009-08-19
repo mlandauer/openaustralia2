@@ -10,7 +10,11 @@ class MemberController < ApplicationController
   end
   
   def senator
-    @title = "Senator Eric Abetz, Tasmania"
-    @member = Member.find_by_last_name("Abetz")
+    if params[:name].gsub("_", " ") =~ /^(\S*) (\S*)$/
+      @member = Member.first(:conditions => {:first_name => $~[1], :last_name => $~[2], :constituency => params[:constituency]})
+      @title = "Senator #{@member.first_name} #{@member.last_name}, #{@member.constituency}"
+    else
+      # TODO: Add error handling here
+    end
   end
 end
