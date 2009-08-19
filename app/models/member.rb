@@ -8,6 +8,10 @@ class Member < ActiveRecord::Base
   end
   
   def current_minister_positions
-    minister_offices.find_all{|m| m.current?}.map{|o| o.position}
+    current_minister_offices.map{|o| o.position}
+  end
+  
+  def current_minister_offices
+    minister_offices.find_all{|m| m.current?}
   end
 end

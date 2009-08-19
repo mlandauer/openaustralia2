@@ -11,5 +11,6 @@ class MemberController < ApplicationController
   
   def senator
     @title = "Senator Eric Abetz, Tasmania"
+    @member = Member.find_by_last_name("Abetz")
   end
 end

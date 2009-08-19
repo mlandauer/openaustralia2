@@ -3,17 +3,15 @@
     This data was produced by OpenAustralia from a variety of sources.
   #mp.block
     %h4
-      Senator Eric Abetz
+      Senator #{@member.name}
     .blockbody
-      %img.portrait{ :src => "/images/mpsL/10003.jpg", :alt => "Photo of Eric Abetz" }
+      %img.portrait{ :src => "/images/mpsL/#{@member.person_id}.jpg", :alt => "Photo of #{@member.name}" }
       %ul.hilites
         %li
           %strong
-            Liberal Party Senator for Tasmania
+            #{@member.party} Senator for #{@member.constituency}
         %li
-          Deputy Leader of the Opposition in the Senate (since 6 Dec 2007)
-          %br
-          Shadow Minister for Innovation, Industry, Science and Research (since 6 Dec 2007)
+          = @member.current_minister_offices.map{|o| "#{o.position} (since #{o.from_date.to_formatted_s(:rfc822)})"}.join('<br>')
         %li
           %strong
             Became a Senator on 22 February 1994
