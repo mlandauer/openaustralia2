@@ -1,8 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
   map.connect 'mps', :controller => 'member', :action => 'representatives'
   map.connect 'senators', :controller => 'member', :action => 'senators'
-  map.connect 'senator/:name/:constituency', :controller => 'member', :action => 'senator'
-  map.connect 'mp/:name/:constituency', :controller => 'member', :action => 'representative'
+  # TODO: Hardcoding house numbers below. Very nasty.
+  map.connect 'mp/:name/:constituency', :controller => 'member', :action => 'show', :house => 1
+  map.connect 'senator/:name/:constituency', :controller => 'member', :action => 'show', :house => 2
   
   # The priority is based upon order of creation: first created -> highest priority.
 
