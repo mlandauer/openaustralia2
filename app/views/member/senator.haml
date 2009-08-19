@@ -17,7 +17,7 @@
             Became a Senator on 22 February 1994
           \&mdash; unknown
         %li
-          %a{ :href => "/alert/?only=1&amp;pid=10003" }
+          %a{ :href => "/alert/?only=1&amp;pid=#{@member.person_id}" }
             %strong
               Email me whenever #{@member.name} speaks
           (no more than once per day)
@@ -40,7 +40,7 @@
       %p
         No data to display.
       %p#moreappear
-        %a{ :href => "/search/?pid=10003&amp;pop=1#n4" }
+        %a{ :href => "/search/?pid=#{@member.person_id}&amp;pop=1#n4" }
           More of #{@member.name}'s recent appearances
   / end .block
   %a{ :name => "numbers" }
@@ -60,7 +60,7 @@
           %strong 0
           people are tracking whenever this Senator speaks &mdash;
           ~ " "
-          %a{ :href => "/alert/?only=1&amp;pid=10003" }> email me whenever #{@member.name} speaks
+          %a{ :href => "/alert/?only=1&amp;pid=#{@member.person_id}" }> email me whenever #{@member.name} speaks
           \.
   / end .block
   %a{ :name => "register" }
@@ -72,7 +72,7 @@
         %a{ :href => "/help/#regmem" }> What's this?
         )
     .blockbody
-      %a{ :href => "/regmem/scan/register_interests_10003.pdf" } Scan of #{@member.name}'s latest entry (including amendments)
+      %a{ :href => "/regmem/scan/register_interests_#{@member.person_id}.pdf" } Scan of #{@member.name}'s latest entry (including amendments)
       %img{ :src => "/images/pdficon_small.gif", :alt => "PDF" }>
   / end .block
 / end .main
@@ -94,7 +94,7 @@
         %form{ :action => "/search/", :method => "get" }
           %p
             %input{ :name => "s", :size => "24", :maxlength => "200" }
-            %input{ :name => "pid", :type => "hidden", :value => "10003" }
+            %input{ :name => "pid", :type => "hidden", :value => @member.person_id }
             %input.submit{ :type => "submit", :value => "GO" }
   / end .block
   .block
