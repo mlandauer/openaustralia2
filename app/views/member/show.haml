@@ -57,12 +57,53 @@
         %a{ :href => "/help/#numbers" }> More about this
         )
       %ul
+        - if @member.debate_sections_spoken_in_last_year
+          %li
+            Has spoken in
+            %a(href="/search/?pid=#{@member.person_id}&amp;pop=1")
+              %strong
+                = @member.debate_sections_spoken_in_last_year
+                debate
+            in the last year &mdash;
+            = "average"
+            amongst #{@member.generic_reference.pluralize}.
+        - if @member.comments_on_speeches
+          %li
+            People have made
+            %strong
+              = @member.comments_on_speeches
+              comments
+            on this #{@member.generic_reference}'s speeches &mdash;
+            = "average"
+            amongst #{@member.generic_reference.pluralize}.
+        - if @member.reading_age_range
+          %li
+            This #{@member.generic_reference}'s speeches are understandable to an average
+            %strong= @member.reading_age_range
+            year old, going by the
+            %a(href="http://en.wikipedia.org/wiki/Flesch-Kincaid_Readability_Test") Flesch-Kincaid Grade Level
+            score.
         %li
           %strong 0
           people are tracking whenever this #{@member.generic_reference} speaks &mdash;
           ~ " "
           %a{ :href => "/alert/?only=1&amp;pid=#{@member.person_id}" }> email me whenever #{@member.name} speaks
           \.
+        - if @member.three_word_alliterations
+          %li
+            Has used three-word alliterative phrases (e.g. "she sells seashells")
+            %strong
+              = @member.three_word_alliterations
+              times
+            in debates &mdash;
+            = "well above average"
+            amongst #{@member.generic_reference.pluralize}.
+            %small
+              (
+              %a(href="/help/#numbers")> Why is this here?
+              )
+        - if @member.three_word_alliteration_content
+          = "<!-- #{@member.three_word_alliteration_content} -->"
   / end .block
   %a{ :name => "register" }
   #register.block
@@ -102,6 +143,25 @@
     %h4 More useful links for this person
     .blockbody
       %ul
+        - if @member.mp_website
+          %li
+            %a{:href => @member.mp_website} #{@member.name}'s personal website
+        - if @member.mp_biography_qanda
+          %li
+            %a{:href => @member.mp_biography_qanda} Biography
+            %small (From ABC's Q &amp; A)
+        - if @member.mp_contact_details
+          %li
+            %a{:href => @member.mp_contact_details} Contact details
+            %small (From Australian Parliament website)
+        - if @member.mp_twitter_invite_tweetmp
+          %li
+            %a{:href => @member.mp_twitter_invite_tweetmp} Invite #{@member.name} to use Twitter
+            %small
+              (via
+              ~ " "
+              %a(href="http://tweetmp.org.au")>< tweetMP
+              )
   / end block
   - unless @member.non_current_minister_offices.empty?
     .block
