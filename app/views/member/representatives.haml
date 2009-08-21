@@ -1,60 +1,43 @@
 .main
-  %h2
-    = @title
-  %h3
-    \&nbsp;
+  %h2= @title
+  %h3 &nbsp;
   %p
     Find out who
-    %a{ :href => "/mp/" }
-      your Representative
+    %a{ :href => "/mp/" } your Representative
     is. All you need is a postcode.
-  %h3
-    All members of the House of Representatives
+  %h3 All members of the House of Representatives
   %table.people{ :cellspacing => "0", :border => "0", :cellpadding => "4", :width => "90%" }
     %thead
-      %th
-        Photo
-      %th
-        = link_to "First", :o => "f", :trailing_slash => true
-        \&amp; last name
-      %th
-        = link_to "Party", :o => "p", :trailing_slash => true
-      %th
-        = link_to "Constituency", :o => "c", :trailing_slash => true
-      %th
-        Positions
+      %th Photo
+      %th= "#{link_to "First", :o => "f", :trailing_slash => true} \&amp; last name"
+      %th= link_to "Party", :o => "p", :trailing_slash => true
+      %th= link_to "Constituency", :o => "c", :trailing_slash => true
+      %th Positions
     %tbody
       - @members.each do |m|
         - row_class = cycle("row-1", "row-2")
         %tr
           %td.row
-            %img.portrait{ :src => "/images/mps/#{m.person_id}.jpg", :alt => "" }
+            %img.portrait{ :src => "/images/mps/#{m.person_id}.jpg", :alt => "" }>
           %td{ :class => row_class }
-            %a{ :href => "/mp/#{m.first_name.downcase}_#{m.last_name.downcase}/#{m.constituency.downcase}" }
-              = m.name
-          %td{ :class => row_class }
-            = m.party
-          %td{ :class => row_class }
-            = m.constituency
-          %td{ :class => row_class }
-            = nbsp_if_empty(m.current_minister_positions.join("<br>"))
+            %a{ :href => "/mp/#{m.first_name.downcase}_#{m.last_name.downcase}/#{m.constituency.downcase}" }>= m.name
+          %td{ :class => row_class }= m.party
+          %td{ :class => row_class }= m.constituency
+          %td{ :class => row_class }= nbsp_if_empty(m.current_minister_positions.join("<br>"))
 / end .main
 .sidebar
   .block
-    %h4
-      = link_to "This data as a spreadsheet", :f => "csv", :trailing_slash => true
+    %h4= link_to "This data as a spreadsheet", :f => "csv", :trailing_slash => true
     %p
       = link_to "Download a CSV", :f => "csv", :trailing_slash => true
       (Comma Separated Values) file that you can load into your favourite spreadsheet program or data-mashing software.
   / end .block
   #help.block
-    %h4
-      Did you know this site is run by a group of volunteers?
+    %h4 Did you know this site is run by a group of volunteers?
     .blockbody
       %p{ :style => "padding-bottom: 30px" }
         %a{ :href => "http://blog.openaustralia.org/join-us/" }
           %img{ :src => "/images/donate_greenL.png", :vspace => "5", :border => "0", :height => "43", :hspace => "4", :alt => "Donate", :align => "right", :width => "108" }
-        Your donation would enable
-        us to continue to add new features.
+        Your donation would enable us to continue to add new features.
   / end .block
 / end .sidebar

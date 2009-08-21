@@ -1,15 +1,12 @@
 .main
-  %p.printonly
-    This data was produced by OpenAustralia from a variety of sources.
+  %p.printonly This data was produced by OpenAustralia from a variety of sources.
   #mp.block
-    %h4
-      #{@member.formal_name}
+    %h4 #{@member.formal_name}
     .blockbody
       %img.portrait{ :src => "/images/mpsL/#{@member.person_id}.jpg", :alt => "Photo of #{@member.name}" }
       %ul.hilites
         %li
-          %strong
-            #{@member.party} #{@member.generic_reference} for #{@member.constituency}
+          %strong #{@member.party} #{@member.generic_reference} for #{@member.constituency}
         - unless @member.current_minister_offices.empty?
           %li= @member.current_minister_offices.map{|o| "#{o.position} (since #{o.from_date.to_formatted_s(:simple_short)})"}.join('<br>')
         %li
@@ -19,40 +16,33 @@
             - elsif @member.senator?
               Became a Senator
             on #{@member.entered_house.to_formatted_s(:simple)}
-          \&mdash; #{@member.entered_reason_text}
+          &mdash; #{@member.entered_reason_text}
         %li
           %a{ :href => "/alert/?only=1&amp;pid=#{@member.person_id}" }
-            %strong
-              Email me whenever #{@member.name} speaks
+            %strong> Email me whenever #{@member.name} speaks
           (no more than once per day)
       %ul.jumpers
         %li
-          %a{ :href => "#numbers" }
-            Numbers
+          %a{ :href => "#numbers" }> Numbers
         %li
-          %a{ :href => "#register" }
-            Register of Interests
+          %a{ :href => "#register" }> Register of Interests
   / end .block
   %a{ :name => "hansard" }
   #hansard.block
-    %h4
-      Most recent appearances in parliament
+    %h4 Most recent appearances in parliament
     .blockbody
-      %p
-        No data to display.
+      %p No data to display.
       %p#moreappear
-        %a{ :href => "/search/?pid=#{@member.person_id}&amp;pop=1#n4" }
-          More of #{@member.name}'s recent appearances
+        %a{ :href => "/search/?pid=#{@member.person_id}&amp;pop=1#n4" } More of #{@member.name}'s recent appearances
   / end .block
   %a{ :name => "numbers" }
   #numbers.block
-    %h4
-      Numbers
+    %h4 Numbers
     .blockbody
       %p
         %em
-          Please note that numbers do not measure quality. Also, #{@member.generic_reference.pluralize} may do other things
-          not currently covered by this site.
+          Please note that numbers do not measure quality. Also, #{@member.generic_reference.pluralize} may
+          do other things not currently covered by this site.
         (
         %a{ :href => "/help/#numbers" }> More about this
         )
@@ -61,9 +51,7 @@
           %li
             Has spoken in
             %a(href="/search/?pid=#{@member.person_id}&amp;pop=1")
-              %strong
-                = @member.debate_sections_spoken_in_last_year
-                debate
+              %strong= pluralize(@member.debate_sections_spoken_in_last_year, "debate")
             in the last year &mdash;
             = "average"
             amongst #{@member.generic_reference.pluralize}.
@@ -71,8 +59,7 @@
           %li
             People have made
             %strong
-              = @member.comments_on_speeches
-              comments
+              = pluralize(@member.comments_on_speeches, "comment")
             on this #{@member.generic_reference}'s speeches &mdash;
             = "average"
             amongst #{@member.generic_reference.pluralize}.
@@ -92,9 +79,7 @@
         - if @member.three_word_alliterations
           %li
             Has used three-word alliterative phrases (e.g. "she sells seashells")
-            %strong
-              = @member.three_word_alliterations
-              times
+            %strong= pluralize(@member.three_word_alliterations, "time")
             in debates &mdash;
             = "well above average"
             amongst #{@member.generic_reference.pluralize}.
@@ -120,8 +105,7 @@
 / end .main
 .sidebar
   #help.block
-    %h4
-      Did you know this site is run by a group of volunteers?
+    %h4 Did you know this site is run by a group of volunteers?
     .blockbody
       %p{ :style => "padding-bottom: 30px" }
         %a{ :href => "http://blog.openaustralia.org/join-us/" }
@@ -129,8 +113,7 @@
         Your donation would enable us to continue to add new features.
   / end .block
   #mpsearch.block
-    %h4
-      Search this person's speeches
+    %h4 Search this person's speeches
     .blockbody
       .mpsearchbox
         %form{ :action => "/search/", :method => "get" }
@@ -171,8 +154,7 @@
           - @member.non_current_minister_offices.sort{|a,b| b.from_date <=> a.from_date}.each do |o|
             %li= "#{o.position} (#{o.from_date.to_formatted_s(:simple_short)} to #{o.to_date.to_formatted_s(:simple_short).strip})"
   .block
-    %h4
-      Journalist?
+    %h4 Journalist?
     .blockbody
       %p
         Please feel free to use the data on this page, but if you do you must cite OpenAustralia.org in the

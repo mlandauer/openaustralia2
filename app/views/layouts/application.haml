@@ -2,9 +2,7 @@
 %html
   %head
     %meta{ :content => "text/html; charset=iso-8859-1", "http-equiv" => "Content-Type" }
-    %title
-      = @title
-      (OpenAustralia.org)
+    %title #{@title} (OpenAustralia.org)
     %meta{ :name => "description", :content => "Making parliament easy." }
     %meta{ :name => "keywords", :content => "Parliament, government, House of Representatives, Senate, Senator, MP, Member of Parliament, MPs, Australia, Australian, #{@title}" }
     %meta{ :name => "verify-v1", :content => "5FBaCDi8kCKdo4s64NEdB5EOJDNc310SwcLLYHmEbgg=" }
@@ -34,34 +32,25 @@
         #topmenu
           %ul#user
             %li
-              %a{ :href => "/user/login/?ret=#{@controller.request.request_uri.gsub('/','%2F')}", :title => "If you've already joined, log in to post comments" }
-                Log in
+              %a{ :href => "/user/login/?ret=#{@controller.request.request_uri.gsub('/','%2F')}", :title => "If you've already joined, log in to post comments" }> Log in
             %li
-              %a{ :href => "/user/?pg=join&amp;ret=#{@controller.request.request_uri.gsub('/','%2F')}", :title => "Joining is free and allows you to post comments" }
-                Join
+              %a{ :href => "/user/?pg=join&amp;ret=#{@controller.request.request_uri.gsub('/','%2F')}", :title => "Joining is free and allows you to post comments" }> Join
             ~ "<!--                    <li><a href=\"/getinvolved/?pg=getinvolved\" title=\"Contribute to OpenAustralia.org\">Get involved</a></li> -->"
           %br
         #bottommenu
           %ul
             %li
-              %a{ :href => "/", :title => "The front page of the site" }
-                Home
+              %a{ :href => "/", :title => "The front page of the site" }> Home
             %li
-              %a{ :href => "/news/", :title => "News about changes to this website" }
-                News
+              %a{ :href => "/news/", :title => "News about changes to this website" }> News
             %li
-              %a{ :href => "/hansard/", :title => "House of Representatives and Senate debates" }
-                Debates
+              %a{ :href => "/hansard/", :title => "House of Representatives and Senate debates" }> Debates
             %li
-              %a{ :href => "/comments/recent/", :title => "Recently posted comments" }
-                Recent comments
+              %a{ :href => "/comments/recent/", :title => "Recently posted comments" }> Recent comments
+            %li= link_to_on_if_current "Representatives", {:controller => "member", :action => "representatives", :trailing_slash => true}, {:title => "Your Representative and list of all Members of the House of Representatives"}
+            %li= link_to_on_if_current "Senators", {:controller => "member", :action => "senators", :trailing_slash => true}, {:title => "List of all Senators"}
             %li
-              = link_to_on_if_current "Representatives", {:controller => "member", :action => "representatives", :trailing_slash => true}, {:title => "Your Representative and list of all Members of the House of Representatives"}
-            %li
-              = link_to_on_if_current "Senators", {:controller => "member", :action => "senators", :trailing_slash => true}, {:title => "List of all Senators"}
-            %li
-              %a{ :href => "/help/", :title => "Answers to your questions" }
-                Help
+              %a{ :href => "/help/", :title => "Answers to your questions" }> Help
       / end #menu
       #content
         .stripe-side
@@ -70,28 +59,20 @@
         / end .stripe-*
         #footer
           %p
-            %a{ :href => "/about/" }
-              About us
-            \&nbsp;&nbsp;&nbsp;
-            %a{ :href => "/contact/" }
-              Contact OpenAustralia.org
-            \&nbsp;&nbsp;&nbsp;
-            %a{ :href => "/help/linktous/" }
-              Link to us
-            \&nbsp;&nbsp;&nbsp;
-            %a{ :href => "/houserules/" }
-              House rules
-            \&nbsp;&nbsp;&nbsp;
-            %a{ :href => "/api/" }
-              API
+            %a{ :href => "/about/" } About us
+            &nbsp;&nbsp;&nbsp;
+            %a{ :href => "/contact/" } Contact OpenAustralia.org
+            &nbsp;&nbsp;&nbsp;
+            %a{ :href => "/help/linktous/" }Link to us
+            &nbsp;&nbsp;&nbsp;
+            %a{ :href => "/houserules/" } House rules
+            &nbsp;&nbsp;&nbsp;
+            %a{ :href => "/api/" } API
             \/
-            %a{ :href => "http://data.openaustralia.org" }
-              XML
-            \&nbsp;&nbsp;&nbsp;
-            %a{ :href => "http://software.openaustralia.org" }
-              Source code
-            \&nbsp;&nbsp;&nbsp;
-            %a{ :href => "http://blog.openaustralia.org" }
-              Blog
+            %a{ :href => "http://data.openaustralia.org" } XML
+            &nbsp;&nbsp;&nbsp;
+            %a{ :href => "http://software.openaustralia.org" } Source code
+            &nbsp;&nbsp;&nbsp;
+            %a{ :href => "http://blog.openaustralia.org" } Blog
       / end #content
     / end #container
