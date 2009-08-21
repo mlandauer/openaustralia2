@@ -1,0 +1,47 @@
+section_1:
+  epobject_id: 148
+  gid: uk.org.publicwhip/debate/2009-05-14.65.1
+  htype: 10
+  speaker_id: 0
+  major: 1
+  section_id: 0
+  subsection_id: 0
+  hpos: 148
+  hdate: 2009-05-14
+  htime: NULL
+  source_url: "http://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:chamber/hansardr/2009-05-14/0000"
+  minor: 0
+  created: 2009-05-27 11:21:55
+  modified: 2009-05-27 11:21:55
+
+subsection_1:
+  epobject_id: 149
+  gid: uk.org.publicwhip/debate/2009-05-14.65.2
+  htype: 11
+  speaker_id: 0
+  major: 1
+  section_id: 148
+  subsection_id: 0
+  hpos: 149
+  hdate: 2009-05-14
+  htime: NULL
+  source_url: "http://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:chamber/hansardr/2009-05-14/0000"
+  minor: 0
+  created: 2009-05-27 11:21:55
+  modified: 2009-05-27 11:21:55
+
+tony_abott_1:
+  epobject_id: 151
+  gid: uk.org.publicwhip/debate/2009-05-14.66.1
+  htype: 12
+  speaker_id: 1
+  major: 1
+  section_id: 148
+  subsection_id: 149
+  hpos: 151
+  hdate: 2009-05-14
+  htime: 13:50:00
+  source_url: "http://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:chamber/hansardr/2009-05-14/0000"
+  minor: 0
+  created: 2009-05-27 11:21:55
+  modified: 2009-05-27 11:21:55
