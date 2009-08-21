@@ -26,18 +26,6 @@
           %td{ :class => row_class }= nbsp_if_empty(m.current_minister_positions.join("<br>"))
 / end .main
 .sidebar
-  .block
-    %h4= link_to "This data as a spreadsheet", :f => "csv", :trailing_slash => true
-    %p
-      = link_to "Download a CSV", :f => "csv", :trailing_slash => true
-      (Comma Separated Values) file that you can load into your favourite spreadsheet program or data-mashing software.
-  / end .block
-  #help.block
-    %h4 Did you know this site is run by a group of volunteers?
-    .blockbody
-      %p{ :style => "padding-bottom: 30px" }
-        %a{ :href => "http://blog.openaustralia.org/join-us/" }
-          %img{ :src => "/images/donate_greenL.png", :vspace => "5", :border => "0", :height => "43", :hspace => "4", :alt => "Donate", :align => "right", :width => "108" }
-        Your donation would enable us to continue to add new features.
-  / end .block
+  = render :partial => "spreadsheet"
+  = render :partial => "shared/donate"
 / end .sidebar

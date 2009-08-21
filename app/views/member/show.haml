@@ -104,14 +104,7 @@
   / end .block
 / end .main
 .sidebar
-  #help.block
-    %h4 Did you know this site is run by a group of volunteers?
-    .blockbody
-      %p{ :style => "padding-bottom: 30px" }
-        %a{ :href => "http://blog.openaustralia.org/join-us/" }
-          %img{ :src => "/images/donate_greenL.png", :vspace => "5", :border => "0", :height => "43", :hspace => "4", :alt => "Donate", :align => "right", :width => "108" }
-        Your donation would enable us to continue to add new features.
-  / end .block
+  = render :partial => "shared/donate"
   #mpsearch.block
     %h4 Search this person's speeches
     .blockbody
