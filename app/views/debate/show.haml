@@ -21,11 +21,7 @@
     %h5 Second Reading
   / end .main
   .sidebar
-    %p.nextprev
-      %span.up
-        %a{ :href => "/debates/?d=2009-05-14", :title => "" } All House debates on 14 May 2009
-      %span.prev
-        %a{ :href => "/debates/?id=2009-05-14.65.1", :title => "Family Assistance and Other Legislation Amendment (2008 Budget and Other Measures) Bill 2009" } &laquo; Previous debate
+    = render :partial => "navigate"
   / end .sidebar
   .break
 / end .stripe-*
@@ -65,10 +61,6 @@
     &nbsp;
   / end .main
   .sidebar
-    %p.nextprev
-      %span.up
-        %a{ :href => "/debates/?d=2009-05-14", :title => "" } All House debates on 14 May 2009
-      %span.prev
-        %a{ :href => "/debates/?id=2009-05-14.65.1", :title => "Family Assistance and Other Legislation Amendment (2008 Budget and Other Measures) Bill 2009" } &laquo; Previous debate
+    = render :partial => "navigate"
   / end .sidebar
   .break
