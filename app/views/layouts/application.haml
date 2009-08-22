@@ -53,9 +53,7 @@
               %a{ :href => "/help/", :title => "Answers to your questions" }> Help
       / end #menu
       #content
-        .stripe-side
-          = yield
-          .break
+        = yield
         / end .stripe-*
         #footer
           %p
