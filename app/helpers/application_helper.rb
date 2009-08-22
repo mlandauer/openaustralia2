@@ -5,5 +5,10 @@ module ApplicationHelper
       link_to(name, options, html_options.merge(:class => "on"))
     end
   end
+  
+  # TODO: There's most probably a standard method for doing this
+  def escape_path(text)
+    text.gsub('/','%2F').gsub('?', '%3F').gsub('=', '%3D')
+  end
 end
 
