@@ -1,162 +1,87 @@
-!!!
-%html
-  %head
-    %meta{ :content => "text/html; charset=iso-8859-1", "http-equiv" => "Content-Type" }
-    %title #{@title} (OpenAustralia.org)
-    %meta{ :name => "description", :content => "Making parliament easy." }
-    %meta{ :name => "keywords", :content => "Parliament, government, House of Representatives, Senate, Senator, MP, Member of Parliament, MPs, Australia, Australian, #{@extra_keyword}" }
-    %meta{ :name => "verify-v1", :content => "5FBaCDi8kCKdo4s64NEdB5EOJDNc310SwcLLYHmEbgg=" }
-    %link{ :href => "mailto:contact@openaustralia.org", :title => "Send feedback", :rel => "author" }
-    %link{ :href => "http://dev.openaustralia.org/", :title => "Home", :rel => "home" }
-    %link{ :href => "/", :title => "Home", :rel => "start" }
-    / skin: default
-    %link{ :href => "/style/default/global.css", :rel => "stylesheet", :type => "text/css" }
-    %style{ :type => "text/css" }
-      ~ "          @import url(/style/default/global_non_ns4.css);"
-    %link{ :href => "/style/default/print.css", :rel => "stylesheet", :type => "text/css", :media => "print" }
-  %body
-    #container
-      %a{ :name => "top" }
-      #banner
-        #title
-          %h1
-            %a{ :href => "/", :title => "To the front page of the site" }
-              %img{ :src => "/images/openaustraliaorgbeta.gif", :height => "32", :alt => "OpenAustralia.org beta", :width => "262" }
-        #search
-          %form{ :action => "/search/", :method => "get" }
-            %p{ :style => "padding-left: 5px" }
-              %input{ :name => "s", :size => "15" }
-              %input.submit{ :type => "submit", :value => "Search" }
-      / end #banner
-      #menu
-        #topmenu
-          %ul#user
-            %li
-              %a{ :href => "/user/login/?ret=#{escape_path(@controller.request.request_uri)}", :title => "If you've already joined, log in to post comments" }> Log in
-            %li
-              %a{ :href => "/user/?pg=join&amp;ret=#{escape_path(@controller.request.request_uri)}", :title => "Joining is free and allows you to post comments" }> Join
-            ~ "<!--                    <li><a href=\"/getinvolved/?pg=getinvolved\" title=\"Contribute to OpenAustralia.org\">Get involved</a></li> -->"
-          %br
-        #bottommenu
-          %ul
-            %li
-              %a{ :href => "/", :title => "The front page of the site" }> Home
-            %li
-              %a{ :href => "/news/", :title => "News about changes to this website" }> News
-            %li
-              %a{:class => ("on" if @debates_menu_on), :href => "/hansard/", :title => "House of Representatives and Senate debates" }> Debates
-            %li
-              %a{ :href => "/comments/recent/", :title => "Recently posted comments" }> Recent comments
-            %li= link_to_on_if_current "Representatives", {:controller => "member", :action => "representatives", :trailing_slash => true}, {:title => "Your Representative and list of all Members of the House of Representatives"}
-            %li= link_to_on_if_current "Senators", {:controller => "member", :action => "senators", :trailing_slash => true}, {:title => "List of all Senators"}
-            %li
-              %a{ :href => "/help/", :title => "Answers to your questions" }> Help
-      / end #menu
-      #content
-        .stripe-head-1
-          .main
-            %h2
-              House debates
-            %h3
-              Thursday, 14 May 2009
-          / end .main
-          .sidebar
-            #help.block
-              %h4
-                %a{ :href => "/debates/#help" }
-                  What are House debates?
-            / end .block
-          / end .sidebar
-          .break
-        / end .stripe-*
-        .stripe-head-2
-          .main
-            / ADDTHIS JAVASCRIPT BEGIN
-            %script{ :type => "text/javascript" } var addthis_pub = "foo";
-            %script{ :src => "http://s7.addthis.com/js/250/addthis_widget.js", :type => "text/javascript" }
-            / ADDTHIS JAVASCRIPT END
-            %h4
-              Family Assistance and Other Legislation Amendment (2008 Budget and Other Measures) Bill 2009
-            %h5
-              Second Reading
-          / end .main
-          .sidebar
-            %p.nextprev
-              %span.up
-                %a{ :href => "/debates/?d=2009-05-14", :title => "" }
-                  All House debates on 14 May 2009
-              %span.prev
-                %a{ :href => "/debates/?id=2009-05-14.65.1", :title => "Family Assistance and Other Legislation Amendment (2008 Budget and Other Measures) Bill 2009" }
-                  \&laquo; Previous debate
-          / end .sidebar
-          .break
-        / end .stripe-*
-        %div(class="stripe-2" id="g66.1")
-          .main
-            %a{ :name => "g66.1" }
-            %p.speaker
-              %a{ :href => "/mp/?m=1", :title => "See more information about Tony Abbott" }
-                %img.portrait{ :src => "/images/mps/10001.jpg", :alt => "Photo of Tony Abbott" }
-                %strong> Tony Abbott
-              %small
-                (Warringah, Liberal Party, Shadow Minister for Families, Housing, Community Services and Indigenous Affairs)
-                %a{ :href => "http://www.addthis.com/bookmark.php", :onmouseover => "return addthis_open(this, '', 'http://dev.openaustralia.org/debate/?id=2009-05-14.66.1', '');", :onmouseout => "addthis_close();", :onclick => "return addthis_sendto();" }
-                  Share this
-                |
-                %a.permalink{ :href => "/debate/?id=2009-05-14.66.1", :title => "Copy this URL to link directly to this piece of text" }
-                  Link to this
-                |
-                %a{ :href => "http://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:chamber/hansardr/2009-05-14/0000", :title => "The source of this piece of text" }
-                  Hansard source
-              <p>I do not propose to long detain the House on the <a href="http://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:legislation/billhome/R4084" rel="nofollow">Family Assistance and Other Legislation Amendment (2008 Budget and Other Measures) Bill 2009</a>. It does essentially three things: first, it removes the Australian Taxation Office from the administration of family tax benefit; second, it provides for an appeal to the Social Security Appeals Tribunal, and ultimately to the Administrative Appeals Tribunal, for people newly subject to income management in the Northern Territory; and, third, it ensures that people&#8217;s CDEP, or Community Development Employment Project, wages can be quarantined for the purposes of income management. The coalition will not be opposing any of these measures but has some reservations about each, which I will very briefly outline.</p><p>There is something to be said for allowing people to claim their family tax benefit by way of a reduction in their pay-as-you-go tax instalments. It will no longer be possible, under this legislation, for this to happen. I understand, though, from a briefing that was kindly provided by the minister&#8217;s office and the department, that there have been very few people claiming family tax benefit in this way and, as a result of that, notwithstanding its theoretical advantages, the coalition will not further object.</p><p>The original Northern Territory intervention legislation did not provide for appeals over income quarantining. The coalition would be happy for this situation to continue. We do not think that the quarantining of income is of a nature to routinely justify appeals beyond those to a Centrelink review officer but, nevertheless, given that this only applies to people who are newly subject to income management and not to the 17,000 or so already on it in the Territory, again, we do not want to pursue this objection.</p><p>Finally, the coalition wanted to turn CDEP employment into either real jobs or a kind of Work for the Dole. We wanted CDEP to turn into a stepping stone towards the real economy rather than be a permanent Indigenous economy. Our support for this measure to enable CDEP wages to be quarantined as if they were welfare payments should not be interpreted as surrendering our continuing reservations about the changes that the government is making in this broader area. Other than that the coalition is not going to oppose this legislation, and I do not propose to further detain the House on it.</p>
-          / end .main
-          .sidebar
-            %p.comment-teaser
-              %a{ :href => "/user/prompt/?ret=%2Fdebate%2F%3Fid%3D2009-05-14.66.1#addcomment", :title => "Comment on this" }
-                %strong
-                  Add your comment
-          / end .sidebar
-          .break
-        / end .stripe-*
-        .stripe-foot
-          .main
-            \&nbsp;
-            %br
-            \&nbsp;
-            %br
-            \&nbsp;
-            %br
-            \&nbsp;
-            %br
-            \&nbsp;
-          / end .main
-          .sidebar
-            %p.nextprev
-              %span.up
-                %a{ :href => "/debates/?d=2009-05-14", :title => "" }
-                  All House debates on 14 May 2009
-              %span.prev
-                %a{ :href => "/debates/?id=2009-05-14.65.1", :title => "Family Assistance and Other Legislation Amendment (2008 Budget and Other Measures) Bill 2009" }
-                  \&laquo; Previous debate
-          / end .sidebar
-          .break
-        / end .stripe-*
-        #footer
-          %p
-            %a{ :href => "/about/" } About us
-            &nbsp;&nbsp;&nbsp;
-            %a{ :href => "/contact/" } Contact OpenAustralia.org
-            &nbsp;&nbsp;&nbsp;
-            %a{ :href => "/help/linktous/" } Link to us
-            &nbsp;&nbsp;&nbsp;
-            %a{ :href => "/houserules/" } House rules
-            &nbsp;&nbsp;&nbsp;
-            %a{ :href => "/api/" } API
-            \/
-            %a{ :href => "http://data.openaustralia.org" } XML
-            &nbsp;&nbsp;&nbsp;
-            %a{ :href => "http://software.openaustralia.org" } Source code
-            &nbsp;&nbsp;&nbsp;
-            %a{ :href => "http://blog.openaustralia.org" } Blog
-      / end #content
-    / end #container
+.stripe-head-1
+  .main
+    %h2
+      House debates
+    %h3
+      Thursday, 14 May 2009
+  / end .main
+  .sidebar
+    #help.block
+      %h4
+        %a{ :href => "/debates/#help" }
+          What are House debates?
+    / end .block
+  / end .sidebar
+  .break
+/ end .stripe-*
+.stripe-head-2
+  .main
+    / ADDTHIS JAVASCRIPT BEGIN
+    %script{ :type => "text/javascript" } var addthis_pub = "foo";
+    %script{ :src => "http://s7.addthis.com/js/250/addthis_widget.js", :type => "text/javascript" }
+    / ADDTHIS JAVASCRIPT END
+    %h4
+      Family Assistance and Other Legislation Amendment (2008 Budget and Other Measures) Bill 2009
+    %h5
+      Second Reading
+  / end .main
+  .sidebar
+    %p.nextprev
+      %span.up
+        %a{ :href => "/debates/?d=2009-05-14", :title => "" }
+          All House debates on 14 May 2009
+      %span.prev
+        %a{ :href => "/debates/?id=2009-05-14.65.1", :title => "Family Assistance and Other Legislation Amendment (2008 Budget and Other Measures) Bill 2009" }
+          \&laquo; Previous debate
+  / end .sidebar
+  .break
+/ end .stripe-*
+%div(class="stripe-2" id="g66.1")
+  .main
+    %a{ :name => "g66.1" }
+    %p.speaker
+      %a{ :href => "/mp/?m=1", :title => "See more information about Tony Abbott" }
+        %img.portrait{ :src => "/images/mps/10001.jpg", :alt => "Photo of Tony Abbott" }
+        %strong> Tony Abbott
+      %small
+        (Warringah, Liberal Party, Shadow Minister for Families, Housing, Community Services and Indigenous Affairs)
+        %a{ :href => "http://www.addthis.com/bookmark.php", :onmouseover => "return addthis_open(this, '', 'http://dev.openaustralia.org/debate/?id=2009-05-14.66.1', '');", :onmouseout => "addthis_close();", :onclick => "return addthis_sendto();" }
+          Share this
+        |
+        %a.permalink{ :href => "/debate/?id=2009-05-14.66.1", :title => "Copy this URL to link directly to this piece of text" }
+          Link to this
+        |
+        %a{ :href => "http://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:chamber/hansardr/2009-05-14/0000", :title => "The source of this piece of text" }
+          Hansard source
+      <p>I do not propose to long detain the House on the <a href="http://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:legislation/billhome/R4084" rel="nofollow">Family Assistance and Other Legislation Amendment (2008 Budget and Other Measures) Bill 2009</a>. It does essentially three things: first, it removes the Australian Taxation Office from the administration of family tax benefit; second, it provides for an appeal to the Social Security Appeals Tribunal, and ultimately to the Administrative Appeals Tribunal, for people newly subject to income management in the Northern Territory; and, third, it ensures that people&#8217;s CDEP, or Community Development Employment Project, wages can be quarantined for the purposes of income management. The coalition will not be opposing any of these measures but has some reservations about each, which I will very briefly outline.</p><p>There is something to be said for allowing people to claim their family tax benefit by way of a reduction in their pay-as-you-go tax instalments. It will no longer be possible, under this legislation, for this to happen. I understand, though, from a briefing that was kindly provided by the minister&#8217;s office and the department, that there have been very few people claiming family tax benefit in this way and, as a result of that, notwithstanding its theoretical advantages, the coalition will not further object.</p><p>The original Northern Territory intervention legislation did not provide for appeals over income quarantining. The coalition would be happy for this situation to continue. We do not think that the quarantining of income is of a nature to routinely justify appeals beyond those to a Centrelink review officer but, nevertheless, given that this only applies to people who are newly subject to income management and not to the 17,000 or so already on it in the Territory, again, we do not want to pursue this objection.</p><p>Finally, the coalition wanted to turn CDEP employment into either real jobs or a kind of Work for the Dole. We wanted CDEP to turn into a stepping stone towards the real economy rather than be a permanent Indigenous economy. Our support for this measure to enable CDEP wages to be quarantined as if they were welfare payments should not be interpreted as surrendering our continuing reservations about the changes that the government is making in this broader area. Other than that the coalition is not going to oppose this legislation, and I do not propose to further detain the House on it.</p>
+  / end .main
+  .sidebar
+    %p.comment-teaser
+      %a{ :href => "/user/prompt/?ret=%2Fdebate%2F%3Fid%3D2009-05-14.66.1#addcomment", :title => "Comment on this" }
+        %strong
+          Add your comment
+  / end .sidebar
+  .break
+/ end .stripe-*
+.stripe-foot
+  .main
+    \&nbsp;
+    %br
+    \&nbsp;
+    %br
+    \&nbsp;
+    %br
+    \&nbsp;
+    %br
+    \&nbsp;
+  / end .main
+  .sidebar
+    %p.nextprev
+      %span.up
+        %a{ :href => "/debates/?d=2009-05-14", :title => "" }
+          All House debates on 14 May 2009
+      %span.prev
+        %a{ :href => "/debates/?id=2009-05-14.65.1", :title => "Family Assistance and Other Legislation Amendment (2008 Budget and Other Measures) Bill 2009" }
+          \&laquo; Previous debate
+  / end .sidebar
+  .break
