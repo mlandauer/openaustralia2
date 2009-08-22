@@ -44,7 +44,7 @@
             %li
               %a{ :href => "/news/", :title => "News about changes to this website" }> News
             %li
-              %a{ :href => "/hansard/", :title => "House of Representatives and Senate debates" }> Debates
+              %a{:class => ("on" if @debates_menu_on), :href => "/hansard/", :title => "House of Representatives and Senate debates" }> Debates
             %li
               %a{ :href => "/comments/recent/", :title => "Recently posted comments" }> Recent comments
             %li= link_to_on_if_current "Representatives", {:controller => "member", :action => "representatives", :trailing_slash => true}, {:title => "Your Representative and list of all Members of the House of Representatives"}
