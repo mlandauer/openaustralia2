@@ -17,13 +17,13 @@
     %script{ :type => "text/javascript" } var addthis_pub = "foo";
     %script{ :src => "http://s7.addthis.com/js/250/addthis_widget.js", :type => "text/javascript" }
     / ADDTHIS JAVASCRIPT END
-    %h4= @section_title
-    %h5= @debate_title
+    %h4= @speech.section.text_object.body
+    %h5= @speech.subsection.text_object.body
   / end .main
   .sidebar
     %p.nextprev
       %span.up
-        %a{ :href => "/debates/?id=#{@debate_id}", :title => @debate_title } See the whole debate
+        %a{ :href => "/debates/?id=#{@speech.subsection.id}", :title => @speech.subsection.text_object.body } See the whole debate
   / end .sidebar
   .break
 / end .stripe-*
@@ -43,7 +43,7 @@
       %p
         %small
           %strong
-            %a.permalink{ :href => "/debates/?id=#{@debate_id}##{@speech.anchor}", :title => "See this speech within the entire debate" } See this speech in context
+            %a.permalink{ :href => "/debates/?id=#{@speech.subsection.id}##{@speech.anchor}", :title => "See this speech within the entire debate" } See this speech in context
   / end .main
   .sidebar
   / end .sidebar
