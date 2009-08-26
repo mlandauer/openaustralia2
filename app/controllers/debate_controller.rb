@@ -15,14 +15,17 @@ class DebateController < ApplicationController
   def speech
     raise "at the moment this method should only work for one id value" unless params[:id] == "2009-05-14.66.1"
 
-    @date_string = "Thursday, 14 May 2009"
-    @title = "I do not propose to long detain the...: 14 May 2009: House debates"
-    @extra_keyword = "I do not propose to long detain the...: 14 May 2009"
+    @speech = Hansard.find_by_id(params[:id])
+    @speech_text = @speech.text_object.display_body
+    @date = @speech.hdate
+    @date_string = @date.to_formatted_s(:simple_with_day)
+    truncated = "I do not propose to long detain the..."
+    @title = "#{truncated}: #{@date.to_formatted_s(:simple)}: House debates"
+    @extra_keyword = "#{truncated}: #{@date.to_formatted_s(:simple)}"
     @debates_menu_on = true
     
     @speech_id = params[:id]
     @speech_anchor = "g66.1"
-    @speech_text = Hansard.find_by_gid("uk.org.publicwhip/debate/#{params[:id]}").text_object.display_body
     @speech_source = 'http://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:chamber/hansardr/2009-05-14/0000'
     # The id for the whole debate that this speech is part of
     @debate_id = "2009-05-14.65.2"

@@ -17,4 +17,8 @@ class Hansard < ActiveRecord::Base
 	def procedural?
 	  htype == 13
   end
+  
+  def Hansard.find_by_id(id)
+    find_by_gid("uk.org.publicwhip/debate/#{id}")
+  end
 end
