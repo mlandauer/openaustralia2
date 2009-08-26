@@ -32,10 +32,6 @@ class DebateController < ApplicationController
     @debate_title = "Second Reading"
     @section_title = "Family Assistance and Other Legislation Amendment (2008 Budget and Other Measures) Bill 2009"
     # The person speaking
-    @member_id = 1
-    @person_id = 10001
-    @member_name = "Tony Abbott"
-    @member_constituency = "Warringah"
-    @member_party = "Liberal Party"
+    @member = @speech.speaker
   end
 end

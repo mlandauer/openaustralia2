@@ -31,11 +31,11 @@
   .main
     %a{ :name => @speech_anchor }
     %p.speaker
-      %a{ :href => "/mp/?m=#{@member_id}", :title => "See more information about #{@member_name}" }
-        %img.portrait{ :src => "/images/mps/#{@person_id}.jpg", :alt => "Photo of #{@member_name}" }
-        %strong>= @member_name
+      %a{ :href => "/mp/?m=#{@member.id}", :title => "See more information about #{@member.name}" }
+        %img.portrait{ :src => "/images/mps/#{@member.person_id}.jpg", :alt => "Photo of #{@member.name}" }
+        %strong>= @member.name
       %small
-        (#{@member_constituency}, #{@member_party}, Shadow Minister for Families, Housing, Community Services and Indigenous Affairs)
+        (#{@member.constituency}, #{@member.party}, Shadow Minister for Families, Housing, Community Services and Indigenous Affairs)
         %a{ :href => "http://www.addthis.com/bookmark.php", :onmouseover => "return addthis_open(this, '', 'http://dev.openaustralia.org/debate/?id=#{@speech_id}', '');", :onmouseout => "addthis_close();", :onclick => "return addthis_sendto();" } Share this
         |
         %a{ :href => @speech_source, :title => "The source of this piece of text" } Hansard source

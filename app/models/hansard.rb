@@ -1,6 +1,7 @@
 class Hansard < ActiveRecord::Base
   set_table_name "hansard"
   belongs_to :text_object, :foreign_key => "epobject_id", :primary_key => "epobject_id"
+  belongs_to :speaker, :class_name => "Member"
 
   def section?
 		htype == 10
