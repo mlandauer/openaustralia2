@@ -2,9 +2,9 @@
 %html
   %head
     %meta{ :content => "text/html; charset=iso-8859-1", "http-equiv" => "Content-Type" }
-    %title #{@title} (OpenAustralia.org)
+    %title #{@titles.join(': ')} (OpenAustralia.org)
     %meta{ :name => "description", :content => "Making parliament easy." }
-    %meta{ :name => "keywords", :content => "Parliament, government, House of Representatives, Senate, Senator, MP, Member of Parliament, MPs, Australia, Australian, #{@extra_keyword}" }
+    %meta{ :name => "keywords", :content => "Parliament, government, House of Representatives, Senate, Senator, MP, Member of Parliament, MPs, Australia, Australian, #{@titles[0..1].join(': ')}" }
     %meta{ :name => "verify-v1", :content => "5FBaCDi8kCKdo4s64NEdB5EOJDNc310SwcLLYHmEbgg=" }
     %link{ :href => "mailto:contact@openaustralia.org", :title => "Send feedback", :rel => "author" }
     %link{ :href => "http://dev.openaustralia.org/", :title => "Home", :rel => "home" }

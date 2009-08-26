@@ -5,8 +5,7 @@ class DebateController < ApplicationController
     @subheading = Hansard.find_by_gid("uk.org.publicwhip/debate/#{params[:id]}")
     @subheading_text = @subheading.to_s
     
-    @title = "#{@subheading_text}: 14 May 2009: House debates"
-    @extra_keyword = "#{@subheading_text}: 14 May 2009"
+    @titles = [@subheading_text, "14 May 2009", "House debates"]
     # Hack to deal with not entirely consistent behaviour of "Debates" menu
     @debates_menu_on = true
   end
@@ -19,8 +18,7 @@ class DebateController < ApplicationController
     @member = @speech.speaker
 
     truncated = "I do not propose to long detain the..."
-    @title = "#{truncated}: #{@speech.hdate.to_formatted_s(:simple)}: House debates"
-    @extra_keyword = "#{truncated}: #{@speech.hdate.to_formatted_s(:simple)}"
+    @titles = [truncated, @speech.hdate.to_formatted_s(:simple), "House debates"]
     @debates_menu_on = true
   end
 end
