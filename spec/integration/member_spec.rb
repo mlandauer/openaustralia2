@@ -81,8 +81,12 @@ describe "MembersController" do
     compare_with_php("/mp/tony_abbott/warringah", "tony_abbott", true)
   end
   
-  it "should render a speech correctly" do
+  it "should render a debate correctly" do
     compare_with_php("/debates/?id=2009-05-14.65.2", "debates")
+  end
+  
+  it "should render a single speech correctly" do
+    compare_with_php("/debate/?id=2009-05-14.66.1", "speech")
   end
 end
 

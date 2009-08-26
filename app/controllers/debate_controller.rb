@@ -10,4 +10,9 @@ class DebateController < ApplicationController
     # Hack to deal with not entirely consistent behaviour of "Debates" menu
     @debates_menu_on = true
   end
+  
+  # Display a single speech
+  def speech
+    render :layout => false
+  end
 end
