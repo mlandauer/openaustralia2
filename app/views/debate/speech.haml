@@ -1,7 +1,7 @@
 .stripe-head-1
   .main
     %h2 House debates
-    %h3 Thursday, 14 May 2009
+    %h3= @date_string
   / end .main
   .sidebar
     #help.block
@@ -17,33 +17,33 @@
     %script{ :type => "text/javascript" } var addthis_pub = "foo";
     %script{ :src => "http://s7.addthis.com/js/250/addthis_widget.js", :type => "text/javascript" }
     / ADDTHIS JAVASCRIPT END
-    %h4 Family Assistance and Other Legislation Amendment (2008 Budget and Other Measures) Bill 2009
-    %h5 Second Reading
+    %h4= @section_title
+    %h5= @debate_title
   / end .main
   .sidebar
     %p.nextprev
       %span.up
-        %a{ :href => "/debates/?id=2009-05-14.65.2", :title => "Second Reading" } See the whole debate
+        %a{ :href => "/debates/?id=#{@debate_id}", :title => @debate_title } See the whole debate
   / end .sidebar
   .break
 / end .stripe-*
-%div(class="stripe-2" id="g66.1")
+%div(class="stripe-2" id=@speech_anchor)
   .main
-    %a{ :name => "g66.1" }
+    %a{ :name => @speech_anchor }
     %p.speaker
-      %a{ :href => "/mp/?m=1", :title => "See more information about Tony Abbott" }
-        %img.portrait{ :src => "/images/mps/10001.jpg", :alt => "Photo of Tony Abbott" }
-        %strong> Tony Abbott
+      %a{ :href => "/mp/?m=#{@member_id}", :title => "See more information about #{@member_name}" }
+        %img.portrait{ :src => "/images/mps/#{@person_id}.jpg", :alt => "Photo of #{@member_name}" }
+        %strong>= @member_name
       %small
-        (Warringah, Liberal Party, Shadow Minister for Families, Housing, Community Services and Indigenous Affairs)
-        %a{ :href => "http://www.addthis.com/bookmark.php", :onmouseover => "return addthis_open(this, '', 'http://dev.openaustralia.org/debate/?id=2009-05-14.66.1', '');", :onmouseout => "addthis_close();", :onclick => "return addthis_sendto();" } Share this
+        (#{@member_constituency}, #{@member_party}, Shadow Minister for Families, Housing, Community Services and Indigenous Affairs)
+        %a{ :href => "http://www.addthis.com/bookmark.php", :onmouseover => "return addthis_open(this, '', 'http://dev.openaustralia.org/debate/?id=#{@speech_id}', '');", :onmouseout => "addthis_close();", :onclick => "return addthis_sendto();" } Share this
         |
-        %a{ :href => "http://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:chamber/hansardr/2009-05-14/0000", :title => "The source of this piece of text" } Hansard source
+        %a{ :href => @speech_source, :title => "The source of this piece of text" } Hansard source
       = @speech_text
       %p
         %small
           %strong
-            %a.permalink{ :href => "/debates/?id=2009-05-14.65.2#g66.1", :title => "See this speech within the entire debate" } See this speech in context
+            %a.permalink{ :href => "/debates/?id=#{@debate_id}##{@speech_anchor}", :title => "See this speech within the entire debate" } See this speech in context
   / end .main
   .sidebar
   / end .sidebar
@@ -64,9 +64,9 @@
 #addcomment.stripe-side
   .main
     %p
-      %a{ :href => "/user/login/?ret=%2Fdebate%2F%3Fid%3D2009-05-14.66.1%23addcomment" } Log in
+      %a{ :href => "/user/login/?ret=%2Fdebate%2F%3Fid%3D#{@speech_id}%23addcomment" } Log in
       or
-      %a{ :href => "/user/?pg=join&amp;ret=%2Fdebate%2F%3Fid%3D2009-05-14.66.1%23addcomment" } join
+      %a{ :href => "/user/?pg=join&amp;ret=%2Fdebate%2F%3Fid%3D#{@speech_id}%23addcomment" } join
       to post a public comment.
   / end .main
   .sidebar
