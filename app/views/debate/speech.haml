@@ -1,7 +1,7 @@
 .stripe-head-1
   .main
     %h2 House debates
-    %h3= @date_string
+    %h3= @date.to_formatted_s(:simple_with_day)
   / end .main
   .sidebar
     #help.block
@@ -27,9 +27,9 @@
   / end .sidebar
   .break
 / end .stripe-*
-%div(class="stripe-2" id=@speech_anchor)
+%div{:class => "stripe-2", :id => @speech.anchor}
   .main
-    %a{ :name => @speech_anchor }
+    %a{ :name => @speech.anchor }
     %p.speaker
       %a{ :href => "/mp/?m=#{@member.id}", :title => "See more information about #{@member.name}" }
         %img.portrait{ :src => "/images/mps/#{@member.person_id}.jpg", :alt => "Photo of #{@member.name}" }
@@ -38,12 +38,12 @@
         (#{@member.constituency}, #{@member.party}, Shadow Minister for Families, Housing, Community Services and Indigenous Affairs)
         %a{ :href => "http://www.addthis.com/bookmark.php", :onmouseover => "return addthis_open(this, '', 'http://dev.openaustralia.org/debate/?id=#{@speech.id}', '');", :onmouseout => "addthis_close();", :onclick => "return addthis_sendto();" } Share this
         |
-        %a{ :href => @speech_source, :title => "The source of this piece of text" } Hansard source
+        %a{ :href => @speech.source_url, :title => "The source of this piece of text" } Hansard source
       = @speech_text
       %p
         %small
           %strong
-            %a.permalink{ :href => "/debates/?id=#{@debate_id}##{@speech_anchor}", :title => "See this speech within the entire debate" } See this speech in context
+            %a.permalink{ :href => "/debates/?id=#{@debate_id}##{@speech.anchor}", :title => "See this speech within the entire debate" } See this speech in context
   / end .main
   .sidebar
   / end .sidebar

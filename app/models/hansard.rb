@@ -30,4 +30,13 @@ class Hansard < ActiveRecord::Base
       raise "Unexpected form for gid"
     end
   end
+  
+  # Anchor to identify this speech within a single day
+  def anchor
+    if gid =~ /^uk.org.publicwhip\/debate\/[^.]+\.(.*)/
+      "g" + $~[1]
+    else
+      raise "Unexpected form for gid"
+    end
+  end
 end

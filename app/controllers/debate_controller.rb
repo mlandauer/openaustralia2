@@ -18,14 +18,11 @@ class DebateController < ApplicationController
     @speech = Hansard.find_by_id(params[:id])
     @speech_text = @speech.text_object.display_body
     @date = @speech.hdate
-    @date_string = @date.to_formatted_s(:simple_with_day)
     truncated = "I do not propose to long detain the..."
     @title = "#{truncated}: #{@date.to_formatted_s(:simple)}: House debates"
     @extra_keyword = "#{truncated}: #{@date.to_formatted_s(:simple)}"
     @debates_menu_on = true
     
-    @speech_anchor = "g66.1"
-    @speech_source = @speech.source_url
     # The id for the whole debate that this speech is part of
     @debate_id = "2009-05-14.65.2"
     @debate_title = "Second Reading"
