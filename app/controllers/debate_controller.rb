@@ -12,8 +12,6 @@ class DebateController < ApplicationController
   
   # Display a single speech
   def speech
-    raise "at the moment this method should only work for one id value" unless params[:id] == "2009-05-14.66.1"
-
     @speech = Hansard.find_by_id(params[:id])
     @member = @speech.speaker
 
