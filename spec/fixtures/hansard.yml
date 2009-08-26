@@ -45,3 +45,20 @@ tony_abott_1:
   minor: 0
   created: 2009-05-27 11:21:55
   modified: 2009-05-27 11:21:55
+
+dick_adams_1:
+  epobject_id: 152
+  gid: uk.org.publicwhip/debate/2009-05-14.2.2
+  htype: 12
+  speaker_id: 3
+  major: 1
+  section_id: 148
+  subsection_id: 149
+  hpos: 152
+  hdate: 2009-05-14
+  htime: 13:51:00
+  source_url: "http://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:chamber/hansardr/2009-05-14/0000"
+  minor: 0
+  created: 2009-05-27 11:21:55
+  modified: 2009-05-27 11:21:55
+  
