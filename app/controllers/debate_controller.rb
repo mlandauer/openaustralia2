@@ -13,6 +13,8 @@ class DebateController < ApplicationController
   
   # Display a single speech
   def speech
-    render :layout => false
+    @title = "I do not propose to long detain the...: 14 May 2009: House debates"
+    @extra_keyword = "I do not propose to long detain the...: 14 May 2009"
+    @debates_menu_on = true
   end
 end
