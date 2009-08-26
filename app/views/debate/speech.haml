@@ -1,7 +1,7 @@
 .stripe-head-1
   .main
     %h2 House debates
-    %h3= @date.to_formatted_s(:simple_with_day)
+    %h3= @speech.hdate.to_formatted_s(:simple_with_day)
   / end .main
   .sidebar
     #help.block
@@ -17,13 +17,13 @@
     %script{ :type => "text/javascript" } var addthis_pub = "foo";
     %script{ :src => "http://s7.addthis.com/js/250/addthis_widget.js", :type => "text/javascript" }
     / ADDTHIS JAVASCRIPT END
-    %h4= @speech.section.text_object.body
-    %h5= @speech.subsection.text_object.body
+    %h4= @speech.section
+    %h5= @speech.subsection
   / end .main
   .sidebar
     %p.nextprev
       %span.up
-        %a{ :href => "/debates/?id=#{@speech.subsection.id}", :title => @speech.subsection.text_object.body } See the whole debate
+        %a{ :href => "/debates/?id=#{@speech.subsection.id}", :title => @speech.subsection } See the whole debate
   / end .sidebar
   .break
 / end .stripe-*
@@ -39,7 +39,7 @@
         %a{ :href => "http://www.addthis.com/bookmark.php", :onmouseover => "return addthis_open(this, '', 'http://dev.openaustralia.org/debate/?id=#{@speech.id}', '');", :onmouseout => "addthis_close();", :onclick => "return addthis_sendto();" } Share this
         |
         %a{ :href => @speech.source_url, :title => "The source of this piece of text" } Hansard source
-      = @speech_text
+      = @speech.text_object.display_body
       %p
         %small
           %strong

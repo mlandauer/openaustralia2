@@ -41,4 +41,8 @@ class Hansard < ActiveRecord::Base
       raise "Unexpected form for gid"
     end
   end
+  
+  def to_s
+    text_object.body
+  end
 end
