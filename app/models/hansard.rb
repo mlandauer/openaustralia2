@@ -22,4 +22,12 @@ class Hansard < ActiveRecord::Base
   def Hansard.find_by_id(id)
     find_by_gid("uk.org.publicwhip/debate/#{id}")
   end
+  
+  def id
+    if gid =~ /^uk.org.publicwhip\/debate\/(.*)/
+      $~[1]
+    else
+      raise "Unexpected form for gid"
+    end
+  end
 end

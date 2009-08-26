@@ -24,9 +24,8 @@ class DebateController < ApplicationController
     @extra_keyword = "#{truncated}: #{@date.to_formatted_s(:simple)}"
     @debates_menu_on = true
     
-    @speech_id = params[:id]
     @speech_anchor = "g66.1"
-    @speech_source = 'http://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:chamber/hansardr/2009-05-14/0000'
+    @speech_source = @speech.source_url
     # The id for the whole debate that this speech is part of
     @debate_id = "2009-05-14.65.2"
     @debate_title = "Second Reading"
