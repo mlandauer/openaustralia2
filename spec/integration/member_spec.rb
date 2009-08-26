@@ -82,11 +82,11 @@ describe "MembersController" do
   end
   
   it "should render a debate correctly" do
-    compare_with_php("/debates/?id=2009-05-14.65.2", "debates")
+    compare_with_php("/debates/?id=2009-05-14.1.2", "debates")
   end
   
   it "should render a single speech correctly" do
-    compare_with_php("/debate/?id=2009-05-14.66.1", "speech")
+    compare_with_php("/debate/?id=2009-05-14.2.1", "speech")
   end
 end
 

@@ -1,6 +1,6 @@
 class DebateController < ApplicationController
   def show
-    raise "at the moment this method should only work for one id value" unless params[:id] == "2009-05-14.65.2"
+    raise "at the moment this method should only work for one id value" unless params[:id] == "2009-05-14.1.2"
     
     @subheading = Hansard.find_by_gid("uk.org.publicwhip/debate/#{params[:id]}")
     @subheading_text = @subheading.to_s

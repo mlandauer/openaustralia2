@@ -1,6 +1,6 @@
 section_1:
   epobject_id: 148
-  gid: uk.org.publicwhip/debate/2009-05-14.65.1
+  gid: uk.org.publicwhip/debate/2009-05-14.1.1
   htype: 10
   speaker_id: 0
   major: 1
@@ -16,7 +16,7 @@ section_1:
 
 subsection_1:
   epobject_id: 149
-  gid: uk.org.publicwhip/debate/2009-05-14.65.2
+  gid: uk.org.publicwhip/debate/2009-05-14.1.2
   htype: 11
   speaker_id: 0
   major: 1
@@ -32,7 +32,7 @@ subsection_1:
 
 tony_abott_1:
   epobject_id: 151
-  gid: uk.org.publicwhip/debate/2009-05-14.66.1
+  gid: uk.org.publicwhip/debate/2009-05-14.2.1
   htype: 12
   speaker_id: 1
   major: 1
