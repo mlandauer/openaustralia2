@@ -45,4 +45,8 @@ class Hansard < ActiveRecord::Base
   def to_s
     text_object.body
   end
+  
+  def just_text
+    Hpricot(text_object.body).inner_text
+  end
 end

@@ -17,8 +17,7 @@ class DebateController < ApplicationController
     @speech = Hansard.find_by_id(params[:id])
     @member = @speech.speaker
 
-    truncated = "I do not propose to long detain the..."
-    @titles = [truncated, @speech.hdate.to_formatted_s(:simple), "House debates"]
+    @titles = [@speech.just_text, @speech.hdate.to_formatted_s(:simple), "House debates"]
     @debates_menu_on = true
   end
 end
