@@ -4,11 +4,8 @@ class DebateController < ApplicationController
     
     @subsection = Hansard.find_by_id(params[:id])
     # Temporary
-    @speech1 = Hansard.find_by_id("2009-05-14.2.1")
-    @member1 = @speech1.speaker
-    @speech2 = Hansard.find_by_id("2009-05-14.2.2")
-    @member2 = @speech2.speaker
-
+    @speeches = [Hansard.find_by_id("2009-05-14.2.1"), Hansard.find_by_id("2009-05-14.2.2")]
+    
     @titles = [@subsection.to_s, "14 May 2009", "House debates"]
     # Hack to deal with not entirely consistent behaviour of "Debates" menu
     @debates_menu_on = true

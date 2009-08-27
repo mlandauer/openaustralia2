@@ -25,8 +25,7 @@
   / end .sidebar
   .break
 / end .stripe-*
-= render :partial => "speech", :locals => {:speech => @speech1, :member => @member1}
-= render :partial => "speech", :locals => {:speech => @speech2, :member => @member2}
+= render :partial => "speech", :collection => @speeches
 .stripe-foot
   .main
     &nbsp;
