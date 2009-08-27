@@ -24,8 +24,12 @@
     %p.nextprev
       %span.up
         %a{ :href => "/debates/?id=#{@speech.subsection.id}", :title => @speech.subsection } See the whole debate
-      %span.next
-        %a{ :href => "/debate/?id=#{@next_speech.id}", :title => @next_speech.speaker.name} Next speaker &raquo;
+      - if @previous_speech
+        %span.prev
+          %a{ :href => "/debate/?id=#{@previous_speech.id}", :title => @previous_speech.speaker.name} &laquo; Previous speaker
+      - if @next_speech
+        %span.next
+          %a{ :href => "/debate/?id=#{@next_speech.id}", :title => @next_speech.speaker.name} Next speaker &raquo;
   / end .sidebar
   .break
 / end .stripe-*
@@ -37,7 +41,11 @@
         %img.portrait{ :src => "/images/mps/#{@member.person_id}.jpg", :alt => "Photo of #{@member.name}" }
         %strong>= @member.name
       %small
-        (#{@member.constituency}, #{@member.party}, Shadow Minister for Families, Housing, Community Services and Indigenous Affairs)
+        - if @member.current_minister_offices.empty?
+          (#{@member.constituency}, #{@member.party})
+        - else
+          -# Display only the first of the ministerial positions. I don't know if this is "correct".
+          (#{@member.constituency}, #{@member.party}, #{@member.current_minister_offices[0].position})
         %a{ :href => "http://www.addthis.com/bookmark.php", :onmouseover => "return addthis_open(this, '', 'http://dev.openaustralia.org/debate/?id=#{@speech.id}', '');", :onmouseout => "addthis_close();", :onclick => "return addthis_sendto();" } Share this
         |
         %a{ :href => @speech.source_url, :title => "The source of this piece of text" } Hansard source

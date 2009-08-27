@@ -13,6 +13,7 @@ class DebateController < ApplicationController
   # Display a single speech
   def speech
     @speech = Hansard.find_by_id(params[:id])
+    @previous_speech = @speech.previous_speech_within_subsection
     @next_speech = @speech.next_speech_within_subsection
     @member = @speech.speaker
 
