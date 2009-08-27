@@ -33,32 +33,7 @@
   / end .sidebar
   .break
 / end .stripe-*
-%div{:class => "stripe-2", :id => @speech.anchor}
-  .main
-    %a{ :name => @speech.anchor }
-    %p.speaker
-      %a{ :href => "/mp/?m=#{@member.id}", :title => "See more information about #{@member.name}" }
-        %img.portrait{ :src => "/images/mps/#{@member.person_id}.jpg", :alt => "Photo of #{@member.name}" }
-        %strong>= @member.name
-      %small
-        - if @member.current_minister_offices.empty?
-          (#{@member.constituency}, #{@member.party})
-        - else
-          -# Display only the first of the ministerial positions. I don't know if this is "correct".
-          (#{@member.constituency}, #{@member.party}, #{@member.current_minister_offices[0].position})
-        %a{ :href => "http://www.addthis.com/bookmark.php", :onmouseover => "return addthis_open(this, '', 'http://dev.openaustralia.org/debate/?id=#{@speech.id}', '');", :onmouseout => "addthis_close();", :onclick => "return addthis_sendto();" } Share this
-        |
-        %a{ :href => @speech.source_url, :title => "The source of this piece of text" } Hansard source
-      = @speech.text_object.display_body
-      %p
-        %small
-          %strong
-            %a.permalink{ :href => "/debates/?id=#{@speech.subsection.id}##{@speech.anchor}", :title => "See this speech within the entire debate" } See this speech in context
-  / end .main
-  .sidebar
-  / end .sidebar
-  .break
-/ end .stripe-*
+= render :partial => "speech", :locals => {:speech => @speech, :single_speech => true}
 #comments.stripe-side
   .main
     %a{ :name => "comments" }

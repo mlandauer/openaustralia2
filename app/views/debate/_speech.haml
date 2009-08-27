@@ -14,15 +14,22 @@
           (#{member.constituency}, #{member.party}, #{member.current_minister_offices[0].position})
         %a{ :href => "http://www.addthis.com/bookmark.php", :onmouseover => "return addthis_open(this, '', 'http://dev.openaustralia.org/debate/?id=#{speech.id}', '');", :onmouseout => "addthis_close();", :onclick => "return addthis_sendto();" } Share this
         |
-        %a.permalink{ :href => "/debate/?id=#{speech.id}", :title => "Copy this URL to link directly to this piece of text" } Link to this
-        |
+        - unless single_speech
+          %a.permalink{ :href => "/debate/?id=#{speech.id}", :title => "Copy this URL to link directly to this piece of text" } Link to this
+          |
         %a{ :href => speech.source_url, :title => "The source of this piece of text" } Hansard source
       = speech.text_object.display_body
+      - if single_speech
+        %p
+          %small
+            %strong
+              %a.permalink{ :href => "/debates/?id=#{@speech.subsection.id}##{@speech.anchor}", :title => "See this speech within the entire debate"} See this speech in context
   / end .main
   .sidebar
-    %p.comment-teaser
-      %a{ :href => "/user/prompt/?ret=%2Fdebate%2F%3Fid%3D#{speech.id}#addcomment", :title => "Comment on this" }
-        %strong Add your comment
+    - unless single_speech
+      %p.comment-teaser
+        %a{ :href => "/user/prompt/?ret=%2Fdebate%2F%3Fid%3D#{speech.id}#addcomment", :title => "Comment on this" }
+          %strong Add your comment
   / end .sidebar
   .break
 / end .stripe-*
