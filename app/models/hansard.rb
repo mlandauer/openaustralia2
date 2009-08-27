@@ -50,6 +50,11 @@ class Hansard < ActiveRecord::Base
     Hpricot(text_object.body).inner_text
   end
   
+  # Returns all speeches and procedurals in the given subsection
+  def Hansard.speeches_in_subsection(subsection)
+    all(:conditions => ['subsection_id = ?', subsection.epobject_id], :order => "hpos ASC")
+  end
+  
   def previous_speech_within_subsection
     Hansard.first(
       :conditions => ['hdate = ? AND hpos < ? AND subsection_id = ? AND (htype != 10 AND htype != 11)',
