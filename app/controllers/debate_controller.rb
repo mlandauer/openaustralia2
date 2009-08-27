@@ -2,10 +2,12 @@ class DebateController < ApplicationController
   def debate
     raise "at the moment this method should only work for one id value" unless params[:id] == "2009-05-14.1.2"
     
-    @subheading = Hansard.find_by_gid("uk.org.publicwhip/debate/#{params[:id]}")
-    @subheading_text = @subheading.to_s
-    
-    @titles = [@subheading_text, "14 May 2009", "House debates"]
+    @subsection = Hansard.find_by_id(params[:id])
+    # Temporary
+    @speech = Hansard.find_by_id("2009-05-14.2.1")
+    @member = @speech.speaker
+
+    @titles = [@subsection.to_s, "14 May 2009", "House debates"]
     # Hack to deal with not entirely consistent behaviour of "Debates" menu
     @debates_menu_on = true
   end

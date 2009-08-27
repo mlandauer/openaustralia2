@@ -25,25 +25,29 @@
   / end .sidebar
   .break
 / end .stripe-*
-%div(class="stripe-2" id="g2.1")
+%div{:class => "stripe-2", :id => @speech.anchor}
   .main
-    %a{ :name => "g2.1" }
+    %a{ :name => @speech.anchor }
     %p.speaker
-      %a{ :href => "/mp/?m=1", :title => "See more information about Tony Abbott" }
-        %img.portrait{ :src => "/images/mps/10001.jpg", :alt => "Photo of Tony Abbott" }
-        %strong> Tony Abbott
+      %a{ :href => "/mp/?m=#{@member.id}", :title => "See more information about #{@member.name}" }
+        %img.portrait{ :src => "/images/mps/#{@member.person_id}.jpg", :alt => "Photo of #{@member.name}" }
+        %strong>= @member.name
       %small
-        (Warringah, Liberal Party, Shadow Minister for Families, Housing, Community Services and Indigenous Affairs)
-        %a{ :href => "http://www.addthis.com/bookmark.php", :onmouseover => "return addthis_open(this, '', 'http://dev.openaustralia.org/debate/?id=2009-05-14.2.1', '');", :onmouseout => "addthis_close();", :onclick => "return addthis_sendto();" } Share this
+        - if @member.current_minister_offices.empty?
+          (#{@member.constituency}, #{@member.party})
+        - else
+          -# Display only the first of the ministerial positions. I don't know if this is "correct".
+          (#{@member.constituency}, #{@member.party}, #{@member.current_minister_offices[0].position})
+        %a{ :href => "http://www.addthis.com/bookmark.php", :onmouseover => "return addthis_open(this, '', 'http://dev.openaustralia.org/debate/?id=#{@speech.id}', '');", :onmouseout => "addthis_close();", :onclick => "return addthis_sendto();" } Share this
         |
-        %a.permalink{ :href => "/debate/?id=2009-05-14.2.1", :title => "Copy this URL to link directly to this piece of text" } Link to this
+        %a.permalink{ :href => "/debate/?id=#{@speech.id}", :title => "Copy this URL to link directly to this piece of text" } Link to this
         |
-        %a{ :href => "http://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:chamber/hansardr/2009-05-14/0000", :title => "The source of this piece of text" } Hansard source
-      <p>Hello, <a href="http://www.liberal.org.au/" rel="nofollow">my</a> name is Tony Abbott.</p>
+        %a{ :href => @speech.source_url, :title => "The source of this piece of text" } Hansard source
+      = @speech.text_object.display_body
   / end .main
   .sidebar
     %p.comment-teaser
-      %a{ :href => "/user/prompt/?ret=%2Fdebate%2F%3Fid%3D2009-05-14.2.1#addcomment", :title => "Comment on this" }
+      %a{ :href => "/user/prompt/?ret=%2Fdebate%2F%3Fid%3D#{@speech.id}#addcomment", :title => "Comment on this" }
         %strong Add your comment
   / end .sidebar
   .break
