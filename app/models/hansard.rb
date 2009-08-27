@@ -49,4 +49,11 @@ class Hansard < ActiveRecord::Base
   def just_text
     Hpricot(text_object.body).inner_text
   end
+  
+  def next_speech_within_subsection
+    Hansard.first(
+      :conditions => ['hdate = ? AND hpos > ? AND subsection_id = ? AND (htype != 10 AND htype != 11)',
+        hdate, hpos, subsection_id],
+      :order => "hpos ASC")
+  end  
 end

@@ -25,7 +25,7 @@
       %span.up
         %a{ :href => "/debates/?id=#{@speech.subsection.id}", :title => @speech.subsection } See the whole debate
       %span.next
-        %a{ :href => "/debate/?id=2009-05-14.2.2", :title => "Dick Adams"} Next speaker &raquo;
+        %a{ :href => "/debate/?id=#{@next_speech.id}", :title => @next_speech.speaker.name} Next speaker &raquo;
   / end .sidebar
   .break
 / end .stripe-*

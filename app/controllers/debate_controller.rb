@@ -13,6 +13,7 @@ class DebateController < ApplicationController
   # Display a single speech
   def speech
     @speech = Hansard.find_by_id(params[:id])
+    @next_speech = @speech.next_speech_within_subsection
     @member = @speech.speaker
 
     @titles = [@speech.just_text, @speech.hdate.to_formatted_s(:simple), "House debates"]
