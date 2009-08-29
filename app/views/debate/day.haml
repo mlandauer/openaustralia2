@@ -2,7 +2,7 @@
 %html
   %head
     %meta{ :content => "text/html; charset=iso-8859-1", "http-equiv" => "Content-Type" }
-    %title 14 May 2009: House debates (OpenAustralia.org)
+    %title #{@titles.map{|t| truncate(t, :length => 38)}.join(': ')} (OpenAustralia.org)
     %meta{ :name => "description", :content => "Making parliament easy." }
     %meta{ :name => "keywords", :content => "Parliament, government, House of Representatives, Senate, Senator, MP, Member of Parliament, MPs, Australia, Australian, 14 May 2009" }
     %meta{ :name => "verify-v1", :content => "5FBaCDi8kCKdo4s64NEdB5EOJDNc310SwcLLYHmEbgg=" }
