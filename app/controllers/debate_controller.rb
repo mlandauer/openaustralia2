@@ -8,6 +8,11 @@ class DebateController < ApplicationController
       @extra_keywords = @date.to_formatted_s(:simple)
       @title = "#{@extra_keywords}: House debates"
       @debates_menu_on = true
+      
+      @section = Hansard.find_by_id("2009-05-14.1.1")
+      @subsection = Hansard.find_by_id("2009-05-14.1.2")
+      @speech = Hansard.find_by_id("2009-05-14.2.1")
+      
       render :day
     else
       @subsection = Hansard.find_by_id(params[:id])

@@ -67,5 +67,15 @@ class Hansard < ActiveRecord::Base
       :conditions => ['hdate = ? AND hpos > ? AND subsection_id = ? AND (htype != 10 AND htype != 11)',
         hdate, hpos, subsection_id],
       :order => "hpos ASC")
-  end  
+  end
+  
+  def no_speeches
+    if section?
+      Hansard.count(:conditions => {:section_id => epobject_id, :subsection_id => 0, :htype => 12})
+    elsif subsection?
+      Hansard.count(:conditions => {:section_id => section_id, :subsection_id => epobject_id, :htype => 12})      
+    else
+      raise "Not yet supporting no_speeches for subsections"
+    end
+  end
 end
