@@ -5,8 +5,9 @@ class DebateController < ApplicationController
     if params[:d]
       # A single day of debates in the House of Representatives
       @title = "14 May 2009: House debates"
-      @extra_keywords = @title
-      render :day, :layout => false
+      @extra_keywords = "14 May 2009"
+      @debates_menu_on = true
+      render :day
     else
       @subsection = Hansard.find_by_id(params[:id])
       @speeches = Hansard.speeches_in_subsection(@subsection)
