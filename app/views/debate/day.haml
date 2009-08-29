@@ -1,7 +1,7 @@
 .stripe-side
   .main
     %h2 House debates
-    %h3 Thursday, 14 May 2009
+    %h3= @date.to_formatted_s(:simple_with_day)
     %ul#hansard-day
       %li
         %a{ :href => "/debates/?id=2009-05-14.1.1" }
@@ -19,13 +19,13 @@
   .sidebar
     %p.nextprev
       %span.up
-        %a{ :href => "/debates/?y=2009", :title => "" } All of 2009's debates
+        %a{ :href => "/debates/?y=#{@date.year}", :title => "" } All of #{@date.year}'s debates
     .block
       %h4 Debates this month
       .blockbody
         = render :partial => "calendar"
         %p
-          %a{ :href => "/debates/?y=2009" } See all of 2009
+          %a{ :href => "/debates/?y=#{@date.year}" } See all of #{@date.year}
     / end .block
     #help.block
       %h4 What are Debates?

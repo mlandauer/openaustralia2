@@ -4,8 +4,9 @@ class DebateController < ApplicationController
   def debate
     if params[:d]
       # A single day of debates in the House of Representatives
-      @title = "14 May 2009: House debates"
-      @extra_keywords = "14 May 2009"
+      @date = Date.parse(params[:d])
+      @extra_keywords = @date.to_formatted_s(:simple)
+      @title = "#{@extra_keywords}: House debates"
       @debates_menu_on = true
       render :day
     else
