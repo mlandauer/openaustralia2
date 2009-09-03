@@ -52,7 +52,17 @@ class Hansard < ActiveRecord::Base
   
   # Returns all speeches and procedurals in the given subsection
   def Hansard.speeches_in_subsection(subsection)
-    all(:conditions => ['subsection_id = ?', subsection.epobject_id], :order => "hpos ASC")
+    raise "Not a subsection" unless subsection.subsection?
+    all(:conditions => {:subsection_id => subsection.epobject_id}, :order => "hpos ASC")
+  end
+  
+  def Hansard.subsections_in_section(section)
+    raise "Not a section" unless section.section?
+    all(:conditions => {:section_id => section.epobject_id, :htype => 11}, :order => "hpos ASC")
+  end
+  
+  def Hansard.reps_sections_on_date(date)
+    all(:conditions => {:htype => 10, :hdate => date, :major => 1}, :order => "hpos ASC")
   end
   
   def previous_speech_within_subsection
@@ -75,7 +85,7 @@ class Hansard < ActiveRecord::Base
     elsif subsection?
       Hansard.count(:conditions => {:section_id => section_id, :subsection_id => epobject_id, :htype => 12})      
     else
-      raise "Not yet supporting no_speeches for subsections"
+      raise "Only supporting no_speeches for subsections and sections"
     end
   end
 end

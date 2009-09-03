@@ -3,17 +3,19 @@
     %h2 House debates
     %h3= @date.to_formatted_s(:simple_with_day)
     %ul#hansard-day
-      %li
-        %a{ :href => "/debates/?id=#{@section.id}" }
-          %strong= @section
-        %small (#{pluralize(@section.no_speeches, 'speech')})
-        %ul
-          %li
-            %a{ :href => "/debates/?id=#{@subsection.id}" }
-              %strong= @subsection
-            %small (#{pluralize(@subsection.no_speeches, 'speech')})
-            %br
-            %span.excerpt-debates= @speech.just_text
+      - Hansard.reps_sections_on_date(@date).each do |section|
+        %li
+          %a{ :href => "/debates/?id=#{section.id}" }
+            %strong= section
+          %small (#{pluralize(section.no_speeches, 'speech')})
+          %ul
+            - Hansard.subsections_in_section(section).each do |subsection|
+              %li
+                %a{ :href => "/debates/?id=#{subsection.id}" }
+                  %strong= subsection
+                %small (#{pluralize(subsection.no_speeches, 'speech')})
+                %br
+                %span.excerpt-debates= Hansard.speeches_in_subsection(subsection).first.just_text
     / end hansard-day
   / end .main
   .sidebar
