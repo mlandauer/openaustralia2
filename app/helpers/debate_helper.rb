@@ -13,17 +13,13 @@ module DebateHelper
       b.tbody do
         # The day of the week for the first day of the month (Monday is 0)
         day_first_of_month = (Date.new(year, month, 1).wday - 1).modulo(7)
-        b.tr do
-          b.td({:colspan => day_first_of_month}, "&nbsp;") unless day_first_of_month == 0
-          (1..(7-day_first_of_month)).each do |day|
-            b.td day
-          end
-        end
-        current_day = 8 - day_first_of_month
+        current_day = 1 - day_first_of_month
+
         while Date.valid_date?(year, month, current_day) do
           b.tr do
+            b.td({:colspan => day_first_of_month}, "&nbsp;") if current_day < 1
             (current_day..(current_day + 6)).each do |day|
-              b.td day if Date.valid_date?(year, month, day)
+              b.td day if day > 0 && Date.valid_date?(year, month, day)
             end
           end
           current_day += 7
