@@ -4,7 +4,7 @@ describe DebateHelper do
   it "should render a cute little calendar for the month" do
     # Calendar for January 2009
     b = Builder::XmlMarkup.new
-    helper.calendar(2009, 1).should == b.table do
+    helper.calendar(2009, 1, Date.new(2009,1,14)).should == b.table do
       b.caption 'January 2009'
       b.thead do
         b.tr do
@@ -26,7 +26,9 @@ describe DebateHelper do
           (5..11).each {|day| b.td day}
         end
         b.tr do
-          (12..18).each {|day| b.td day}
+          (12..13).each {|day| b.td day}
+          b.td({:class => "on"}, 14)
+          (15..18).each {|day| b.td day}
         end
         b.tr do
           (19..25).each {|day| b.td day}
