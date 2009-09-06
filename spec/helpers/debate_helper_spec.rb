@@ -6,7 +6,7 @@ describe DebateHelper do
     b = Builder::XmlMarkup.new
     # Dates in recess
     recess = [(Date.new(2009,1,1)..Date.new(2009,1,3)), (Date.new(2009,1,20)..Date.new(2009,1,22))]
-    helper.calendar(2009, 1, Date.new(2009,1,14), recess).should == b.table do
+    helper.calendar(2009, 1, Date.new(2009,1,14), recess).should == b.table(:border => 0) do
       b.caption 'January 2009'
       b.thead do
         b.tr do
@@ -21,7 +21,7 @@ describe DebateHelper do
       end
       b.tbody do
         b.tr do
-          b.td({:colspan => "3"}, "&nbsp;")
+          b.td({:colspan => "3"}) { b << "&nbsp;" }
           (1..3).each {|day| b.td({:class => "no", :title => "recess"}, day)}
           b.td 4
         end

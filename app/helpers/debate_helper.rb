@@ -3,7 +3,7 @@ module DebateHelper
     raise "current_date should be in given month" unless current_date.year == year && current_date.month == month
 
     b = Builder::XmlMarkup.new
-    b.table do
+    b.table(:border => 0) do
       b.caption "#{Date::MONTHNAMES[month]} #{year}"
       b.thead do
         b.tr do
@@ -19,7 +19,9 @@ module DebateHelper
 
         while Date.valid_date?(year, month, current_day) do
           b.tr do
-            b.td({:colspan => day_first_of_month}, "&nbsp;") if current_day < 1
+            if current_day < 1
+              b.td({:colspan => day_first_of_month}) { b << "&nbsp;" }
+            end
             (current_day..(current_day + 6)).each do |day|
               if day > 0 && Date.valid_date?(year, month, day)
                 date = Date.new(year, month, day)
