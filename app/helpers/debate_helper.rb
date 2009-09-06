@@ -1,5 +1,5 @@
 module DebateHelper
-  def calendar(year, month, current_date)
+  def calendar(year, month, current_date, recess)
     raise "current_date should be in given month" unless current_date.year == year && current_date.month == month
 
     b = Builder::XmlMarkup.new
@@ -22,8 +22,11 @@ module DebateHelper
             b.td({:colspan => day_first_of_month}, "&nbsp;") if current_day < 1
             (current_day..(current_day + 6)).each do |day|
               if day > 0 && Date.valid_date?(year, month, day)
-                if Date.new(year, month, day) == current_date
+                date = Date.new(year, month, day)
+                if date == current_date
                   b.td({:class => "on"}, day)
+                elsif recess.find {|r| r.include?(date)}
+                  b.td({:class => "no", :title => "recess"}, day)
                 else
                   b.td day
                 end
