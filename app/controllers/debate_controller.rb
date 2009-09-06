@@ -2,12 +2,15 @@ class DebateController < ApplicationController
   include ActionView::Helpers::TextHelper
   
   def debate
+    # Dates that parliament is in recess
+    @recess = [(Date.new(2009,5,1)..Date.new(2009,5,11)), (Date.new(2009,5,15)..Date.new(2009,5,24))]
+
     if params[:d]
       # A single day of debates in the House of Representatives
       @date = Date.parse(params[:d])
       @extra_keywords = @date.to_formatted_s(:simple)
       @title = "#{@extra_keywords}: House debates"
-      @debates_menu_on = true    
+      @debates_menu_on = true
       render :day
     else
       @subsection = Hansard.find_by_id(params[:id])

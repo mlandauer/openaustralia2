@@ -25,7 +25,9 @@
     .block
       %h4 Debates this month
       .blockbody
-        = render :partial => "calendar"
+        .calendar
+          = calendar(@date.year, @date.month, @date, @recess)
+        / end calendar
         %p
           %a{ :href => "/debates/?y=#{@date.year}" } See all of #{@date.year}
     / end .block
