@@ -96,5 +96,9 @@ describe "MembersController" do
   it "should render a list of all debates on a single day in the House of Representatives correctly" do
     compare_with_php("/debates/?d=2009-05-14", "debates_2009_05_14")
   end
+  
+  it "should render the calendar for the year 2009" do
+    compare_with_php("/debates/?y=2009", "debates_2009")
+  end
 end
 

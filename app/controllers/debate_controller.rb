@@ -12,6 +12,9 @@ class DebateController < ApplicationController
       @title = "#{@extra_keywords}: House debates"
       @debates_menu_on = true
       render :day
+    elsif params[:y]
+      # A whole year of debates in the House of Representatives
+      render :year, :layout => false
     else
       @subsection = Hansard.find_by_id(params[:id])
       @speeches = Hansard.speeches_in_subsection(@subsection)
