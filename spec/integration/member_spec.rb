@@ -98,7 +98,7 @@ describe "MembersController" do
   end
   
   it "should render the calendar for the year 2009" do
-    compare_with_php("/debates/?y=2009", "debates_2009")
+    compare_with_php("/debates/?y=2009", "debates_2009", true)
   end
 end
 
