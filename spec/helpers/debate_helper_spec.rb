@@ -40,6 +40,7 @@ describe DebateHelper do
         end
         b.tr do
           (26..31).each {|day| b.td day}
+          b.td({:colspan => 1}) { b << "&nbsp;" }
         end
       end
     end

@@ -1,7 +1,5 @@
 module DebateHelper
   def calendar(year, month, current_date, recess)
-    raise "current_date should be in given month" unless current_date.year == year && current_date.month == month
-
     b = Builder::XmlMarkup.new
     b.table(:border => 0) do
       b.caption "#{Date::MONTHNAMES[month]} #{year}"
@@ -15,6 +13,11 @@ module DebateHelper
       b.tbody do
         # The day of the week for the first day of the month (Monday is 0)
         day_first_of_month = (Date.new(year, month, 1).wday - 1).modulo(7)
+        if month == 12
+          no_days_in_month = (Date.new(year + 1, 1, 1) - 1).mday
+        else
+          no_days_in_month = (Date.new(year, month + 1, 1) - 1).mday
+        end
         current_day = 1 - day_first_of_month
 
         while Date.valid_date?(year, month, current_day) do
@@ -33,6 +36,9 @@ module DebateHelper
                   b.td day
                 end
               end
+            end
+            if current_day > 0 && !Date.valid_date?(year, month, current_day + 6)
+              b.td(:colspan => (6 - no_days_in_month + current_day)) { b << "&nbsp;" }
             end
           end
           current_day += 7
