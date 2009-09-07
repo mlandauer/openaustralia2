@@ -5,9 +5,7 @@
     %h3
       Debates for  2009
     - (1..12).each do |month|
-      .calendar
-        = calendar(2009, month, Date.today, @recess, [Date.new(2009,5,14)])
-      / end calendar
+      = calendar(2009, month, Date.today, @recess, [Date.new(2009,5,14)])
   / end .main
   .sidebar
     %p.nextprev
