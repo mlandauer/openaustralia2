@@ -1,5 +1,5 @@
 module DebateHelper
-  def calendar(year, month, current_date, recess)
+  def calendar(year, month, current_date, recess, linked)
     b = Builder::XmlMarkup.new
     b.table(:border => 0) do
       b.caption "#{Date::MONTHNAMES[month]} #{year}"
@@ -29,11 +29,16 @@ module DebateHelper
               if day > 0 && Date.valid_date?(year, month, day)
                 date = Date.new(year, month, day)
                 if date == current_date
-                  b.td({:class => "on"}, day)
+                  atts = {:class => "on"}
                 elsif recess.find {|r| r.include?(date)}
-                  b.td({:class => "no", :title => "recess"}, day)
+                  atts = {:class => "no", :title => "recess"}
                 else
-                  b.td day
+                  atts = {}
+                end
+                if linked.include?(date)
+                  b.td(atts) { b.a({:href => "/debates/?d=#{date}"}, day) }
+                else
+                  b.td(atts, day)
                 end
               end
             end
