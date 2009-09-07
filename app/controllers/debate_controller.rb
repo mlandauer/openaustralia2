@@ -37,8 +37,9 @@ class DebateController < ApplicationController
       @title = "#{@extra_keywords}: House debates"
       render :day
     elsif params[:y]
+      @year = params[:y].to_i
       # A whole year of debates in the House of Representatives
-      @extra_keywords = "Debates for  2009"
+      @extra_keywords = "Debates for  #{@year}"
       @title = "#{@extra_keywords}: House debates"
       render :year
     else
