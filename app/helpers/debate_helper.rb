@@ -20,7 +20,7 @@ module DebateHelper
         end
         current_day = 1 - day_first_of_month
 
-        while Date.valid_date?(year, month, current_day) do
+        while current_day <= no_days_in_month do
           b.tr do
             if current_day < 1
               b.td({:colspan => day_first_of_month}) { b << "&nbsp;" }
