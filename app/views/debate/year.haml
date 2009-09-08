@@ -3,7 +3,7 @@
     %h2 House debates
     %h3 Debates for  #{@year}
     - (1..12).each do |month|
-      = calendar(@year, month, Date.today, @recess, [Date.new(2009,5,14)])
+      = calendar(@year, month, Date.today, @recess, [Date.new(2009,5,13),Date.new(2009,5,14)])
   / end .main
   .sidebar
     %p.nextprev

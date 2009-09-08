@@ -102,7 +102,7 @@ describe "MembersController" do
   
   it "should render the calendar for the year 2009" do
     # Because we're using a cached version to compare with we need to change the effective date
-    Date.stub!(:today).and_return(Date.new(2009,9,7))
+    Date.stub!(:today).and_return(Date.new(2009,9,8))
     compare_with_php("/debates/?y=2009", "debates_2009", true)
   end
   
