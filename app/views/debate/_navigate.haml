@@ -1,5 +1,5 @@
 %p.nextprev
   %span.up
-    %a{ :href => "/debates/?d=#{@date}", :title => "" } All House debates on #{@date.to_formatted_s(:simple)}
+    %a{ :href => "/debates/?d=#{@date}", :title => "" } All House debates on #{@date.to_s(:simple)}
   %span.prev
     %a{ :href => "/debates/?id=#{@previous_debate.id}", :title => @previous_debate } &laquo; Previous debate

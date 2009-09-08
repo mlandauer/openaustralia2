@@ -1,7 +1,7 @@
 .stripe-side
   .main
     %h2 House debates
-    %h3= @date.to_formatted_s(:simple_with_day)
+    %h3= @date.to_s(:simple_with_day)
     %ul#hansard-day
       - Hansard.reps_sections_on_date(@date).each do |section|
         %li
@@ -24,10 +24,10 @@
         %a{ :href => "/debates/?y=#{@date.year}", :title => "" } All of #{@date.year}'s debates
       - if @previous_date
         %span.prev
-          %a{ :href => "/debates/?d=#{@previous_date}", :title => @previous_date.to_formatted_s(:simple) } &laquo; Previous day
+          %a{ :href => "/debates/?d=#{@previous_date}", :title => @previous_date.to_s(:simple) } &laquo; Previous day
       - if @next_date
         %span.next
-          %a{ :href => "/debates/?d=#{@next_date}", :title => @next_date.to_formatted_s(:simple) } Next day &raquo;
+          %a{ :href => "/debates/?d=#{@next_date}", :title => @next_date.to_s(:simple) } Next day &raquo;
     .block
       %h4 Debates this month
       .blockbody
