@@ -10,6 +10,6 @@ describe MemberHelper do
   end
   
   it "should display time in a simple am/pm form" do
-    Time.parse("16:30").to_s(:time_12).should == "04:30 pm"
+    Time.parse("16:30").to_s(:time_12).should == "4:30 pm"
   end
 end
