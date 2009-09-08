@@ -29,9 +29,12 @@ class DebateController < ApplicationController
       render :year
     else
       @subsection = Hansard.find_by_id(params[:id])
+      @section = @subsection.section
+      @date = @subsection.hdate
       @speeches = Hansard.speeches_in_subsection(@subsection)
       @extra_keywords = "#{truncate(@subsection.to_s, :length => 38)}: #{@subsection.hdate.to_formatted_s(:simple)}"
       @title = "#{@extra_keywords}: House debates"
+      @previous_debate = Hansard.find_by_id("2009-05-14.1.1")
     end
   end
   

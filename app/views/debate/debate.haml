@@ -1,7 +1,7 @@
 .stripe-head-1
   .main
     %h2 House debates
-    %h3 Thursday, 14 May 2009
+    %h3= @date.to_formatted_s(:simple_with_day)
   / end .main
   .sidebar
     #help.block
@@ -17,8 +17,8 @@
     %script{ :type => "text/javascript" } var addthis_pub = "foo";
     %script{ :src => "http://s7.addthis.com/js/250/addthis_widget.js", :type => "text/javascript" }
     / ADDTHIS JAVASCRIPT END
-    %h4 Section 1
-    %h5 Subsection 1
+    %h4= @section
+    %h5= @subsection
   / end .main
   .sidebar
     = render :partial => "navigate"
