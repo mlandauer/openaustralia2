@@ -8,4 +8,8 @@ describe MemberHelper do
   it "should display the day of the week as well" do
     Date.new(2008, 11, 5).to_s(:simple_with_day).should == "Wednesday, 5 November 2008"    
   end
+  
+  it "should display time in a simple am/pm form" do
+    Time.parse("16:30").to_s(:time_12).should == "04:30 pm"
+  end
 end
