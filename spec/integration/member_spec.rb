@@ -23,7 +23,8 @@ describe "MembersController" do
 
   def tidy(text)
     File.open("temp.html", "w") {|f| f.write(text) }
-    system("tidy -q -m temp.html")
+    # Requires HTML Tidy (http://tidy.sourceforge.net/) version 14 June 2007 or later
+    system("tidy --sort-attributes alpha -q -m temp.html")
     r = File.read("temp.html")
     # Make sure that comments of the form <!-- comment --> are followed by a new line
     File.delete("temp.html")
