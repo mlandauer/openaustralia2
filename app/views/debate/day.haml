@@ -25,10 +25,13 @@
       - if @previous_date
         %span.prev
           %a{ :href => "/debates/?d=#{@previous_date}", :title => @previous_date.to_formatted_s(:simple) } &laquo; Previous day
+      - if @next_date
+        %span.next
+          %a{ :href => "/debates/?d=#{@next_date}", :title => @next_date.to_formatted_s(:simple) } Next day &raquo;
     .block
       %h4 Debates this month
       .blockbody
-        = calendar(@date.year, @date.month, @date, @recess, [Date.new(2009,5,13)])
+        = calendar(@date.year, @date.month, @date, @recess, [Date.new(2009,5,13), Date.new(2009,5,14)])
         %p
           %a{ :href => "/debates/?y=#{@date.year}" } See all of #{@date.year}
     / end .block

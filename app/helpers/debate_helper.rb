@@ -36,7 +36,7 @@ module DebateHelper
                   else
                     atts = {}
                   end
-                  if linked.include?(date)
+                  if linked.include?(date) && date != current_date
                     b.td(atts) { b.a({:href => "/debates/?d=#{date}"}, day) }
                   else
                     b.td(atts, day)
