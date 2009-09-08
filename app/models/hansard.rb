@@ -21,6 +21,12 @@ class Hansard < ActiveRecord::Base
 	  htype == 13
   end
   
+  
+  # If database time contains "00:00:00" return null
+  def htime
+    read_attribute(:htime) unless htime_before_type_cast == "00:00:00"
+  end
+  
   def Hansard.find_by_id(id)
     find_by_gid("uk.org.publicwhip/debate/#{id}")
   end
