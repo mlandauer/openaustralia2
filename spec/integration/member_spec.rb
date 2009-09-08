@@ -102,5 +102,9 @@ describe "MembersController" do
     Date.stub!(:today).and_return(Date.new(2009,9,7))
     compare_with_php("/debates/?y=2009", "debates_2009", true)
   end
+  
+  it "should render the main debate page" do
+    compare_with_php("/hansard/", "hansard")
+  end
 end
 

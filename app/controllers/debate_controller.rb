@@ -1,6 +1,10 @@
 class DebateController < ApplicationController
   include ActionView::Helpers::TextHelper
   
+  def hansard
+    render :layout => false
+  end
+  
   def debate
     # Dates that parliament is in recess
     @recess = [
