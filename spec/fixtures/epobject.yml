@@ -1,26 +1,50 @@
 section_1:
-  epobject_id: 148
+  epobject_id: 1
   title: 
   body: "Section 1"
   type: 1
-  created: 2009-05-27 11:21:55
-  modified: 2009-05-27 11:21:55
+  created: <%= DateTime.now %>
+  modified: <%= DateTime.now %>
 
 subsection_1:
-  epobject_id: 149
+  epobject_id: 2
   title: 
   body: "Subsection 1"
   type: 1
-  created: 2009-05-27 11:21:55
-  modified: 2009-05-27 11:21:55
+  created: <%= DateTime.now %>
+  modified: <%= DateTime.now %>
 
 tony_abbott_1:
+  epobject_id: 3
+  title: 
+  body: '<p>Hmmm... What to say on a lovely day like today?</p>'
+  type: 1
+  created: <%= DateTime.now %>
+  modified: <%= DateTime.now %>
+
+section_2:
+  epobject_id: 148
+  title: 
+  body: "Section 2"
+  type: 1
+  created: <%= DateTime.now %>
+  modified: <%= DateTime.now %>
+
+subsection_2:
+  epobject_id: 149
+  title: 
+  body: "Subsection 2"
+  type: 1
+  created: <%= DateTime.now %>
+  modified: <%= DateTime.now %>
+
+tony_abbott_2:
   epobject_id: 151
   title: 
   body: '<p>Hello, <a href="http://www.liberal.org.au/">my</a> name is Tony Abbott.</p>'
   type: 1
-  created: 2009-05-27 11:21:55
-  modified: 2009-05-27 11:21:55
+  created: <%= DateTime.now %>
+  modified: <%= DateTime.now %>
 
 dick_adams_1:
   epobject_id: 152

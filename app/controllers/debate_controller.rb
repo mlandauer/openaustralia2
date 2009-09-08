@@ -20,6 +20,8 @@ class DebateController < ApplicationController
       @date = Date.parse(params[:d])
       @extra_keywords = @date.to_formatted_s(:simple)
       @title = "#{@extra_keywords}: House debates"
+      # TODO: There should only be a previous date if there are debates on that day
+      @previous_date = @date - 1
       render :day
     elsif params[:y]
       @year = params[:y].to_i

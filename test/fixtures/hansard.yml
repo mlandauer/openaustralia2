@@ -1,4 +1,52 @@
 section_1:
+  epobject_id: 1
+  gid: uk.org.publicwhip/debate/2009-05-13.1.1
+  htype: 10
+  speaker_id: 0
+  major: 1
+  section_id: 0
+  subsection_id: 0
+  hpos: 1
+  hdate: 2009-05-13
+  htime: NULL
+  source_url: "http://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:chamber/hansardr/2009-05-13/0000"
+  minor: 0
+  created: <%= DateTime.now %>
+  modified: <%= DateTime.now %>
+
+subsection_1:
+  epobject_id: 2
+  gid: uk.org.publicwhip/debate/2009-05-13.1.2
+  htype: 11
+  speaker_id: 0
+  major: 1
+  section_id: 1
+  subsection_id: 0
+  hpos: 2
+  hdate: 2009-05-13
+  htime: NULL
+  source_url: "http://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:chamber/hansardr/2009-05-13/0000"
+  minor: 0
+  created: <%= DateTime.now %>
+  modified: <%= DateTime.now %>
+
+tony_abott_1:
+  epobject_id: 3
+  gid: uk.org.publicwhip/debate/2009-05-13.2.1
+  htype: 12
+  speaker_id: 1
+  major: 1
+  section_id: 1
+  subsection_id: 2
+  hpos: 3
+  hdate: 2009-05-13
+  htime: 09:00:00
+  source_url: "http://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:chamber/hansardr/2009-05-13/0000"
+  minor: 0
+  created: <%= DateTime.now %>
+  modified: <%= DateTime.now %>
+
+section_2:
   epobject_id: 148
   gid: uk.org.publicwhip/debate/2009-05-14.1.1
   htype: 10
@@ -11,10 +59,10 @@ section_1:
   htime: NULL
   source_url: "http://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:chamber/hansardr/2009-05-14/0000"
   minor: 0
-  created: 2009-05-27 11:21:55
-  modified: 2009-05-27 11:21:55
+  created: <%= DateTime.now %>
+  modified: <%= DateTime.now %>
 
-subsection_1:
+subsection_2:
   epobject_id: 149
   gid: uk.org.publicwhip/debate/2009-05-14.1.2
   htype: 11
@@ -27,10 +75,10 @@ subsection_1:
   htime: NULL
   source_url: "http://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:chamber/hansardr/2009-05-14/0000"
   minor: 0
-  created: 2009-05-27 11:21:55
-  modified: 2009-05-27 11:21:55
+  created: <%= DateTime.now %>
+  modified: <%= DateTime.now %>
 
-tony_abott_1:
+tony_abott_2:
   epobject_id: 151
   gid: uk.org.publicwhip/debate/2009-05-14.2.1
   htype: 12
@@ -43,8 +91,8 @@ tony_abott_1:
   htime: 13:50:00
   source_url: "http://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:chamber/hansardr/2009-05-14/0000"
   minor: 0
-  created: 2009-05-27 11:21:55
-  modified: 2009-05-27 11:21:55
+  created: <%= DateTime.now %>
+  modified: <%= DateTime.now %>
 
 dick_adams_1:
   epobject_id: 152
@@ -59,6 +107,6 @@ dick_adams_1:
   htime: 13:51:00
   source_url: "http://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:chamber/hansardr/2009-05-14/0000"
   minor: 0
-  created: 2009-05-27 11:21:55
-  modified: 2009-05-27 11:21:55
+  created: <%= DateTime.now %>
+  modified: <%= DateTime.now %>
   

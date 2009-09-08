@@ -18,13 +18,23 @@
       %dt
         %a{ :name => "d1" }
         %strong>
-          %a{ :href => "/debates/?id=2009-05-14.1.2" }> Section 1
+          %a{ :href => "/debates/?id=2009-05-14.1.2" }> Section 2
       %dd
         %strong
-          %a{ :href => "/debates/?id=2009-05-14.1.2" } Subsection 1
+          %a{ :href => "/debates/?id=2009-05-14.1.2" } Subsection 2
         %small (2 speeches)
         %br
         Thursday, 14 May 2009
+      %dt
+        %a{:name => "d2", :id => "d2" }
+        %strong>
+          %a{ :href => "/debates/?id=2009-05-13.1.2" }> Section 1
+      %dd
+        %strong
+          %a{ :href => "/debates/?id=2009-05-13.1.2" } Subsection 1
+        %small (1 speech)
+        %br
+        Wednesday, 13 May 2009
     %p
       %strong
         %a{ :href => "/debates/#d7" } See more debates
@@ -39,7 +49,7 @@
       %h4
         Recent debates
       .blockbody
-        = calendar(2009, 5, Date.today, @recess, [Date.new(2009,5,14)])
+        = calendar(2009, 5, Date.today, @recess, [Date.new(2009,5,13), Date.new(2009,5,14)])
         %p
           %a{ :href => "/debates/?y=2009" }
             See all of 2009
