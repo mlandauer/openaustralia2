@@ -2,7 +2,10 @@ class DebateController < ApplicationController
   include ActionView::Helpers::TextHelper
   
   def hansard
-    render :layout => false
+    @title = "House of Representatives and Senate debates"
+    @extra_keywords = @title
+    # Hack to deal with not entirely consistent behaviour of "Debates" menu
+    @debates_menu_on = true    
   end
   
   def debate
