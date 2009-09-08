@@ -1,5 +1,14 @@
 - member = speech.speaker
-%div{:class => cycle("stripe-2", "stripe-1"), :id => speech.anchor}
+- if speech.htime
+  %div{ :class => "stripe-time-#{cycle("2", "1")}" }
+    %div.main
+      %p= speech.htime.to_s(:time_12)
+    / end .main
+    %div.sidebar &nbsp;
+    / end .sidebar
+    %div.break
+  / end .stripe-*
+%div{:class => "stripe-#{cycle("2", "1")}", :id => speech.anchor}
   .main
     %a{ :name => speech.anchor }
     %p.speaker

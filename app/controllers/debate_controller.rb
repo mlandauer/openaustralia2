@@ -40,7 +40,12 @@ class DebateController < ApplicationController
       @speeches = Hansard.speeches_in_subsection(@subsection)
       @extra_keywords = "#{truncate(@subsection.to_s, :length => 38)}: #{@subsection.hdate.to_s(:simple)}"
       @title = "#{@extra_keywords}: House debates"
-      @previous_debate = Hansard.find_by_id("2009-05-14.1.1")
+      # Temporary HACK
+      if @date == Date.new(2009,5,13)
+        @previous_debate = Hansard.find_by_id("2009-05-13.1.1")
+      elsif @date == Date.new(2009,5,14)
+        @previous_debate = Hansard.find_by_id("2009-05-14.1.1")
+      end
     end
   end
   
