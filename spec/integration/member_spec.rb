@@ -109,5 +109,9 @@ describe "MembersController" do
   it "should render the main debate page" do
     compare_with_php("/hansard/", "hansard")
   end
+  
+  it "should render the main news page" do
+    compare_with_php("/news/", "news")
+  end
 end
 

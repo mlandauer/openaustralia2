@@ -7,6 +7,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect 'debates', :controller => 'debate', :action => 'debate'
   map.connect 'debate', :controller => 'debate', :action => 'speech'
   map.connect 'hansard', :controller => 'debate', :action => 'hansard'
+  map.connect 'news', :controller => 'news', :action => 'index'
 
   # The priority is based upon order of creation: first created -> highest priority.
 
