@@ -1,9 +1,8 @@
 class News
-  attr_reader :date, :time, :user, :title, :link, :content
+  attr_reader :user, :timestamp, :title, :link, :content
 
   def initialize(atts)
-    @date = atts.delete(:date)
-    @time = atts.delete(:time)
+    @timestamp = atts.delete(:timestamp)
     @user = atts.delete(:user)
     @title = atts.delete(:title)
     @link = atts.delete(:link)
@@ -14,8 +13,7 @@ class News
   def News.all
     all = []
     all << News.new(
-      :date => "12 May 2009",
-      :time => "16:30:00",
+      :timestamp => DateTime.new(2009, 5, 12, 16, 30, 0, 0),
       :user => "Matthew",
       :title => "Our new home on Facebook",
       :link => "/news/archives/2009/05/12/our_new_home_on_",
@@ -25,8 +23,7 @@ class News
       EOF
     )
     all << News.new(
-      :date => "6 May 2009",
-      :time => "18:15:00",
+      :timestamp => DateTime.new(2009, 5, 6, 18, 15, 0, 0),
       :user => "Kat",
       :title => "Opening up the procedures of Parliament",
       :link => "/news/archives/2009/05/06/opening_up_the_p",
@@ -38,8 +35,7 @@ class News
       EOF
     )
     all << News.new(
-      :date => "26 February 2009",
-      :time => "08:30:00",
+      :timestamp => DateTime.new(2009, 2, 26, 8, 30, 0, 0),
       :user => "Matthew",
       :title => "Another big step forward for government transparency in Australia",
       :link => "/news/archives/2009/02/26/another_big_step",
@@ -53,8 +49,7 @@ class News
       EOF
     )
     all << News.new(
-      :date => "19 February 2009",
-      :time => "17:29:00",
+      :timestamp => DateTime.new(2009, 2, 19, 17, 29, 0, 0),
       :user => "Matthew",
       :title => "Multiple email alerts over the last few days",
       :link => "/news/archives/2009/02/19/multiple_email_a",
@@ -66,8 +61,7 @@ class News
       EOF
     )
     all << News.new(
-      :date => "5 January 2009",
-      :time => "11:05:00",
+      :timestamp => DateTime.new(2009, 1, 5, 11, 5, 0, 0),
       :user => "Matthew",
       :title => "Read the Register of Senators' Interests here",
       :link => "/news/archives/2009/01/05/read_the_registe",
@@ -78,8 +72,7 @@ class News
       EOF
     )
     all << News.new(
-      :date => "3 November 2008",
-      :time => "23:57:00",
+      :timestamp => DateTime.new(2008, 11, 3, 23, 57, 0, 0),
       :user => "Matthew",
       :title => "Government website changes everything",
       :link => "/news/archives/2008/11/03/government_websi",
@@ -90,8 +83,7 @@ class News
       EOF
     )
     all << News.new(
-      :date => "4 October 2008",
-      :time => "12:26:00",
+      :timestamp => DateTime.new(2008, 10, 4, 12, 26, 0, 0),
       :user => "Matthew",
       :title => "A new look OpenAustralia",
       :link => "/news/archives/2008/10/04/a_new_look_opena",
@@ -101,8 +93,7 @@ class News
       EOF
     )
     all << News.new(
-      :date => "17 August 2008",
-      :time => "19:40:00",
+      :timestamp => DateTime.new(2008, 8, 17, 19, 40, 0, 0),
       :user => "Katherine",
       :title => "The Senate is Here!",
       :link => "/news/archives/2008/08/17/the_senate_is_he",
@@ -116,8 +107,7 @@ class News
       EOF
     )
     all << News.new(
-      :date => "6 July 2008",
-      :time => "19:56:00",
+      :timestamp => DateTime.new(2008, 7, 6, 19, 56, 0, 0),
       :user => "Matthew",
       :title => "OpenAustralia behind the scenes",
       :link => "/news/archives/2008/07/06/openaustralia_be",
@@ -129,8 +119,7 @@ class News
       EOF
     )
     all << News.new(
-      :date => "6 July 2008",
-      :time => "19:35:00",
+      :timestamp => DateTime.new(2008, 7, 6, 19, 35, 0, 0),
       :user => "Matthew",
       :title => "Photos on all representatives page",
       :link => "/news/archives/2008/07/06/photos_on_all_re",

@@ -5,14 +5,14 @@
     
     - first = true
     - @posts.each do |post|
-      %h3= post.date
+      %h3= post.timestamp.to_date.to_s(:simple)
       %h4= post.title
       - if first
         - first = false
       - else
         </p>
       = post.content
-      <p>Posted at #{post.time} by #{post.user}
+      <p>Posted at #{post.timestamp.to_time.to_s(:seconds)} by #{post.user}
       \|
       %a{ :href => post.link } Link to this
   / end .main

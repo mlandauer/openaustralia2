@@ -11,4 +11,4 @@ Time::DATE_FORMATS[:time_12] = lambda do |t|
   mins = t.strftime("%M")
   "#{hour}:#{mins} #{am_pm}"
 end
-
+Time::DATE_FORMATS[:seconds] = "%H:%M:%S"
