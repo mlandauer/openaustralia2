@@ -26,4 +26,8 @@ class NewsController < ApplicationController
     @extra_keywords = @post.title
     @title = "#{@extra_keywords}: OpenAustralia news"
   end
+  
+  def month
+    render :layout => false
+  end
 end

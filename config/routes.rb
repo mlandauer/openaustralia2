@@ -9,6 +9,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect 'hansard', :controller => 'debate', :action => 'hansard'
   map.connect 'news', :controller => 'news', :action => 'index'
   map.connect 'news/archives/:year/:month/:day/:title', :controller => 'news', :action => 'show'
+  map.connect 'news/archives/:year/:month', :controller => 'news', :action => 'month'
   
   # The priority is based upon order of creation: first created -> highest priority.
 

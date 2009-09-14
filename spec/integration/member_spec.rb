@@ -118,5 +118,9 @@ describe "MembersController" do
     compare_with_php("/news/archives/2009/05/12/our_new_home_on_", "news_2009_05_12", true)
     compare_with_php("/news/archives/2009/05/06/opening_up_the_p", "news_2009_05_06", true)
   end
+  
+  it "should render the news archive for a month" do
+    compare_with_php("/news/archives/2009/05", "news_2009_05")
+  end
 end
 
