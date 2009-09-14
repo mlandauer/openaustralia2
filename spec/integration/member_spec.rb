@@ -113,5 +113,9 @@ describe "MembersController" do
   it "should render the main news page" do
     compare_with_php("/news/", "news")
   end
+  
+  it "should render an individual news item" do
+    compare_with_php("/news/archives/2009/05/12/our_new_home_on_", "news_2009_05_12")
+  end
 end
 

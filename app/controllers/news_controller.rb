@@ -12,4 +12,8 @@ class NewsController < ApplicationController
     # HACK: Temporary
     @months << Date.new(2008,6,1)
   end
+  
+  def show
+    render :layout => false
+  end
 end
