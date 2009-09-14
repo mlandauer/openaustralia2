@@ -1,5 +1,7 @@
 class NewsController < ApplicationController
   def index
-    render :layout => false
+    @title = "OpenAustralia news"
+    @extra_keywords = @title
+    @rss = true
   end
 end

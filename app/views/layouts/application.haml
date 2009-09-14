@@ -14,6 +14,8 @@
     %style{ :type => "text/css" }
       ~ "          @import url(/style/default/global_non_ns4.css);"
     %link{ :href => "/style/default/print.css", :rel => "stylesheet", :type => "text/css", :media => "print" }
+    - if @rss
+      %link{ :href => "http://dev.openaustralia.org/news/index.rdf", :rel => "alternate", :title => "OpenAustralia RSS", :type => "application/rss+xml"}
   %body
     #container
       %a{ :name => "top" }
@@ -41,8 +43,7 @@
           %ul
             %li
               %a{ :href => "/", :title => "The front page of the site" }> Home
-            %li
-              %a{ :href => "/news/", :title => "News about changes to this website" }> News
+            %li= link_to_on_if_current "News", {:controller => "news", :action => "index", :trailing_slash => true}, {:title => "News about changes to this website"}
             %li
               %a{:class => ("on" if @debates_menu_on), :href => "/hansard/", :title => "House of Representatives and Senate debates" }> Debates
             %li
