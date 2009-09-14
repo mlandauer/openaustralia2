@@ -9,14 +9,22 @@ class News
     raise "Unexpected attributes: #{atts.keys.join(', ')}" unless atts.empty?
   end
   
-  def link
-    "/news/archives/#{timestamp.year}/#{'%02d' % timestamp.month}/#{'%02d' % timestamp.day}/#{url_encoded_title}"
+  def year_param
+    '%04d' % timestamp.year
+  end
+  
+  def month_param
+    '%02d' % timestamp.month
+  end
+  
+  def day_param
+    '%02d' % timestamp.day
+  end
+  
+  def title_param
+    title.parameterize('_')[0..15]
   end
 
-	def url_encoded_title
-		title.downcase.gsub(/[^a-z0-9 ]/, '').tr(' ', '_')[0..15]
-	end
-  
   def News.all
     all = []
     all << News.new(

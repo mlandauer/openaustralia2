@@ -14,7 +14,7 @@
       = post.content
       <p>Posted at #{post.timestamp.to_time.to_s(:seconds)} by #{post.user}
       \|
-      %a{ :href => post.link } Link to this
+      = link_to "Link to this", :action => "show", :year => post.year_param, :month => post.month_param, :day => post.day_param, :title => post.title_param
   / end .main
   .sidebar
     .block
