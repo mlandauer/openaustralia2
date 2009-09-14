@@ -19,7 +19,7 @@ module Hpricot
 end
 
 describe "MembersController" do
-  fixtures :member, :moffice, :personinfo, :hansard, :epobject
+  fixtures :member, :moffice, :personinfo, :hansard, :epobject, :users
 
   def tidy(text)
     File.open("temp.html", "w") {|f| f.write(text) }
