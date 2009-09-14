@@ -133,6 +133,29 @@ class News
       browse through the list and find the person you're looking for.</p>
       EOF
     )
+    all << News.new(
+      :timestamp => DateTime.new(2008, 6, 16, 9, 0, 0, 0),
+      :user => "Matthew",
+      :title => "Public Launch of OpenAustralia Beta",
+      :content => <<-EOF
+      <p>We're open to the public! After more than six months work by a small
+      group of volunteers working in their spare time, we're launching
+      OpenAustralia to the public.</p>
+      <p>With OpenAustralia we hope to strengthen our traditions of fair and open
+      democracy in Australia. This site is about giving you, the Australian public, the tools to easily
+      follow what goes on in Parliament, and be just a little better informed.</p>
+      <p>You'll hopefully discover with OpenAustralia that what goes on in Parliament
+      is much more interesting than you might imagine - entertaining even!</p>
+      <p>What you see on TV or in newspapers is only a small part of what goes on.
+      OpenAustralia is about giving you access to all the other stuff in an easy
+      to use and friendly form.</p>
+      <p>This site is still in beta, which means that we're not totally confident that
+      we've ironed out all the small problems, but we didn't think it fair to keep
+      it from you any longer. If you do find something
+      that looks wrong please email us at contact@openaustralia.org.</p>
+      <p>Enjoy!</p>
+      EOF
+    )
     all
   end
 end

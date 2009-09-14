@@ -3,8 +3,6 @@ class NewsController < ApplicationController
     @rss = true
     @news_menu_on = true
     @months = News.all.map{|p| [p.timestamp.year, p.timestamp.month]}.uniq.map{|a| Date.new(a[0],a[1],1)}.sort.reverse
-    # HACK: Temporary
-    @months << Date.new(2008,6,1)
 
     if params[:year] && params[:month]
       date = Date.new(params[:year].to_i, params[:month].to_i, 1)
@@ -18,7 +16,8 @@ class NewsController < ApplicationController
       @subtitle = "&nbsp;"
       @extra_keywords = @title
     
-      @posts = News.all
+      # Only show the first 10
+      @posts = News.all[0..9]
     end
   end
   
@@ -27,8 +26,6 @@ class NewsController < ApplicationController
     @news_menu_on = true
     posts = News.all
     @months = News.all.map{|p| [p.timestamp.year, p.timestamp.month]}.uniq.map{|a| Date.new(a[0],a[1],1)}.sort.reverse
-    # HACK: Temporary
-    @months << Date.new(2008,6,1)
     
     @post = posts.find {|p| params[:year] == p.year_param && params[:month] == p.month_param && params[:day] == p.day_param && params[:title] == p.title_param }
     @extra_keywords = @post.title
