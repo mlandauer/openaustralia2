@@ -3,5 +3,7 @@ class NewsController < ApplicationController
     @title = "OpenAustralia news"
     @extra_keywords = @title
     @rss = true
+    
+    @posts = News.all
   end
 end
