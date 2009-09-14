@@ -124,5 +124,9 @@ describe "MembersController" do
     compare_with_php("/news/archives/2009/02", "news_2009_02", true)
     compare_with_php("/news/archives/2008/06", "news_2008_06", true)
   end
+  
+  it "should render recent comments" do
+    compare_with_php("/comments/recent/", "comments_recent")
+  end
 end
 
