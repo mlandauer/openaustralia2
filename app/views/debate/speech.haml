@@ -38,8 +38,25 @@
   .main
     %a{ :name => "comments" }
     %h4 Comments
-    .comment
-      %p No comments
+    - if @speech.id == "2009-05-14.2.1"
+      .comment#c2
+        %a#c2(name="c2")
+        %p.credit
+          %a(href="/user/?u=1" title="See information about this user")
+            %strong Matthew Landauer
+          %br
+          %small
+            Posted on 10 Sep 2009
+            %a(href="/debate/?id=2009-05-14.2.1#c2" title="Link to this comment") 9:00 pm
+            (
+            %a(href="/report/?id=2&amp;ret=%2Fdebate%2F%3Fid%3D2009-05-14.2.1%23c2" title="Notify moderators that this comment should be deleted")> Report this comment
+            )
+        %p.comment
+          Hello Mr Abbott. How are you?
+      / end .comment
+    - else
+      .comment
+        %p No comments
   / end .main
   .sidebar
     &nbsp;

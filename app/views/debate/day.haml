@@ -7,13 +7,13 @@
         %li
           %a{ :href => "/debates/?id=#{section.id}" }
             %strong= section
-          %small (#{pluralize(section.no_speeches, 'speech')})
+          %small (#{pluralize(section.no_speeches, 'speech')}#{(", " + pluralize(section.no_comments, 'comment')) if section.no_comments > 0})
           %ul
             - Hansard.subsections_in_section(section).each do |subsection|
               %li
                 %a{ :href => "/debates/?id=#{subsection.id}" }
                   %strong= subsection
-                %small (#{pluralize(subsection.no_speeches, 'speech')})
+                %small (#{pluralize(subsection.no_speeches, 'speech')}#{(", " + pluralize(subsection.no_comments, 'comment')) if subsection.no_comments > 0})
                 %br
                 %span.excerpt-debates= Hansard.speeches_in_subsection(subsection).first.just_text
     / end hansard-day

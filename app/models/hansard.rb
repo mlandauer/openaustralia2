@@ -94,4 +94,12 @@ class Hansard < ActiveRecord::Base
       raise "Only supporting no_speeches for subsections and sections"
     end
   end
+  
+  def no_comments
+    if id == "2009-05-14.1.2"
+      1
+    else
+      0
+    end
+  end
 end
