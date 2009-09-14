@@ -32,5 +32,8 @@ class NewsController < ApplicationController
     @title = "#{@extra_keywords}: OpenAustralia news"
     @rss = true
     @news_menu_on = true
+    @months = News.all.map{|p| [p.timestamp.year, p.timestamp.month]}.uniq.map{|a| Date.new(a[0],a[1],1)}.sort.reverse
+    # HACK: Temporary
+    @months << Date.new(2008,6,1)
   end
 end
