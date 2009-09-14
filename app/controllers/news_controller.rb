@@ -7,12 +7,12 @@ class NewsController < ApplicationController
     @months << Date.new(2008,6,1)
 
     if params[:year] && params[:month]
-      @subtitle = "May 2009"
+      date = Date.new(params[:year].to_i, params[:month].to_i, 1)
+      @subtitle = date.to_s(:month)
       @extra_keywords = @subtitle
       @title = "#{@extra_keywords}: OpenAustralia news"
 
-      posts = News.all
-      @posts = [posts[1], posts[0]]
+      @posts = News.all.find_all {|p| params[:year] == p.year_param && params[:month] == p.month_param }.reverse
     else
       @title = "OpenAustralia news"
       @subtitle = "&nbsp;"
