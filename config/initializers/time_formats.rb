@@ -3,6 +3,7 @@
 Date::DATE_FORMATS[:simple] = lambda {|date| date.strftime("#{date.day} %B %Y")}
 Date::DATE_FORMATS[:simple_with_day] = lambda {|date| date.strftime("#{Date::DAYNAMES[date.wday]}, #{date.day} %B %Y")}
 Date::DATE_FORMATS[:simple_short] = lambda {|date| date.strftime("#{date.day} %b %Y")}
+Date::DATE_FORMATS[:month] = "%B %Y"
 # 12 Hour clock with am/pm
 Time::DATE_FORMATS[:time_12] = lambda do |t|
   hour = t.hour

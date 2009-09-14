@@ -22,22 +22,9 @@
         %a{ :href => "/news/archives/" } News Archives
       .blockbody
         %p
-          %a{ :href => "/news/archives/2009/05" } May 2009
-          %br
-          %a{ :href => "/news/archives/2009/02" } February 2009
-          %br
-          %a{ :href => "/news/archives/2009/01" } January 2009
-          %br
-          %a{ :href => "/news/archives/2008/11" } November 2008
-          %br
-          %a{ :href => "/news/archives/2008/10" } October 2008
-          %br
-          %a{ :href => "/news/archives/2008/08" } August 2008
-          %br
-          %a{ :href => "/news/archives/2008/07" } July 2008
-          %br
-          %a{ :href => "/news/archives/2008/06" } June 2008
-          %br
+          - @months.each do |d|
+            %a{ :href => "/news/archives/#{d.year}/#{'%02d' % d.month}" }= d.to_s(:month)
+            %br
     / end .block
     .block
       %h4 RSS/XML
