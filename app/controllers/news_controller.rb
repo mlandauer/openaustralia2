@@ -28,6 +28,9 @@ class NewsController < ApplicationController
   end
   
   def month
-    render :layout => false
+    @extra_keywords = "May 2009"
+    @title = "#{@extra_keywords}: OpenAustralia news"
+    @rss = true
+    @news_menu_on = true
   end
 end

@@ -120,7 +120,7 @@ describe "MembersController" do
   end
   
   it "should render the news archive for a month" do
-    compare_with_php("/news/archives/2009/05", "news_2009_05")
+    compare_with_php("/news/archives/2009/05", "news_2009_05", true)
   end
 end
 
