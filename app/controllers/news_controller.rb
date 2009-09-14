@@ -15,14 +15,15 @@ class NewsController < ApplicationController
   end
   
   def show
-    @extra_keywords = "Our new home on Facebook"
-    @title = "#{@extra_keywords}: OpenAustralia news"
     @rss = true
     @news_menu_on = true
+    posts = News.all
     @months = News.all.map{|p| [p.timestamp.year, p.timestamp.month]}.uniq.map{|a| Date.new(a[0],a[1],1)}.sort.reverse
     # HACK: Temporary
     @months << Date.new(2008,6,1)
     
-    @post = News.all[0]
+    @post = posts.find {|p| params[:year] == p.year_param && params[:month] == p.month_param && params[:day] == p.day_param && params[:title] == p.title_param }
+    @extra_keywords = @post.title
+    @title = "#{@extra_keywords}: OpenAustralia news"
   end
 end
