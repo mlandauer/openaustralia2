@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   def recent
-    render :layout => false
+    @title = "Recent comments"
+    @extra_keywords = @title
   end
 end
