@@ -18,45 +18,7 @@
         Link to this
   / end .main
   .sidebar
-    .block
-      %h4
-        %a{ :href => "/news/archives/" }
-          News Archives
-      .blockbody
-        %p
-          %a{ :href => "/news/archives/2009/05" }
-            May 2009
-          %br
-          %a{ :href => "/news/archives/2009/02" }
-            February 2009
-          %br
-          %a{ :href => "/news/archives/2009/01" }
-            January 2009
-          %br
-          %a{ :href => "/news/archives/2008/11" }
-            November 2008
-          %br
-          %a{ :href => "/news/archives/2008/10" }
-            October 2008
-          %br
-          %a{ :href => "/news/archives/2008/08" }
-            August 2008
-          %br
-          %a{ :href => "/news/archives/2008/07" }
-            July 2008
-          %br
-          %a{ :href => "/news/archives/2008/06" }
-            June 2008
-          %br
-    / end .block
-    .block
-      %h4 RSS/XML
-      .blockbody
-        %p
-          %a{ :href => "/news/index.rdf" } RSS feed of recent posts
-          (
-          %a{ :href => "/help/#rss" }> ?
-          )
-    / end .block
+    = render :partial => "archives"
+    = render :partial => "rss"
   / end .sidebar
   .break

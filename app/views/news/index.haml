@@ -17,23 +17,7 @@
       = link_to "Link to this", :action => "show", :year => post.year_param, :month => post.month_param, :day => post.day_param, :title => post.title_param
   / end .main
   .sidebar
-    .block
-      %h4
-        %a{ :href => "/news/archives/" } News Archives
-      .blockbody
-        %p
-          - @months.each do |d|
-            %a{ :href => "/news/archives/#{d.year}/#{'%02d' % d.month}" }= d.to_s(:month)
-            %br
-    / end .block
-    .block
-      %h4 RSS/XML
-      .blockbody
-        %p
-          %a{ :href => "/news/index.rdf" } RSS feed of recent posts
-          (
-          %a{ :href => "/help/#rss" }> ?
-          )
-    / end .block
+    = render :partial => "archives"
+    = render :partial => "rss"
   / end .sidebar
   .break
