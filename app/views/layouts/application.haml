@@ -43,7 +43,8 @@
           %ul
             %li
               %a{ :href => "/", :title => "The front page of the site" }> Home
-            %li= link_to_on_if_current "News", {:controller => "news", :action => "index", :trailing_slash => true}, {:title => "News about changes to this website"}
+            %li
+              = link_to "News", {:controller => "news", :action => "index", :trailing_slash => true}, {:class => ("on" if @news_menu_on), :title => "News about changes to this website"}
             %li
               %a{:class => ("on" if @debates_menu_on), :href => "/hansard/", :title => "House of Representatives and Senate debates" }> Debates
             %li

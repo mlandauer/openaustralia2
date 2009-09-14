@@ -1,158 +1,62 @@
-!!!
-%html
-  %head
-    %meta{ :content => "text/html; charset=iso-8859-1", "http-equiv" => "Content-Type" }
-    %title
-      Our new home on Facebook: OpenAustralia news (OpenAustralia.org)
-    %meta{ :name => "description", :content => "Making parliament easy." }
-    %meta{ :name => "keywords", :content => "Parliament, government, House of Representatives, Senate, Senator, MP, Member of Parliament, MPs, Australia, Australian, Our new home on Facebook" }
-    %meta{ :name => "verify-v1", :content => "5FBaCDi8kCKdo4s64NEdB5EOJDNc310SwcLLYHmEbgg=" }
-    %link{ :href => "mailto:contact@openaustralia.org", :title => "Send feedback", :rel => "author" }
-    %link{ :href => "http://dev.openaustralia.org/", :title => "Home", :rel => "home" }
-    %link{ :href => "/", :title => "Home", :rel => "start" }
-    / skin: default
-    %link{ :href => "/style/default/global.css", :rel => "stylesheet", :type => "text/css" }
-    %style{ :type => "text/css" }
-      ~ "          @import url(/style/default/global_non_ns4.css);"
-    %link{ :href => "/style/default/print.css", :rel => "stylesheet", :type => "text/css", :media => "print" }
-    %link{ :href => "http://dev.openaustralia.org/news/index.rdf", :title => "OpenAustralia RSS", :rel => "alternate", :type => "application/rss+xml" }
-  %body
-    #container
-      %a{ :name => "top" }
-      #banner
-        #title
-          %h1
-            %a{ :href => "/", :title => "To the front page of the site" }
-              %img{ :src => "/images/openaustraliaorgbeta.gif", :height => "32", :alt => "OpenAustralia.org beta", :width => "262" }
-        #search
-          %form{ :action => "/search/", :method => "get" }
-            %p{ :style => "padding-left: 5px" }
-              %input{ :name => "s", :size => "15" }
-              %input.submit{ :type => "submit", :value => "Search" }
-      / end #banner
-      #menu
-        #topmenu
-          %ul#user
-            %li
-              %a{ :href => "/user/login/?ret=%2F", :title => "If you've already joined, log in to post comments" }
-                Log in
-            %li
-              %a{ :href => "/user/?pg=join&amp;ret=%2F", :title => "Joining is free and allows you to post comments" }
-                Join
-            ~ "<!--                    <li><a href=\"/getinvolved/?pg=getinvolved\" title=\"Contribute to OpenAustralia.org\">Get involved</a></li> -->"
+.stripe-side
+  .main
+    %h2
+      OpenAustralia news
+    %h3
+      Our new home on Facebook
+    %p
+      If you're a user of Facebook, come and visit
+      %a{ :href => "http://www.facebook.com/pages/OpenAustralia/59877428354" }
+        our new home on Facebook
+      and invite your friends along. Do your bit by letting even more people know about OpenAustralia.org.
+    %p
+      Also, you can talk amongst your fellow OpenAustralia fans, leave comments, post links and all the usual stuff.
+    %p
+      Posted on 12 May 2009 at 16:30:00 by Matthew
+      \|
+      %a{ :href => "/news/archives/2009/05/12/our_new_home_on_" }
+        Link to this
+  / end .main
+  .sidebar
+    .block
+      %h4
+        %a{ :href => "/news/archives/" }
+          News Archives
+      .blockbody
+        %p
+          %a{ :href => "/news/archives/2009/05" }
+            May 2009
           %br
-        #bottommenu
-          %ul
-            %li
-              %a{ :href => "/", :title => "The front page of the site" }
-                Home
-            %li
-              %a.on{ :href => "/news/", :title => "News about changes to this website" }
-                News
-            %li
-              %a{ :href => "/hansard/", :title => "House of Representatives and Senate debates" }
-                Debates
-            %li
-              %a{ :href => "/comments/recent/", :title => "Recently posted comments" }
-                Recent comments
-            %li
-              %a{ :href => "/mps/", :title => "Your Representative and list of all Members of the House of Representatives" }
-                Representatives
-            %li
-              %a{ :href => "/senators/", :title => "List of all Senators" }
-                Senators
-            %li
-              %a{ :href => "/help/", :title => "Answers to your questions" }
-                Help
-      / end #menu
-      #content
-        .stripe-side
-          .main
-            %h2
-              OpenAustralia news
-            %h3
-              Our new home on Facebook
-            %p
-              If you're a user of Facebook, come and visit
-              %a{ :href => "http://www.facebook.com/pages/OpenAustralia/59877428354" }
-                our new home on Facebook
-              and invite your friends along. Do your bit by letting even more people know about OpenAustralia.org.
-            %p
-              Also, you can talk amongst your fellow OpenAustralia fans, leave comments, post links and all the usual stuff.
-            %p
-              Posted on 12 May 2009 at 16:30:00 by Matthew
-              \|
-              %a{ :href => "/news/archives/2009/05/12/our_new_home_on_" }
-                Link to this
-          / end .main
-          .sidebar
-            .block
-              %h4
-                %a{ :href => "/news/archives/" }
-                  News Archives
-              .blockbody
-                %p
-                  %a{ :href => "/news/archives/2009/05" }
-                    May 2009
-                  %br
-                  %a{ :href => "/news/archives/2009/02" }
-                    February 2009
-                  %br
-                  %a{ :href => "/news/archives/2009/01" }
-                    January 2009
-                  %br
-                  %a{ :href => "/news/archives/2008/11" }
-                    November 2008
-                  %br
-                  %a{ :href => "/news/archives/2008/10" }
-                    October 2008
-                  %br
-                  %a{ :href => "/news/archives/2008/08" }
-                    August 2008
-                  %br
-                  %a{ :href => "/news/archives/2008/07" }
-                    July 2008
-                  %br
-                  %a{ :href => "/news/archives/2008/06" }
-                    June 2008
-                  %br
-            / end .block
-            .block
-              %h4 RSS/XML
-              .blockbody
-                %p
-                  %a{ :href => "/news/index.rdf" } RSS feed of recent posts
-                  (
-                  %a{ :href => "/help/#rss" }> ?
-                  )
-            / end .block
-          / end .sidebar
-          .break
-        / end .stripe-*
-        #footer
-          %p
-            %a{ :href => "/about/" }
-              About us
-            \&nbsp;&nbsp;&nbsp;
-            %a{ :href => "/contact/" }
-              Contact OpenAustralia.org
-            \&nbsp;&nbsp;&nbsp;
-            %a{ :href => "/help/linktous/" }
-              Link to us
-            \&nbsp;&nbsp;&nbsp;
-            %a{ :href => "/houserules/" }
-              House rules
-            \&nbsp;&nbsp;&nbsp;
-            %a{ :href => "/api/" }
-              API
-            \/
-            %a{ :href => "http://data.openaustralia.org" }
-              XML
-            \&nbsp;&nbsp;&nbsp;
-            %a{ :href => "http://software.openaustralia.org" }
-              Source code
-            \&nbsp;&nbsp;&nbsp;
-            %a{ :href => "http://blog.openaustralia.org" }
-              Blog
-      / end #content
-    / end #container
+          %a{ :href => "/news/archives/2009/02" }
+            February 2009
+          %br
+          %a{ :href => "/news/archives/2009/01" }
+            January 2009
+          %br
+          %a{ :href => "/news/archives/2008/11" }
+            November 2008
+          %br
+          %a{ :href => "/news/archives/2008/10" }
+            October 2008
+          %br
+          %a{ :href => "/news/archives/2008/08" }
+            August 2008
+          %br
+          %a{ :href => "/news/archives/2008/07" }
+            July 2008
+          %br
+          %a{ :href => "/news/archives/2008/06" }
+            June 2008
+          %br
+    / end .block
+    .block
+      %h4 RSS/XML
+      .blockbody
+        %p
+          %a{ :href => "/news/index.rdf" } RSS feed of recent posts
+          (
+          %a{ :href => "/help/#rss" }> ?
+          )
+    / end .block
+  / end .sidebar
+  .break

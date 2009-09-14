@@ -11,9 +11,13 @@ class NewsController < ApplicationController
     
     # HACK: Temporary
     @months << Date.new(2008,6,1)
+    @news_menu_on = true
   end
   
   def show
-    render :layout => false
+    @extra_keywords = "Our new home on Facebook"
+    @title = "#{@extra_keywords}: OpenAustralia news"
+    @rss = true
+    @news_menu_on = true
   end
 end
