@@ -1,14 +1,21 @@
 class News
-  attr_reader :user, :timestamp, :title, :link, :content
+  attr_reader :user, :timestamp, :title, :content
 
   def initialize(atts)
     @timestamp = atts.delete(:timestamp)
     @user = atts.delete(:user)
     @title = atts.delete(:title)
-    @link = atts.delete(:link)
     @content = atts.delete(:content)
     raise "Unexpected attributes: #{atts.keys.join(', ')}" unless atts.empty?
   end
+  
+  def link
+    "/news/archives/#{timestamp.year}/#{'%02d' % timestamp.month}/#{'%02d' % timestamp.day}/#{url_encoded_title}"
+  end
+
+	def url_encoded_title
+		title.downcase.gsub(/[^a-z0-9 ]/, '').tr(' ', '_')[0..15]
+	end
   
   def News.all
     all = []
@@ -16,7 +23,6 @@ class News
       :timestamp => DateTime.new(2009, 5, 12, 16, 30, 0, 0),
       :user => "Matthew",
       :title => "Our new home on Facebook",
-      :link => "/news/archives/2009/05/12/our_new_home_on_",
       :content => <<-EOF
       <p>If you're a user of Facebook, come and visit <a href="http://www.facebook.com/pages/OpenAustralia/59877428354">our new home on Facebook</a> and invite your friends along. Do your bit by letting even more people know about OpenAustralia.org.</p>
       <p>Also, you can talk amongst your fellow OpenAustralia fans, leave comments, post links and all the usual stuff.</p>
@@ -26,7 +32,6 @@ class News
       :timestamp => DateTime.new(2009, 5, 6, 18, 15, 0, 0),
       :user => "Kat",
       :title => "Opening up the procedures of Parliament",
-      :link => "/news/archives/2009/05/06/opening_up_the_p",
       :content => <<-EOF
       <p>So far we've shown you what they say (speeches) not what they do (procedures). Believe it or not proceedings of Parliament take place within a highly structured system. The speeches don't always give the full picture of what's going on. So, to help provide some more context, we've now added "procedural text".</p>
       <p>Procedural text is a standardised description of what's going on. Examples include: someone putting forward a motion, reading a bill, a debate ending, or someone leaving the chamber.</p>
@@ -38,7 +43,6 @@ class News
       :timestamp => DateTime.new(2009, 2, 26, 8, 30, 0, 0),
       :user => "Matthew",
       :title => "Another big step forward for government transparency in Australia",
-      :link => "/news/archives/2009/02/26/another_big_step",
       :content => <<-EOF
       <p>Today we proudly bring you the Register of Members' Interests. We have now made these extremely important documents available online for the first time ever.</p>
       <p>In the Register of Interests, Representatives and Senators declare information of financial interests, stocks and shares held, gifts received over a certain value, and memberships of Clubs and Associations.</p>
@@ -52,7 +56,6 @@ class News
       :timestamp => DateTime.new(2009, 2, 19, 17, 29, 0, 0),
       :user => "Matthew",
       :title => "Multiple email alerts over the last few days",
-      :link => "/news/archives/2009/02/19/multiple_email_a",
       :content => <<-EOF
       <p>
       <p>Some of you might have been getting multiple email alerts for the same day's speeches over the last few days. We're sorry about this. It turns out one of the email alerts was causing the mailing system to fail and each day it was retrying and sending out the old mails again. We found the wayward alert and fixed it. Tomorrow (Friday 20 February) you might get another duplicate email but after that everything should be back to normal.</p></p>
@@ -64,7 +67,6 @@ class News
       :timestamp => DateTime.new(2009, 1, 5, 11, 5, 0, 0),
       :user => "Matthew",
       :title => "Read the Register of Senators' Interests here",
-      :link => "/news/archives/2009/01/05/read_the_registe",
       :content => <<-EOF
       <p>Today is a big milestone. We are the first website to make the Register of Senators' Interests available online. This important public document until now has only been available to the small number of people who were able to visit the office in Canberra where the documents are held. In the Register each Senator declares information of financial interests, stocks and shares held, gifts received over a certain value, and memberships of Clubs and Associations.</p>
       <p>The register is available on each Senator's page. For example, <a href="/senator/judith_adams/wa#register">have a look at the Register for Senator Judith Adams</a>.
@@ -75,7 +77,6 @@ class News
       :timestamp => DateTime.new(2008, 11, 3, 23, 57, 0, 0),
       :user => "Matthew",
       :title => "Government website changes everything",
-      :link => "/news/archives/2008/11/03/government_websi",
       :content => <<-EOF
       <p>We've completely rewritten the engine that drives OpenAustralia. We didn't want to, the government (website) made us do it. No really. For a bit of background read our blog post <a href="http://blog.openaustralia.org/2008/10/13/why-is-openaustralia-not-getting-updated/">"Why is OpenAustralia not getting updated?"</a>.</p>
       <p>The outage of new update has only been over the last couple of weeks (from 13 Oct) and this all fixed now. I did quit a paying job to make it happen, so if that makes you feel like <a href="http://blog.openaustralia.org/join-us/">donating some money to us</a>, please go ahead!</p>
@@ -86,7 +87,6 @@ class News
       :timestamp => DateTime.new(2008, 10, 4, 12, 26, 0, 0),
       :user => "Matthew",
       :title => "A new look OpenAustralia",
-      :link => "/news/archives/2008/10/04/a_new_look_opena",
       :content => <<-EOF
       <p>OpenAustralia has a lovely and sleek new look courtesy of <a href="http://www.purecaffeine.com/">Nathanael Boehm</a>.</p>
       <p>We're always interested in feedback, so let us know what you think by <a href="mailto:contact@openaustralia.org">emailing us</a> at the usual place. Enjoy! </p>
@@ -96,7 +96,6 @@ class News
       :timestamp => DateTime.new(2008, 8, 17, 19, 40, 0, 0),
       :user => "Katherine",
       :title => "The Senate is Here!",
-      :link => "/news/archives/2008/08/17/the_senate_is_he",
       :content => <<-EOF
       <p>Just in time for the next sitting, for your civic pleasure, we bring you the Senate. Read the Senate Hansard as
       far back as 2006, and get to know those lovely people working on your behalf, the Senators.</p>
@@ -110,7 +109,6 @@ class News
       :timestamp => DateTime.new(2008, 7, 6, 19, 56, 0, 0),
       :user => "Matthew",
       :title => "OpenAustralia behind the scenes",
-      :link => "/news/archives/2008/07/06/openaustralia_be",
       :content => <<-EOF
       <p>This news feed will tell you about updates to the site.</p>
       <p>There have been some pretty exciting developments behind the scenes, which you can follow on our blog at
@@ -122,7 +120,6 @@ class News
       :timestamp => DateTime.new(2008, 7, 6, 19, 35, 0, 0),
       :user => "Matthew",
       :title => "Photos on all representatives page",
-      :link => "/news/archives/2008/07/06/photos_on_all_re",
       :content => <<-EOF
       <p>On the "<a href="/mps">All Representatives</a>" page you now get a photo for each member so you can more easily
       browse through the list and find the person you're looking for.</p>
