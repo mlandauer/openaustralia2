@@ -16,6 +16,7 @@ ActionController::Routing::Routes.draw do |map|
   # For rendering the static content pages
   map.connect 'help', :controller => 'static', :action => 'help'
   map.connect 'about', :controller => 'static', :action => 'about'
+  map.connect 'contact', :controller => 'static', :action => 'contact'
   
   # The priority is based upon order of creation: first created -> highest priority.
 

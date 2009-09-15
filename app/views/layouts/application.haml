@@ -59,7 +59,7 @@
           %p
             = link_to_unless_current "About us", :controller => "static", :action => "about", :trailing_slash => true
             &nbsp;&nbsp;&nbsp;
-            %a{ :href => "/contact/" } Contact OpenAustralia.org
+            = link_to_unless_current "Contact OpenAustralia.org", :controller => "static", :action => "contact", :trailing_slash => true
             &nbsp;&nbsp;&nbsp;
             %a{ :href => "/help/linktous/" } Link to us
             &nbsp;&nbsp;&nbsp;

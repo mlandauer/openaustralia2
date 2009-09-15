@@ -8,4 +8,9 @@ class StaticController < ApplicationController
     @title = "About us"
     @extra_keywords = @title
   end
+  
+  def contact
+    @title = "Contact OpenAustralia.org"
+    @extra_keywords = @title
+  end
 end
