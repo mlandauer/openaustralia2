@@ -62,6 +62,8 @@ class DebateController < ApplicationController
     # TODO: Fix this Hack
     if @speech.id == "2009-05-14.2.1"
       @comments = Comment.all(:order => "posted")
+    else
+      @comments = []
     end
   end
 end

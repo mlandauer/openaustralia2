@@ -38,8 +38,7 @@
   .main
     %a{ :name => "comments" }
     %h4 Comments
-    - if @comments
-      - comment = @comments[0]
+    - @comments.each do |comment|
       .comment(id="c#{comment.id}")
         %a(id="c#{comment.id}" name="c#{comment.id}")
         %p.credit
@@ -50,25 +49,11 @@
             Posted on #{comment.posted.to_date.to_s(:simple_short)}
             %a(href="/debate/?id=#{comment.speech.id}#c#{comment.id}" title="Link to this comment")= comment.posted.to_time.to_s(:time_12)
             (
-            %a(href="/report/?id=#{comment.id}&amp;ret=#{escape_path(url_for(:trailing_slash => true, :overwrite_params => {}) + '#c2')}" title="Notify moderators that this comment should be deleted")> Report this comment
+            %a(href="/report/?id=#{comment.id}&amp;ret=#{escape_path(url_for(:trailing_slash => true, :overwrite_params => {}) + '#c' + comment.id.to_s)}" title="Notify moderators that this comment should be deleted")> Report this comment
             )
-        %p.comment Hello Mr Abbott. How are you?
+        %p.comment= comment.body
       / end .comment
-      .comment#c3
-        %a#c3(name="c3")
-        %p.credit
-          %a(href="/user/?u=1" title="See information about this user")
-            %strong= @comments[1].user.name
-          %br
-          %small
-            Posted on 10 Sep 2009
-            %a(href="/debate/?id=2009-05-14.2.1#c3" title="Link to this comment") 10:00 pm
-            (
-            %a(href="/report/?id=3&amp;ret=%2Fdebate%2F%3Fid%3D2009-05-14.2.1%23c3" title="Notify moderators that this comment should be deleted")> Report this comment
-            )
-        %p.comment And another comment...
-      / end .comment
-    - else
+    - if @comments.empty?
       .comment
         %p No comments
   / end .main
