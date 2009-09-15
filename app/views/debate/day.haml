@@ -7,7 +7,7 @@
         %li
           %a{ :href => "/debates/?id=#{section.id}" }
             %strong= section
-          %small (#{pluralize(section.no_speeches, 'speech')}#{(", " + pluralize(section.no_comments, 'comment')) if section.no_comments > 0})
+          %small (#{pluralize(section.no_speeches, 'speech')})
           %ul
             - Hansard.subsections_in_section(section).each do |subsection|
               %li

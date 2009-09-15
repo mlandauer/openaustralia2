@@ -99,10 +99,12 @@ class Hansard < ActiveRecord::Base
   end
   
   def no_comments
-    if id == "2009-05-14.1.2" || id == "2009-05-14.2.1"
-      2
+    if subsection?
+      Comment.count(:include => "speech", :conditions => ["hansard.subsection_id = ?", epobject_id])
+    elsif speech? || procedural?
+      comments.count
     else
-      0
+      raise "Only supporting subsection, speech and procedural"
     end
   end
 end
