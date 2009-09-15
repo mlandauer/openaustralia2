@@ -142,5 +142,9 @@ describe "MembersController" do
   it "should render the static help page" do
     compare_with_php("/help/", "help")
   end
+  
+  it "should render the static about page" do
+    compare_with_php("/about/", "about")
+  end
 end
 
