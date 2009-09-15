@@ -35,16 +35,24 @@ class DebateController < ApplicationController
       render :year
     else
       @subsection = Hansard.find_by_id(params[:id])
-      @section = @subsection.section
-      @date = @subsection.hdate
-      @speeches = Hansard.speeches_in_subsection(@subsection)
-      @extra_keywords = "#{truncate(@subsection.to_s, :length => 38)}: #{@subsection.hdate.to_s(:simple)}"
-      @title = "#{@extra_keywords}: House debates"
-      # Temporary HACK
-      if @date == Date.new(2009,5,13)
-        @previous_debate = Hansard.find_by_id("2009-05-13.1.1")
-      elsif @date == Date.new(2009,5,14)
-        @previous_debate = Hansard.find_by_id("2009-05-14.1.1")
+      if @subsection.section?
+        # Find the first subsection and redirect to it
+        r = Hansard.first(:conditions => {:section_id => @subsection.epobject_id}, :order => "hpos")
+        redirect_to :id => r.id
+      elsif @subsection.subsection?
+        @section = @subsection.section
+        @date = @subsection.hdate
+        @speeches = Hansard.speeches_in_subsection(@subsection)
+        @extra_keywords = "#{truncate(@subsection.to_s, :length => 38)}: #{@subsection.hdate.to_s(:simple)}"
+        @title = "#{@extra_keywords}: House debates"
+        # Temporary HACK
+        if @date == Date.new(2009,5,13)
+          @previous_debate = Hansard.find_by_id("2009-05-13.1.1")
+        elsif @date == Date.new(2009,5,14)
+          @previous_debate = Hansard.find_by_id("2009-05-14.1.1")
+        end
+      else
+        raise "Only know currently how to handle sections and subsections"
       end
     end
   end
