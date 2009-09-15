@@ -8,6 +8,15 @@
         %ul
           %li
             %a#c1(name="c1")>
+            %strong Matthew Landauer:
+            And another comment...
+            %small (4 days, 16 hours ago)
+            %br
+            %a(href="/debate/?id=2009-05-14.2.1#c3") Read comment
+            \|
+            %a(href="/user/?u=1" title="See more information about this user") All by this user
+          %li
+            %a#c2(name="c2")>
             %strong #{@comment.user.name}:
             = @comment.body
             %small (#{time_ago_in_words(@comment.posted)} ago)

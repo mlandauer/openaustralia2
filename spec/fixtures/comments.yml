@@ -6,3 +6,12 @@ comment_1:
   posted: 2009-09-10 21:00:00
   visible: 1
   original_gid: uk.org.publicwhip/debate/2009-05-14.2.1
+
+comment_2:
+  comment_id: 3
+  user_id: 1
+  epobject_id: 151
+  body: And another comment...
+  posted: 2009-09-10 22:00:00
+  visible: 1
+  original_gid: uk.org.publicwhip/debate/2009-05-14.2.1
