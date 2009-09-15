@@ -50,8 +50,7 @@
             %li= link_to_on_if_current "Recent comments", {:controller => 'comments', :action => 'recent', :trailing_slash => true}, {:title => "Recently posted comments"}
             %li= link_to_on_if_current "Representatives", {:controller => "member", :action => "representatives", :trailing_slash => true}, {:title => "Your Representative and list of all Members of the House of Representatives"}
             %li= link_to_on_if_current "Senators", {:controller => "member", :action => "senators", :trailing_slash => true}, {:title => "List of all Senators"}
-            %li
-              %a{ :href => "/help/", :title => "Answers to your questions" }> Help
+            %li= link_to_on_if_current "Help", {:controller => "static", :action => "show", :path => ["help"], :trailing_slash => true}, {:title => "Answers to your questions"}
       / end #menu
       #content
         = yield

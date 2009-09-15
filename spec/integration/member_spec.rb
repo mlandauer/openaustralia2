@@ -138,5 +138,9 @@ describe "MembersController" do
     get "/debates/?id=2009-05-14.1.1"
     response.should redirect_to(:controller => "debate", :action => "debate", :id => "2009-05-14.1.2")
   end
+  
+  it "should render the static help page" do
+    compare_with_php("/help/", "help")
+  end
 end
 

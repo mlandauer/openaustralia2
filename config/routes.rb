@@ -13,6 +13,9 @@ ActionController::Routing::Routes.draw do |map|
   map.connect 'news/archives/:year/:month', :controller => 'news', :action => 'index'
   map.connect 'comments/recent', :controller => 'comments', :action => 'recent'
 
+  # For rendering the static content pages
+  map.connect '*path', :controller => 'static', :action => 'show'
+  
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
