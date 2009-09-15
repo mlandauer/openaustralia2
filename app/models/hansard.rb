@@ -99,7 +99,7 @@ class Hansard < ActiveRecord::Base
   end
   
   def no_comments
-    if id == "2009-05-14.1.2"
+    if id == "2009-05-14.1.2" || id == "2009-05-14.2.1"
       2
     else
       0
