@@ -3,6 +3,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect 'senators', :controller => 'member', :action => 'senators'
   # TODO: Hardcoding house numbers below. Very nasty.
   map.connect 'mp/:name/:constituency', :controller => 'member', :action => 'show', :house => 1
+  map.connect 'mp', :controller => 'member', :action => 'show', :house => 1
   map.connect 'senator/:name/:constituency', :controller => 'member', :action => 'show', :house => 2
   map.connect 'debates', :controller => 'debate', :action => 'debate'
   map.connect 'debate', :controller => 'debate', :action => 'speech'

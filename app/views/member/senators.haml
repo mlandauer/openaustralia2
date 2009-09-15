@@ -16,7 +16,7 @@
             %td.row
               %img.portrait{ :src => "/images/mps/#{m.person_id}.jpg", :alt => "" }>
             %td{ :class => row_class }
-              %a{ :href => "/senator/#{m.first_name.downcase}_#{m.last_name.downcase}/#{m.constituency.downcase}" }>= m.name
+              %a{ :href => "/senator/#{m.name_param}/#{m.constituency_param}" }>= m.name
             %td{ :class => row_class }= m.party
             %td{ :class => row_class }= m.constituency
             %td{ :class => row_class }= nbsp_if_empty(m.current_minister_positions.join('<br>'))

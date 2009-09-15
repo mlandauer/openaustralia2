@@ -8,6 +8,14 @@ class Member < ActiveRecord::Base
     first_name + " " + last_name
   end
   
+  def name_param
+    name.parameterize('_')
+  end
+  
+  def constituency_param
+    constituency.parameterize('_')
+  end
+  
   def current_minister_positions
     current_minister_offices.map{|o| o.position}
   end

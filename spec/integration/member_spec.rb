@@ -128,5 +128,10 @@ describe "MembersController" do
   it "should render recent comments" do
     compare_with_php("/comments/recent/", "comments_recent")
   end
+  
+  it "should redirect a member url with id to the pretty version" do
+    get "/mp/?m=1"
+    response.should redirect_to(:controller => "member", :action => "show", :name => "tony_abbott", :constituency => "warringah")
+  end
 end
 
