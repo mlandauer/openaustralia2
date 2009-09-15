@@ -32,7 +32,7 @@ describe CommentsHelper do
   end
   
   it "should just display the date if it's four weeks or longer ago" do
-    Time.stub!(:now).and_return(Time.parse("Tue 15 Sep 2009 12:23:54 EST"))
+    Time.stub!(:now).and_return(Time.parse("Tue 15 Sep 2009 12:23:54 Sydney"))
     time_ago_in_words((3.weeks + 6.days).ago).should == "3 weeks, 6 days"
     time_ago_in_words(4.weeks.ago).should == "18 August 2009"
     time_ago_in_words((4.weeks + 1.day).ago).should == "17 August 2009"

@@ -8,13 +8,13 @@
         %ul
           %li
             %a#c1(name="c1")>
-            %strong Matthew Landauer:
-            Hello Mr Abbott. How are you?
-            %small (4 days, 12 hours ago)
+            %strong #{@comment.user.name}:
+            = @comment.body
+            %small (#{time_ago_in_words(@comment.posted)} ago)
             %br
-            %a(href="/debate/?id=2009-05-14.2.1#c2") Read comment
+            %a(href="/debate/?id=#{@comment.speech.id}#c2") Read comment
             \|
-            %a(href="/user/?u=1" title="See more information about this user") All by this user
+            %a(href="/user/?u=#{@comment.user.id}" title="See more information about this user") All by this user
     / end .block
   / end .main
   .sidebar
