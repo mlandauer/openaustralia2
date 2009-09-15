@@ -6,24 +6,16 @@
       %h4 Most recent comments
       .blockbody
         %ul
-          %li
-            %a#c1(name="c1")>
-            %strong Matthew Landauer:
-            And another comment...
-            %small (4 days, 16 hours ago)
-            %br
-            %a(href="/debate/?id=2009-05-14.2.1#c3") Read comment
-            \|
-            %a(href="/user/?u=1" title="See more information about this user") All by this user
-          %li
-            %a#c2(name="c2")>
-            %strong #{@comment.user.name}:
-            = @comment.body
-            %small (#{time_ago_in_words(@comment.posted)} ago)
-            %br
-            %a(href="/debate/?id=#{@comment.speech.id}#c2") Read comment
-            \|
-            %a(href="/user/?u=#{@comment.user.id}" title="See more information about this user") All by this user
+          - @comments.each_with_index do |comment, index|
+            %li
+              %a(id="c#{index + 1}" name="c#{index + 1}")>
+              %strong #{comment.user.name}:
+              = comment.body
+              %small (#{time_ago_in_words(comment.posted)} ago)
+              %br
+              %a(href="/debate/?id=#{comment.speech.id}#c#{comment.id}") Read comment
+              \|
+              %a(href="/user/?u=#{comment.user.id}" title="See more information about this user") All by this user
     / end .block
   / end .main
   .sidebar

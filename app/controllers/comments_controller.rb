@@ -3,6 +3,6 @@ class CommentsController < ApplicationController
     @title = "Recent comments"
     @extra_keywords = @title
     # TODO: There will be some limit on the number of comments shown here
-    @comment = Comment.first
+    @comments = Comment.all(:order => "posted DESC")
   end
 end
