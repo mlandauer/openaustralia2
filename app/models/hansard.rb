@@ -6,6 +6,7 @@ class Hansard < ActiveRecord::Base
   belongs_to :speaker, :class_name => "Member"
   belongs_to :section, :class_name => "Hansard", :primary_key => "epobject_id"
   belongs_to :subsection, :class_name => "Hansard", :primary_key => "epobject_id"
+  has_many :comments, :foreign_key => "epobject_id", :primary_key => "epobject_id"
   
   def section?
 		htype == 10

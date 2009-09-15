@@ -58,12 +58,6 @@ class DebateController < ApplicationController
     @title = "#{@extra_keywords}: House debates"
     # Hack to deal with not entirely consistent behaviour of "Debates" menu
     @debates_menu_on = true
-    
-    # TODO: Fix this Hack
-    if @speech.id == "2009-05-14.2.1"
-      @comments = Comment.all(:order => "posted")
-    else
-      @comments = []
-    end
+    @comments = @speech.comments(:order => "posted")
   end
 end
