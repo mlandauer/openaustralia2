@@ -8,7 +8,7 @@ module ApplicationHelper
   
   # TODO: There's most probably a standard method for doing this
   def escape_path(text)
-    text.gsub('/','%2F').gsub('?', '%3F').gsub('=', '%3D')
+    text.gsub('/','%2F').gsub('?', '%3F').gsub('=', '%3D').gsub('#', '%23')
   end
 end
 
