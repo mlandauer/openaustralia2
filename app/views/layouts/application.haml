@@ -63,7 +63,7 @@
             &nbsp;&nbsp;&nbsp;
             = link_to_unless_current "Link to us", :controller => "static", :action => "link_to_us", :trailing_slash => true
             &nbsp;&nbsp;&nbsp;
-            %a{ :href => "/houserules/" } House rules
+            = link_to_unless_current "House rules", :controller => "static", :action => "house_rules", :trailing_slash => true
             &nbsp;&nbsp;&nbsp;
             %a{ :href => "/api/" } API
             \/

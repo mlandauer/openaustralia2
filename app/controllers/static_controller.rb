@@ -18,4 +18,9 @@ class StaticController < ApplicationController
     @title = "Link to us"
     @extra_keywords = @title
   end
+  
+  def house_rules
+    @title = "House rules"
+    @extra_keywords = @title
+  end
 end
