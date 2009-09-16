@@ -1,13 +1,13 @@
 class MemberController < ApplicationController
   def representatives
-    @title = "Representatives"
-    @extra_keywords = @title
+    @extra_keywords = "Representatives"
+    @title = "#{@extra_keywords} (OpenAustralia.org)"
     @members = Member.find_all_by_house(1)
   end
   
   def senators
-    @title = "All Senators"
-    @extra_keywords = @title
+    @extra_keywords = "All Senators"
+    @title = "#{@extra_keywords} (OpenAustralia.org)"
     @members = Member.find_all_by_house(2)
   end
 
@@ -18,8 +18,8 @@ class MemberController < ApplicationController
     elsif params[:name].gsub("_", " ") =~ /^(\S*) (\S*)$/
       @member = Member.first(:conditions => {:first_name => $~[1], :last_name => $~[2],
         :constituency => params[:constituency], :house => params[:house]})
-      @title = "#{@member.formal_name}, #{@member.constituency}"
-      @extra_keywords = @title
+      @extra_keywords = "#{@member.formal_name}, #{@member.constituency}"
+      @title = "#{@extra_keywords} (OpenAustralia.org)"
     else
       # TODO: Add error handling here
     end

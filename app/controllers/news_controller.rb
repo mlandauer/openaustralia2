@@ -8,13 +8,13 @@ class NewsController < ApplicationController
       date = Date.new(params[:year].to_i, params[:month].to_i, 1)
       @subtitle = date.to_s(:month)
       @extra_keywords = @subtitle
-      @title = "#{@extra_keywords}: OpenAustralia news"
+      @title = "#{@extra_keywords}: OpenAustralia news (OpenAustralia.org)"
 
       @posts = News.all.find_all {|p| params[:year] == p.year_param && params[:month] == p.month_param }.reverse
     else
-      @title = "OpenAustralia news"
+      @extra_keywords = "OpenAustralia news"
+      @title = "#{@extra_keywords} (OpenAustralia.org)"
       @subtitle = "&nbsp;"
-      @extra_keywords = @title
     
       # Only show the first 10
       @posts = News.all[0..9]
@@ -29,6 +29,6 @@ class NewsController < ApplicationController
     
     @post = posts.find {|p| params[:year] == p.year_param && params[:month] == p.month_param && params[:day] == p.day_param && params[:title] == p.title_param }
     @extra_keywords = @post.title
-    @title = "#{@extra_keywords}: OpenAustralia news"
+    @title = "#{@extra_keywords}: OpenAustralia news (OpenAustralia.org)"
   end  
 end

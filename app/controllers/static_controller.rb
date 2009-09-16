@@ -1,26 +1,26 @@
 class StaticController < ApplicationController
   def help
-    @title = "Help"
-    @extra_keywords = @title
+    @extra_keywords = "Help"
+    @title = "#{@extra_keywords} (OpenAustralia.org)"
   end
   
   def about
-    @title = "About us"
-    @extra_keywords = @title
+    @extra_keywords = "About us"
+    @title = "#{@extra_keywords} (OpenAustralia.org)"
   end
   
   def contact
-    @title = "Contact OpenAustralia.org"
-    @extra_keywords = @title
+    @extra_keywords = "Contact OpenAustralia.org"
+    @title = "#{@extra_keywords} (OpenAustralia.org)"
   end
   
   def link_to_us
-    @title = "Link to us"
-    @extra_keywords = @title
+    @extra_keywords = "Link to us"
+    @title = "#{@extra_keywords} (OpenAustralia.org)"
   end
   
   def house_rules
-    @title = "House rules"
-    @extra_keywords = @title
+    @extra_keywords = "House rules"
+    @title = "#{@extra_keywords} (OpenAustralia.org)"
   end
 end
