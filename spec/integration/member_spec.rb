@@ -158,5 +158,9 @@ describe "MembersController" do
   it "should render the static house rule page" do
     compare_with_php("/houserules/", "houserules")
   end
+  
+  it "should render the home page" do
+    compare_with_php("/", "home")
+  end
 end
 

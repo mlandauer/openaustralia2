@@ -1,0 +1,95 @@
+.stripe-side
+  .main
+    #intro.block
+      %h4 At OpenAustralia.org you can:
+      .blockbody
+        %ol
+          %li
+            %form{ :action => "/mp/", :method => "get" }
+              %p<
+                %strong> Find out more about your Representative
+                %br
+                <label for="pc">Enter your Australian postcode here:</label>&nbsp;
+                <input class="text" id="pc" maxlength="10" name="pc" size="8" type="text" />&nbsp;&nbsp;
+                %input.submit(type="submit" value=" GO ")>
+          %li
+            %form(action="/search/" method="get")
+              %p<
+                %strong<
+                  %label(for="s") Search:
+                <input class="text" id="s" maxlength="100" name="s" size="15" type="text" value="" />&nbsp;&nbsp;<input class="submit" type="submit" value="SEARCH" />
+          %li
+            %p
+              %a{ :href => "/alert/" }
+                %strong Sign up to be emailed when something relevant to you happens in Parliament
+          %li
+            %p
+              %strong Read and comment on:
+            %ul#hansard-day
+              %li
+                %strong
+                  The most recent
+                  #{link_to ("House debates", "/debates/")}:
+                %ul
+                  %li
+                    %a{ :href => "/debates/?id=2009-05-14.1.1" } Section 2
+    / end .block
+  / end .main
+  .sidebar
+    #help.block
+      %h4 What's all this about?
+      .blockbody
+        %p
+          %a{ :href => "http://blog.openaustralia.org/join-us/" }
+            = image_tag("donate_greenL.png", :alt => "Donate", :border => "0", :hspace => "4", :vspace => "5", :align => "right", :size => "108x43")
+          %a{ :href => "/about/", :title => "link to About Us page" }
+            OpenAustralia.org
+          is a non-partisan website run by a group of volunteers which aims to
+          make it easy for people to keep tabs on their representatives in Parliament.
+    / end .block
+    .block
+      %h4
+        %a{ :href => "/news/" } Site news
+      .blockbody
+        %h5
+          %a{ :href => "/news/archives/2009/05/12/our_new_home_on_" } Our new home on Facebook
+        %p
+          If you're a user of Facebook, come and visit our new home on Facebook and invite your friends along. Do your bit by letting even more people know about OpenAustralia.org. Also, you can talk amongst your fellow OpenAustralia fans, leave comments,...
+          %a{ :href => "/news/archives/2009/05/12/our_new_home_on_" } Read more...
+        %h5
+          %a{ :href => "/news/archives/2009/05/06/opening_up_the_p" } Opening up the procedures of Parliament
+        %p
+          So far we've shown you what they say (speeches) not what they do (procedures). Believe it or not proceedings of Parliament take place within a highly structured system. The speeches don't always give the full picture of what's going on. So, to...
+          %a{ :href => "/news/archives/2009/05/06/opening_up_the_p" } Read more...
+        %p
+          %a{ :href => "/news/index.rdf" } Site News as RSS
+        %p
+          %a{ :href => "/news/archives/" } Archive
+    / end .block
+    #recentcomments.block
+      %h4 Most recent comments
+      .blockbody
+        %ul
+          %li
+            %a{ :name => "c1" }>
+            %strong Matthew Landauer:
+            And another comment...
+            %small (5 days, 17 hours ago)
+            %br>
+            %a{ :href => "/debate/?id=2009-05-14.2.1#c3" } Read comment
+            \|
+            %a{ :href => "/user/?u=1", :title => "See more information about this user" } All by this user
+          %li
+            %a{ :name => "c2" }>
+            %strong Matthew Landauer:
+            Hello Mr Abbott. How are you?
+            %small (5 days, 18 hours ago)
+            %br>
+            %a{ :href => "/debate/?id=2009-05-14.2.1#c2" } Read comment
+            \|
+            %a{ :href => "/user/?u=1", :title => "See more information about this user" } All by this user
+        %p
+          %a{ :href => "/comments/recent/#c3" } See more comments posted recently
+    / end .block
+  / end .sidebar
+  .break

@@ -20,6 +20,8 @@ ActionController::Routing::Routes.draw do |map|
   map.connect 'help/linktous', :controller => 'static', :action => 'link_to_us'
   map.connect 'houserules', :controller => 'static', :action => 'house_rules'
   
+  map.root :controller => "home"
+  
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:

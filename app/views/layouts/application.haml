@@ -8,7 +8,8 @@
     %meta{ :name => "verify-v1", :content => "5FBaCDi8kCKdo4s64NEdB5EOJDNc310SwcLLYHmEbgg=" }
     %link{ :href => "mailto:contact@openaustralia.org", :title => "Send feedback", :rel => "author" }
     %link{ :href => "http://dev.openaustralia.org/", :title => "Home", :rel => "home" }
-    %link{ :href => "/", :title => "Home", :rel => "start" }
+    - unless current_page?(:controller => "home")
+      %link{ :href => "/", :title => "Home", :rel => "start" }
     / skin: default
     %link{ :href => "/style/default/global.css", :rel => "stylesheet", :type => "text/css" }
     %style{ :type => "text/css" }
@@ -22,8 +23,7 @@
       #banner
         #title
           %h1
-            %a{ :href => "/", :title => "To the front page of the site" }
-              = image_tag("openaustraliaorgbeta.gif", :alt => "OpenAustralia.org beta", :size => "262x32")
+            = link_to_unless_current(image_tag("openaustraliaorgbeta.gif", :alt => "OpenAustralia.org beta", :size => "262x32"), {:controller => "home"}, {:title => "To the front page of the site"})
         #search
           %form{ :action => "/search/", :method => "get" }
             %p{ :style => "padding-left: 5px" }
@@ -41,8 +41,7 @@
           %br
         #bottommenu
           %ul
-            %li
-              %a{ :href => "/", :title => "The front page of the site" }> Home
+            %li= link_to_on_if_current "Home", {:controller => "home"}, {:title => "The front page of the site"}
             %li
               = link_to "News", {:controller => "news", :action => "index", :trailing_slash => true}, {:class => ("on" if @news_menu_on), :title => "News about changes to this website"}
             %li
