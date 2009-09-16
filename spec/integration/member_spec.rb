@@ -150,5 +150,9 @@ describe "MembersController" do
   it "should render the static contact page" do
     compare_with_php("/contact/", "contact")
   end
+  
+  it "should render the static linktous page" do
+    compare_with_php("/help/linktous/", "linktous")
+  end
 end
 

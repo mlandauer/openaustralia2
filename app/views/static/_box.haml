@@ -1,0 +1,18 @@
+/ OpenAustralia box, begin
+%div{ :style => "position: relative; width: 17em; color: #000000; background-color: #EBECCF; font-family: Arial, Geneva, Sans-serif; margin-bottom: 1em; border: 1px solid #AE967F; padding: 0 10px 2em 10px;" }
+  %h5{ :title => "OpenAustralia.org", :style => "font-family: Arial, Geneva, Sans-serif; font-size: 1.4em; position: absolute; margin: 0; bottom: 2px; right: 10px;" }
+    %a{ :href => "http://dev.openaustralia.org/", :style => "color: #957676; text-decoration: none; font-weight: normal;" }>
+      %em{ :style => "font-weight: bold; font-style: normal;" }><
+        %span{ :style => "color: #7CA3B0" }> Open
+        Australia
+  %form{ :title => "Find out about your Representative", :action => "http://dev.openaustralia.org/mp/", :method => "get", :style => "margin: 0; padding: 5px 0 0 0;" }
+    %label{ :for => "pc", :style => "display: block; font-size: small; font-weight: bold; margin: 0 0 9px 0;" }<
+      Find out more about your <abbr class="display: inline; speak: spell-out;" title="Representative">Representative</abbr>
+    %input#pc{ :tabindex => "1", :name => "pc", :size => "8", :title => "Enter your Australian postcode here", :type => "text", :value => "Your Postcode", :style => "width: 12em; border: solid 1px #AE967F;", :maxlength => "20" }
+    %input#Submit1{ :tabindex => "2", :name => "Submit1", :title => "Submit search", :type => "submit", :value => "Go", :style => "border: solid 0px #AE967F; background-color: #AE967F; color: #ffffff; font-weight: bold; text-transform: uppercase;" }
+  %form{ :title => "Search Parliament", :action => "http://dev.openaustralia.org/search/", :method => "get", :style => "margin: 0; padding: 5px 0 0 0;" }
+    %label{ :for => "s", :style => "display: block; font-size: small; font-weight: bold; margin: 0 0 2px 0;" } Search Parliament
+    %input#s{ :tabindex => "3", :name => "s", :size => "15", :title => "Type what you're looking for", :type => "text", :value => "Your Search", :style => "width: 12em; border: solid 1px #AE967F;", :maxlength => "100" }
+    %input#Submit2{ :tabindex => "4", :name => "Submit2", :title => "Submit search", :type => "submit", :value => "Go", :style => "border: solid 0px #AE967F; background-color: #AE967F; color: #ffffff; font-weight: bold; text-transform: uppercase;" }
+    %br
+/ OpenAustralia box, end

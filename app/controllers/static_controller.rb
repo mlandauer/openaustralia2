@@ -13,4 +13,9 @@ class StaticController < ApplicationController
     @title = "Contact OpenAustralia.org"
     @extra_keywords = @title
   end
+  
+  def linktous
+    @title = "Link to us"
+    @extra_keywords = @title
+  end
 end
