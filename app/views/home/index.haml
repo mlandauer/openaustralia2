@@ -70,26 +70,18 @@
       %h4 Most recent comments
       .blockbody
         %ul
-          %li
-            %a{ :name => "c1" }>
-            %strong Matthew Landauer:
-            And another comment...
-            %small (5 days, 17 hours ago)
-            %br>
-            %a{ :href => "/debate/?id=2009-05-14.2.1#c3" } Read comment
-            \|
-            %a{ :href => "/user/?u=1", :title => "See more information about this user" } All by this user
-          %li
-            %a{ :name => "c2" }>
-            %strong Matthew Landauer:
-            Hello Mr Abbott. How are you?
-            %small (5 days, 18 hours ago)
-            %br>
-            %a{ :href => "/debate/?id=2009-05-14.2.1#c2" } Read comment
-            \|
-            %a{ :href => "/user/?u=1", :title => "See more information about this user" } All by this user
+          - @comments.each_with_index do |comment, index|
+            %li
+              %a{ :name => "c#{index + 1}" }>
+              %strong #{comment.user.name}:
+              = comment.body
+              %small (#{time_ago_in_words(comment.posted)} ago)
+              %br>
+              %a{ :href => "/debate/?id=#{comment.speech.id}#c#{comment.id}" } Read comment
+              \|
+              %a{ :href => "/user/?u=#{comment.user.id}", :title => "See more information about this user" } All by this user
         %p
-          %a{ :href => "/comments/recent/#c3" } See more comments posted recently
+          %a{ :href => "/comments/recent/#c#{@comments.size + 1}" } See more comments posted recently
     / end .block
   / end .sidebar
   .break
