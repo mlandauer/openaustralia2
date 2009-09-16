@@ -14,7 +14,7 @@
           - row_class = cycle("row-1", "row-2")
           %tr
             %td.row
-              %img.portrait{ :src => "/images/mps/#{m.person_id}.jpg", :alt => "" }>
+              = image_tag("mps/#{m.person_id}.jpg", :class => "portrait", :alt => "")
             %td{ :class => row_class }
               %a{ :href => "/senator/#{m.name_param}/#{m.constituency_param}" }>= m.name
             %td{ :class => row_class }= m.party

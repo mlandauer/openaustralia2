@@ -4,7 +4,7 @@
     #mp.block
       %h4 #{@member.formal_name}
       .blockbody
-        %img.portrait{ :src => "/images/mpsL/#{@member.person_id}.jpg", :alt => "Photo of #{@member.name}" }
+        = image_tag("mpsL/#{@member.person_id}.jpg", :class => "portrait", :alt => "Photo of #{@member.name}")
         %ul.hilites
           %li
             %strong #{@member.party} #{@member.generic_reference} for #{@member.constituency}
@@ -100,8 +100,8 @@
           %a{ :href => "/help/#regmem" }> What's this?
           )
       .blockbody
-        %a{ :href => "/regmem/scan/register_interests_#{@member.person_id}.pdf" } Scan of #{@member.name}'s latest entry (including amendments)
-        %img{ :src => "/images/pdficon_small.gif", :alt => "PDF" }>
+        %a{ :href => "/regmem/scan/register_interests_#{@member.person_id}.pdf" }> Scan of #{@member.name}'s latest entry (including amendments)
+        = image_tag("pdficon_small.gif", :alt => "PDF")
     / end .block
   / end .main
   .sidebar

@@ -23,7 +23,7 @@
         #title
           %h1
             %a{ :href => "/", :title => "To the front page of the site" }
-              %img{ :src => "/images/openaustraliaorgbeta.gif", :height => "32", :alt => "OpenAustralia.org beta", :width => "262" }
+              = image_tag("openaustraliaorgbeta.gif", :alt => "OpenAustralia.org beta", :size => "262x32")
         #search
           %form{ :action => "/search/", :method => "get" }
             %p{ :style => "padding-left: 5px" }

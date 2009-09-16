@@ -13,7 +13,7 @@
     %a{ :name => speech.anchor }
     %p.speaker
       %a{ :href => "/mp/?m=#{member.id}", :title => "See more information about #{member.name}" }
-        %img.portrait{ :src => "/images/mps/#{member.person_id}.jpg", :alt => "Photo of #{member.name}" }
+        = image_tag("mps/#{member.person_id}.jpg", :class => "portrait", :alt => "Photo of #{member.name}")
         %strong>= member.name
       %small
         - if member.current_minister_offices.empty?

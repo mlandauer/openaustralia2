@@ -41,3 +41,6 @@ Rails::Initializer.run do |config|
 end
 
 Haml::Template.options[:format] = :html4
+
+# Turn off asset timestamping so that urls for images don't have "?" after them
+ENV["RAILS_ASSET_ID"] = ''
