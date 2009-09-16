@@ -14,7 +14,7 @@ class StaticController < ApplicationController
     @extra_keywords = @title
   end
   
-  def linktous
+  def link_to_us
     @title = "Link to us"
     @extra_keywords = @title
   end

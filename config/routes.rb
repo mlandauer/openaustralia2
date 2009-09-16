@@ -17,7 +17,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect 'help', :controller => 'static', :action => 'help'
   map.connect 'about', :controller => 'static', :action => 'about'
   map.connect 'contact', :controller => 'static', :action => 'contact'
-  map.connect 'help/linktous', :controller => 'static', :action => 'linktous'
+  map.connect 'help/linktous', :controller => 'static', :action => 'link_to_us'
   
   # The priority is based upon order of creation: first created -> highest priority.
 
