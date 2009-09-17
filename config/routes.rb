@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
-  map.connect 'mps', :controller => 'member', :action => 'representatives'
-  map.connect 'senators', :controller => 'member', :action => 'senators'
+  map.representatives 'mps', :controller => 'member', :action => 'representatives', :trailing_slash => true
+  map.senators 'senators', :controller => 'member', :action => 'senators', :trailing_slash => true
   # TODO: Hardcoding house numbers below. Very nasty.
   map.connect 'mp/:name/:constituency', :controller => 'member', :action => 'show', :house => 1
   map.connect 'mp', :controller => 'member', :action => 'show', :house => 1
@@ -8,17 +8,17 @@ ActionController::Routing::Routes.draw do |map|
   map.connect 'debates', :controller => 'debate', :action => 'debate'
   map.connect 'debate', :controller => 'debate', :action => 'speech'
   map.connect 'hansard', :controller => 'debate', :action => 'hansard'
-  map.connect 'news', :controller => 'news', :action => 'index'
+  map.news 'news', :controller => 'news', :action => 'index', :trailing_slash => true
   map.connect 'news/archives/:year/:month/:day/:title', :controller => 'news', :action => 'show'
   map.connect 'news/archives/:year/:month', :controller => 'news', :action => 'index'
-  map.connect 'comments/recent', :controller => 'comments', :action => 'recent'
+  map.recent_comments 'comments/recent', :controller => 'comments', :action => 'recent', :trailing_slash => true
 
   # For rendering the static content pages
-  map.connect 'help', :controller => 'static', :action => 'help'
-  map.connect 'about', :controller => 'static', :action => 'about'
-  map.connect 'contact', :controller => 'static', :action => 'contact'
-  map.connect 'help/linktous', :controller => 'static', :action => 'link_to_us'
-  map.connect 'houserules', :controller => 'static', :action => 'house_rules'
+  map.help 'help', :controller => 'static', :action => 'help', :trailing_slash => true
+  map.about 'about', :controller => 'static', :action => 'about', :trailing_slash => true
+  map.contact 'contact', :controller => 'static', :action => 'contact', :trailing_slash => true
+  map.link_to_us 'help/linktous', :controller => 'static', :action => 'link_to_us', :trailing_slash => true
+  map.house_rules 'houserules', :controller => 'static', :action => 'house_rules', :trailing_slash => true
   
   map.root :controller => "home"
   

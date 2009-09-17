@@ -43,26 +43,26 @@
           %ul
             %li= link_to_on_if_current "Home", {:controller => "home"}, {:title => "The front page of the site"}
             %li
-              = link_to "News", {:controller => "news", :action => "index", :trailing_slash => true}, {:class => ("on" if @news_menu_on), :title => "News about changes to this website"}
+              = link_to "News", news_path, {:class => ("on" if @news_menu_on), :title => "News about changes to this website"}
             %li
               %a{:class => ("on" if @debates_menu_on), :href => "/hansard/", :title => "House of Representatives and Senate debates" }> Debates
-            %li= link_to_on_if_current "Recent comments", {:controller => 'comments', :action => 'recent', :trailing_slash => true}, {:title => "Recently posted comments"}
-            %li= link_to_on_if_current "Representatives", {:controller => "member", :action => "representatives", :trailing_slash => true}, {:title => "Your Representative and list of all Members of the House of Representatives"}
-            %li= link_to_on_if_current "Senators", {:controller => "member", :action => "senators", :trailing_slash => true}, {:title => "List of all Senators"}
-            %li= link_to_on_if_current "Help", {:controller => "static", :action => "help", :trailing_slash => true}, {:title => "Answers to your questions"}
+            %li= link_to_on_if_current "Recent comments", recent_comments_path, :title => "Recently posted comments"
+            %li= link_to_on_if_current "Representatives", representatives_path, :title => "Your Representative and list of all Members of the House of Representatives"
+            %li= link_to_on_if_current "Senators", senators_path, :title => "List of all Senators"
+            %li= link_to_on_if_current "Help", help_path, :title => "Answers to your questions"
       / end #menu
       #content
         = yield
         / end .stripe-*
         #footer
           %p
-            = link_to_unless_current "About us", :controller => "static", :action => "about", :trailing_slash => true
+            = link_to_unless_current "About us", about_path
             &nbsp;&nbsp;&nbsp;
-            = link_to_unless_current "Contact OpenAustralia.org", :controller => "static", :action => "contact", :trailing_slash => true
+            = link_to_unless_current "Contact OpenAustralia.org", contact_path
             &nbsp;&nbsp;&nbsp;
-            = link_to_unless_current "Link to us", :controller => "static", :action => "link_to_us", :trailing_slash => true
+            = link_to_unless_current "Link to us", link_to_us_path
             &nbsp;&nbsp;&nbsp;
-            = link_to_unless_current "House rules", :controller => "static", :action => "house_rules", :trailing_slash => true
+            = link_to_unless_current "House rules", house_rules_path
             &nbsp;&nbsp;&nbsp;
             %a{ :href => "/api/" } API
             \/
