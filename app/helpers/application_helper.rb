@@ -28,7 +28,7 @@ module ApplicationHelper
       if chars.length > options[:length]
         chopped = chars[0...l]
         if options[:break_on_spaces]
-          chopped = chopped.match(/(.*)\s.+/)[1]
+          chopped = chopped.match(/(.*)\s.+/m)[1]
         end
         (chopped + options[:omission]).to_s
       else
