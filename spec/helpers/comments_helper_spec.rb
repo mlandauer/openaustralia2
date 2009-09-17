@@ -31,6 +31,10 @@ describe CommentsHelper do
     time_ago_in_words(30.seconds.ago).should == "30 seconds"
   end
   
+  it "should display one week correctly" do
+    time_ago_in_words(1.week.ago).should == "1 week"
+  end
+  
   it "should just display the date if it's four weeks or longer ago" do
     Time.stub!(:now).and_return(Time.parse("Tue 15 Sep 2009 12:23:54 Sydney"))
     time_ago_in_words((3.weeks + 6.days).ago).should == "3 weeks, 6 days"

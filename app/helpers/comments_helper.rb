@@ -17,7 +17,7 @@ module CommentsHelper
     if months > 0
       text = time.to_date.to_s(:simple)
     elsif weeks > 0
-      text = pluralize(weeks, 'weeks')
+      text = pluralize(weeks, 'week')
       text += ", " + pluralize(days, 'day') if days > 0
     elsif days > 0
       text = pluralize(days, 'day')
