@@ -43,8 +43,7 @@
         %p
           %a{ :href => "http://blog.openaustralia.org/join-us/" }
             = image_tag("donate_greenL.png", :alt => "Donate", :border => "0", :hspace => "4", :vspace => "5", :align => "right", :size => "108x43")
-          %a{ :href => "/about/", :title => "link to About Us page" }
-            OpenAustralia.org
+          %a{ :href => "/about/", :title => "link to About Us page" } OpenAustralia.org
           is a non-partisan website run by a group of volunteers which aims to
           make it easy for people to keep tabs on their representatives in Parliament.
     / end .block
@@ -52,16 +51,12 @@
       %h4
         %a{ :href => "/news/" } Site news
       .blockbody
-        %h5
-          %a{ :href => "/news/archives/2009/05/12/our_new_home_on_" } Our new home on Facebook
-        %p
-          If you're a user of Facebook, come and visit our new home on Facebook and invite your friends along. Do your bit by letting even more people know about OpenAustralia.org. Also, you can talk amongst your fellow OpenAustralia fans, leave comments,...
-          %a{ :href => "/news/archives/2009/05/12/our_new_home_on_" } Read more...
-        %h5
-          %a{ :href => "/news/archives/2009/05/06/opening_up_the_p" } Opening up the procedures of Parliament
-        %p
-          So far we've shown you what they say (speeches) not what they do (procedures). Believe it or not proceedings of Parliament take place within a highly structured system. The speeches don't always give the full picture of what's going on. So, to...
-          %a{ :href => "/news/archives/2009/05/06/opening_up_the_p" } Read more...
+        - @posts.each do |post|
+          %h5
+            %a{ :href => "/news/archives/#{post.year_param}/#{post.month_param}/#{post.day_param}/#{post.title_param}" }= post.title
+          %p
+            = truncate(strip_tags(post.content).squish, :length => 250, :break_on_spaces => true)
+            %a{ :href => "/news/archives/#{post.year_param}/#{post.month_param}/#{post.day_param}/#{post.title_param}" } Read more...
         %p
           %a{ :href => "/news/index.rdf" } Site News as RSS
         %p

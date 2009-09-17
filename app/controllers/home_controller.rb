@@ -5,5 +5,7 @@ class HomeController < ApplicationController
     
     # TODO: There will be some limit on the number of comments shown here
     @comments = Comment.all(:order => "posted DESC")
+    # Only show the first 2 news items
+    @posts = News.all[0..1]
   end
 end
