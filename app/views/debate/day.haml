@@ -5,7 +5,7 @@
     %ul#hansard-day
       - Hansard.reps_sections_on_date(@date).each do |section|
         %li
-          %a{ :href => "/debates/?id=#{section.id}" }
+          - link_to debate_path(:id => section.id) do
             %strong= section
           %small (#{pluralize(section.no_speeches, 'speech')})
           %ul

@@ -5,7 +5,7 @@ ActionController::Routing::Routes.draw do |map|
   map.senators 'senators', :controller => 'member', :action => 'senators', :trailing_slash => true
   map.connect 'mp/:name/:constituency', :controller => 'member', :action => 'show', :house => 1
   map.connect 'senator/:name/:constituency', :controller => 'member', :action => 'show', :house => 2
-  map.connect 'debates', :controller => 'debate', :action => 'debate'
+  map.debate 'debates', :controller => 'debate', :action => 'debate', :trailing_slash => true
   map.speech 'debate', :controller => 'debate', :action => 'speech', :trailing_slash => true
   map.hansard 'hansard', :controller => 'debate', :action => 'hansard', :trailing_slash => true
   map.posts 'news', :controller => 'news', :action => 'index', :trailing_slash => true

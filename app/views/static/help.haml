@@ -3,24 +3,15 @@
     %h2 Help
     %h3 &nbsp;
     %ul
-      %li
-        %a{ :href => "#moderation" } How do you moderate comments?
-      %li
-        %a{ :href => "#missing" } Is this the whole of Hansard?
-      %li
-        %a{ :href => "#privacy" } What is your Privacy Policy?
-      %li
-        %a{ :href => "#cookie" } What is your Cookie Policy?
-      %li
-        %a{ :href => "#extreme" } What's that weird 'urchin' javascript I spy in your page source?
-      %li
-        %a{ :href => "#rss" } What is RSS?
-      %li
-        %a{ :href => "#numbers" } Why should I read in more depth than just the numbers?
-      %li
-        %a{ :href => "#api" } Do you have the data as a spreadsheet file, XML or in an API?
-      %li
-        %a{ :href => "#regmem" } What is the Register of Interests and how can I use it?
+      %li= link_to "How do you moderate comments?", "#moderation"
+      %li= link_to "Is this the whole of Hansard?", "#missing"
+      %li= link_to "What is your Privacy Policy?", "#privacy"
+      %li= link_to "What is your Cookie Policy?", "#cookie"
+      %li= link_to "What's that weird 'urchin' javascript I spy in your page source?", "#extreme"
+      %li= link_to "What is RSS?", "#rss"
+      %li= link_to "Why should I read in more depth than just the numbers?", "#numbers"
+      %li= link_to "Do you have the data as a spreadsheet file, XML or in an API?", "#api"
+      %li= link_to "What is the Register of Interests and how can I use it?", "#regmem"
     %br
     / start new faq entry
     %dl
@@ -51,8 +42,7 @@
           excluding written questions, petitions, and the divisions (voting) and so far goes back to the
           beginning of 2006. It also does not include committees. Think of what we've done thus far as a
           mere taster of what could be possible. If you want the complete, definitive record, go to the
-          %a{ :href => "http://www.aph.gov.au/", :title => "Link to Australian Parliament website" }
-            Australian Parliament
+          = link_to "Australian Parliament", "http://www.aph.gov.au/", :title => "Link to Australian Parliament website"
           site, and you might be able to find what you want.
       / end old faq entry
       / start new faq entry
@@ -102,13 +92,13 @@
             use a program called a news reader to store the locations of RSS feeds, and each time one is
             updated - with new diary entries or speeches - you can easily see what's new. It saves you
             visiting web pages on the off-chance anything new has appeared. Popular RSS readers are
-            %a{ :href => "http://www.sharpreader.net/" } Sharpreader
+            = link_to "Sharpreader", "http://www.sharpreader.net/"
             for Windows or
-            %a{ :href => "http://ranchero.com/netnewswire/#lite" } NetNewsWire Lite
+            = link_to "NetNewsWire Lite", "http://ranchero.com/netnewswire/#lite"
             for Macs.
-            %a{ :href => "http://www.bloglines.com/" } Bloglines
+            = link_to "Bloglines", "http://www.bloglines.com/"
             and
-            %a{ :href => "http://www.google.com/reader" } Google Reader
+            = link_to "Google Reader", "http://www.google.com/reader"
             are online RSS readers.
         / end old faq entry
         / start new faq entry
@@ -155,7 +145,7 @@
             which gets loaded into our database.
           %p
             Please
-            %a{ :href => "mailto:contact@openaustralia.org" } mail us
+            = mail_to "contact@openaustralia.org", "mail us"
             if you want help working out how to use the data, or want to hire us to make something specific
             for you.
         / end old faq entry
