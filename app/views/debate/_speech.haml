@@ -21,7 +21,7 @@
         - else
           -# Display only the first of the ministerial positions. I don't know if this is "correct".
           (#{member.constituency}, #{member.party}, #{member.current_minister_offices[0].position})
-        %a{ :href => "http://www.addthis.com/bookmark.php", :onmouseover => "return addthis_open(this, '', 'http://dev.openaustralia.org/debate/?id=#{speech.id}', '');", :onmouseout => "addthis_close();", :onclick => "return addthis_sendto();" } Share this
+        = add_this("Share this", "http://dev.openaustralia.org/debate/?id=#{speech.id}")
         |
         - unless single_speech
           %a.permalink{ :href => "/debate/?id=#{speech.id}", :title => "Copy this URL to link directly to this piece of text" } Link to this

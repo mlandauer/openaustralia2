@@ -36,4 +36,18 @@ module ApplicationHelper
       end
     end
   end
+  
+  # Pass an absolute url
+  def add_this(text, url)
+    link_to text, "http://www.addthis.com/bookmark.php", :onmouseover => "return addthis_open(this, '', '#{url}', '');", :onmouseout => "addthis_close();", :onclick => "return addthis_sendto();"
+  end
+  
+  def add_this_javascript
+    <<-EOF
+    <!-- ADDTHIS JAVASCRIPT BEGIN -->
+    <script type="text/javascript">var addthis_pub = "foo";</script>
+    <script src="http://s7.addthis.com/js/250/addthis_widget.js" type="text/javascript"></script>
+    <!-- ADDTHIS JAVASCRIPT END -->
+    EOF
+  end
 end

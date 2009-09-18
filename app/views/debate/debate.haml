@@ -13,10 +13,7 @@
 / end .stripe-*
 .stripe-head-2
   .main
-    / ADDTHIS JAVASCRIPT BEGIN
-    %script{ :type => "text/javascript" } var addthis_pub = "foo";
-    %script{ :src => "http://s7.addthis.com/js/250/addthis_widget.js", :type => "text/javascript" }
-    / ADDTHIS JAVASCRIPT END
+    = add_this_javascript
     %h4= @section
     %h5= @subsection
   / end .main
