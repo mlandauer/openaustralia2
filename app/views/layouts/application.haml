@@ -33,10 +33,8 @@
       #menu
         #topmenu
           %ul#user
-            %li
-              %a{ :href => "/user/login/?ret=#{escape_path(@controller.request.request_uri)}", :title => "If you've already joined, log in to post comments" }> Log in
-            %li
-              %a{ :href => "/user/?pg=join&amp;ret=#{escape_path(@controller.request.request_uri)}", :title => "Joining is free and allows you to post comments" }> Join
+            %li= link_to "Log in", login_path(:ret => @controller.request.request_uri), :title => "If you've already joined, log in to post comments"
+            %li= link_to "Join", user_path(:pg => "join", :ret => @controller.request.request_uri), :title => "Joining is free and allows you to post comments"
             ~ "<!--                    <li><a href=\"/getinvolved/?pg=getinvolved\" title=\"Contribute to OpenAustralia.org\">Get involved</a></li> -->"
           %br
         #bottommenu

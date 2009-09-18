@@ -13,7 +13,9 @@ ActionController::Routing::Routes.draw do |map|
   map.connect 'news/archives/:year/:month', :controller => 'news', :action => 'index'
   map.recent_comments 'comments/recent', :controller => 'comments', :action => 'recent', :trailing_slash => true
   map.user 'user', :controller => 'user', :action => 'show', :trailing_slash => true
-  
+  map.login 'user/login', :controller => 'user', :action => 'login', :trailing_slash => true
+  map.report 'report', :controller => 'comments', :action => 'report', :trailing_slash => true
+
   # For rendering the static content pages
   map.help 'help', :controller => 'static', :action => 'help', :trailing_slash => true
   map.about 'about', :controller => 'static', :action => 'about', :trailing_slash => true

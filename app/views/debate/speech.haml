@@ -45,9 +45,8 @@
           %small
             Posted on #{comment.posted.to_date.to_s(:simple_short)}
             %a(href="/debate/?id=#{comment.speech.id}#c#{comment.id}" title="Link to this comment")= comment.posted.to_time.to_s(:time_12)
-            (
-            %a(href="/report/?id=#{comment.id}&amp;ret=#{escape_path(speech_path(:id => @speech.id, :anchor => "c#{comment.id}"))}" title="Notify moderators that this comment should be deleted")> Report this comment
-            )
+            = surround('(', ')') do
+              = link_to "Report this comment", report_path(:id => comment.id, :ret => speech_path(:id => @speech.id, :anchor => "c#{comment.id}")), :title => "Notify moderators that this comment should be deleted"
         %p.comment= comment.body
       / end .comment
     - if @comments.empty?
