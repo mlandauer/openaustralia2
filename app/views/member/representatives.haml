@@ -4,7 +4,7 @@
     %h3 &nbsp;
     %p
       Find out who
-      %a{ :href => "/mp/" } your Representative
+      = link_to "your Representative", representative_path
       is. All you need is a postcode.
     %h3 All members of the House of Representatives
     %table.people{ :cellspacing => "0", :border => "0", :cellpadding => "4", :width => "90%" }
@@ -20,8 +20,7 @@
           %tr
             %td.row
               = image_tag("mps/#{m.person_id}.jpg", :class => "portrait", :alt => "")
-            %td{ :class => row_class }
-              %a{ :href => "/mp/#{m.name_param}/#{m.constituency_param}" }>= m.name
+            %td{ :class => row_class }= link_to m.name, representative_name_path(:name => m.name_param, :constituency => m.constituency_param)
             %td{ :class => row_class }= m.party
             %td{ :class => row_class }= m.constituency
             %td{ :class => row_class }= nbsp_if_empty(m.current_minister_positions.join("<br>"))

@@ -19,14 +19,12 @@
               on #{@member.entered_house.to_s(:simple)}
             &mdash; #{@member.entered_reason_text}
           %li
-            %a{ :href => "/alert/?only=1&amp;pid=#{@member.person_id}" }
-              %strong> Email me whenever #{@member.name} speaks
+            - link_to alert_path(:only => 1, :pid => @member.person_id) do
+              %strong Email me whenever #{@member.name} speaks
             (no more than once per day)
         %ul.jumpers
-          %li
-            %a{ :href => "#numbers" }> Numbers
-          %li
-            %a{ :href => "#register" }> Register of Interests
+          %li= link_to "Numbers", "#numbers"
+          %li= link_to "Register of Interests", "#register"
     / end .block
     %a{ :name => "hansard" }
     #hansard.block
@@ -34,7 +32,7 @@
       .blockbody
         %p No data to display.
         %p#moreappear
-          %a{ :href => "/search/?pid=#{@member.person_id}&amp;pop=1#n4" } More of #{@member.name}'s recent appearances
+          = link_to "More of #{@member.name}'s recent appearances", search_path(:pid => @member.person_id, :pop => 1, :anchor => "n4")
     / end .block
     %a{ :name => "numbers" }
     #numbers.block
@@ -44,14 +42,13 @@
           %em
             Please note that numbers do not measure quality. Also, #{@member.generic_reference.pluralize} may
             do other things not currently covered by this site.
-          (
-          %a{ :href => "/help/#numbers" }> More about this
-          )
+          = surround("(", ")") do
+            = link_to "More about this", help_path(:anchor => "numbers")
         %ul
           - if @member.debate_sections_spoken_in_last_year
             %li
               Has spoken in
-              %a(href="/search/?pid=#{@member.person_id}&amp;pop=1")
+              - link_to search_path(:pid => @member.person_id, :pop => 1) do
                 %strong= pluralize(@member.debate_sections_spoken_in_last_year, "debate")
               in the last year &mdash;
               = "average"
@@ -69,14 +66,13 @@
               This #{@member.generic_reference}'s speeches are understandable to an average
               %strong= @member.reading_age_range
               year old, going by the
-              %a(href="http://en.wikipedia.org/wiki/Flesch-Kincaid_Readability_Test") Flesch-Kincaid Grade Level
+              = link_to "Flesch-Kincaid Grade Level", "http://en.wikipedia.org/wiki/Flesch-Kincaid_Readability_Test"
               score.
           %li
             %strong 0
             people are tracking whenever this #{@member.generic_reference} speaks &mdash;
-            ~ " "
-            %a{ :href => "/alert/?only=1&amp;pid=#{@member.person_id}" }> email me whenever #{@member.name} speaks
-            \.
+            = surround('', '.') do
+              = link_to "email me whenever #{@member.name} speaks", alert_path(:only => 1, :pid => @member.person_id)
           - if @member.three_word_alliterations
             %li
               Has used three-word alliterative phrases (e.g. "she sells seashells")
@@ -85,9 +81,8 @@
               = "well above average"
               amongst #{@member.generic_reference.pluralize}.
               %small
-                (
-                %a(href="/help/#numbers")> Why is this here?
-                )
+                = surround("(", ")") do
+                  = link_to "Why is this here?", help_path(:anchor => "numbers")
           - if @member.three_word_alliteration_content
             = "<!-- #{@member.three_word_alliteration_content} -->"
     / end .block
@@ -96,12 +91,10 @@
       %h4
         Register of Interests
         %small
-          (
-          %a{ :href => "/help/#regmem" }> What's this?
-          )
+          = surround('(', ')') do
+            = link_to "What's this?", help_path(:anchor => 'regmem')
       .blockbody
-        %a{ :href => "/regmem/scan/register_interests_#{@member.person_id}.pdf" }> Scan of #{@member.name}'s latest entry (including amendments)
-        = image_tag("pdficon_small.gif", :alt => "PDF")
+        = link_to("Scan of #{@member.name}'s latest entry (including amendments)", "/regmem/scan/register_interests_#{@member.person_id}.pdf") + image_tag("pdficon_small.gif", :alt => "PDF")
     / end .block
   / end .main
   .sidebar
@@ -121,24 +114,20 @@
       .blockbody
         %ul
           - if @member.mp_website
-            %li
-              %a{:href => @member.mp_website} #{@member.name}'s personal website
+            %li= link_to "#{@member.name}'s personal website", @member.mp_website
           - if @member.mp_biography_qanda
             %li
-              %a{:href => @member.mp_biography_qanda} Biography
+              = link_to "Biography", @member.mp_biography_qanda
               %small (From ABC's Q &amp; A)
           - if @member.mp_contact_details
             %li
-              %a{:href => @member.mp_contact_details} Contact details
+              = link_to "Contact details", @member.mp_contact_details
               %small (From Australian Parliament website)
           - if @member.mp_twitter_invite_tweetmp
             %li
-              %a{:href => @member.mp_twitter_invite_tweetmp} Invite #{@member.name} to use Twitter
+              = link_to "Invite #{@member.name} to use Twitter", @member.mp_twitter_invite_tweetmp
               %small
-                (via
-                ~ " "
-                %a(href="http://tweetmp.org.au")>< tweetMP
-                )
+                (via #{link_to "tweetMP", "http://tweetmp.org.au"})
     / end block
     - unless @member.non_current_minister_offices.empty?
       .block

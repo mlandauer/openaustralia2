@@ -21,7 +21,7 @@
                 <input class="text" id="s" maxlength="100" name="s" size="15" type="text" value="" />&nbsp;&nbsp;<input class="submit" type="submit" value="SEARCH" />
           %li
             %p
-              %a{ :href => "/alert/" }
+              - link_to alert_path do
                 %strong Sign up to be emailed when something relevant to you happens in Parliament
           %li
             %p
@@ -32,8 +32,7 @@
                   The most recent
                   #{link_to("House debates", "/debates/")}:
                 %ul
-                  %li
-                    %a{ :href => "/debates/?id=2009-05-14.1.1" } Section 2
+                  %li= link_to "Section 2", debate_path(:id => "2009-05-14.1.1")
     / end .block
   / end .main
   .sidebar
@@ -41,26 +40,22 @@
       %h4 What's all this about?
       .blockbody
         %p
-          %a{ :href => "http://blog.openaustralia.org/join-us/" }
+          - link_to "http://blog.openaustralia.org/join-us/" do
             = image_tag("donate_greenL.png", :alt => "Donate", :border => "0", :hspace => "4", :vspace => "5", :align => "right", :size => "108x43")
-          %a{ :href => "/about/", :title => "link to About Us page" } OpenAustralia.org
+          = link_to "OpenAustralia.org", about_path, :title => "link to About Us page"
           is a non-partisan website run by a group of volunteers which aims to
           make it easy for people to keep tabs on their representatives in Parliament.
     / end .block
     .block
-      %h4
-        %a{ :href => "/news/" } Site news
+      %h4= link_to "Site news", posts_path
       .blockbody
         - @posts.each do |post|
-          %h5
-            %a{ :href => "/news/archives/#{post.year_param}/#{post.month_param}/#{post.day_param}/#{post.title_param}" }= post.title
+          %h5= link_to post.title, post_path(post.year_param, post.month_param, post.day_param, post.title_param)
           %p
             = truncate(strip_tags(post.content).squish, :length => 250, :break_on_spaces => true)
-            %a{ :href => "/news/archives/#{post.year_param}/#{post.month_param}/#{post.day_param}/#{post.title_param}" } Read more...
-        %p
-          %a{ :href => "/news/index.rdf" } Site News as RSS
-        %p
-          %a{ :href => "/news/archives/" } Archive
+            = link_to "Read more...", post_path(post.year_param, post.month_param, post.day_param, post.title_param)
+        %p= link_to "Site News as RSS", "/news/index.rdf"
+        %p= link_to "Archive", posts_archives_path
     / end .block
     #recentcomments.block
       %h4 Most recent comments
@@ -73,11 +68,10 @@
               = comment.body
               %small (#{time_ago_in_words(comment.posted)} ago)
               %br>
-              %a{ :href => "/debate/?id=#{comment.speech.id}#c#{comment.id}" } Read comment
+              = link_to "Read comment", speech_path(:id => comment.speech.id, :anchor => "c#{comment.id}")
               \|
-              %a{ :href => "/user/?u=#{comment.user.id}", :title => "See more information about this user" } All by this user
-        %p
-          %a{ :href => "/comments/recent/#c#{@comments.size + 1}" } See more comments posted recently
+              = link_to "All by this user", user_path(:u => comment.user.id), :title => "See more information about this user"
+        %p= link_to "See more comments posted recently", recent_comments_path(:anchor => "c#{@comments.size + 1}")
     / end .block
   / end .sidebar
   .break

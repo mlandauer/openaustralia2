@@ -5,8 +5,7 @@
   / end .main
   .sidebar
     #help.block
-      %h4
-        %a{ :href => "/debates/#help" }> What are House debates?
+      %h4= link_to "What are House debates?", debate_path(:anchor => "help")
     / end .block
   / end .sidebar
   .break

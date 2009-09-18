@@ -2,7 +2,7 @@
   %h4 Did you know this site is run by a group of volunteers?
   .blockbody
     %p{ :style => "padding-bottom: 30px" }
-      %a{ :href => "http://blog.openaustralia.org/join-us/" }
+      - link_to "http://blog.openaustralia.org/join-us/" do
         = image_tag("donate_greenL.png", :alt => "Donate", :size => "108x43", :hspace => "4", :vspace => "5", :border => "0", :align => "right")
       Your donation would enable us to continue to add new features.
 / end .block

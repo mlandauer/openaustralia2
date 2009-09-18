@@ -5,8 +5,7 @@
   / end .main
   .sidebar
     #help.block
-      %h4
-        %a{ :href => "/debates/#help" }> What are House debates?
+      %h4= link_to "What are House debates?", debate_path(:anchor => "help")
     / end .block
   / end .sidebar
   .break
@@ -19,14 +18,11 @@
   / end .main
   .sidebar
     %p.nextprev
-      %span.up
-        %a{ :href => "/debates/?id=#{@speech.subsection.id}", :title => @speech.subsection } See the whole debate
+      %span.up= link_to "See the whole debate", debate_path(:id => @speech.subsection.id), :title => @speech.subsection
       - if @previous_speech
-        %span.prev
-          %a{ :href => "/debate/?id=#{@previous_speech.id}", :title => @previous_speech.speaker.name} &laquo; Previous speaker
+        %span.prev= link_to "&laquo; Previous speaker", speech_path(:id => @previous_speech.id), :title => @previous_speech.speaker.name
       - if @next_speech
-        %span.next
-          %a{ :href => "/debate/?id=#{@next_speech.id}", :title => @next_speech.speaker.name} Next speaker &raquo;
+        %span.next= link_to "Next speaker &raquo;", speech_path(:id => @next_speech.id), :title => @next_speech.speaker.name
   / end .sidebar
   .break
 / end .stripe-*
@@ -39,12 +35,12 @@
       .comment(id="c#{comment.id}")
         %a(id="c#{comment.id}" name="c#{comment.id}")
         %p.credit
-          %a(href="/user/?u=#{comment.user.id}" title="See information about this user")
+          - link_to user_path(:u => comment.user.id), :title => "See information about this user" do
             %strong= comment.user.name
           %br
           %small
             Posted on #{comment.posted.to_date.to_s(:simple_short)}
-            %a(href="/debate/?id=#{comment.speech.id}#c#{comment.id}" title="Link to this comment")= comment.posted.to_time.to_s(:time_12)
+            = link_to comment.posted.to_time.to_s(:time_12), speech_path(:id => comment.speech.id, :anchor => "c#{comment.id}"), :title => "Link to this comment"
             = surround('(', ')') do
               = link_to "Report this comment", report_path(:id => comment.id, :ret => speech_path(:id => @speech.id, :anchor => "c#{comment.id}")), :title => "Notify moderators that this comment should be deleted"
         %p.comment= comment.body
@@ -61,9 +57,9 @@
 #addcomment.stripe-side
   .main
     %p
-      %a{ :href => "/user/login/?ret=%2Fdebate%2F%3Fid%3D#{@speech.id}%23addcomment" } Log in
+      = link_to "Log in", login_path(:ret => speech_path(:id => @speech.id, :anchor => "addcomment"))
       or
-      %a{ :href => "/user/?pg=join&amp;ret=%2Fdebate%2F%3Fid%3D#{@speech.id}%23addcomment" } join
+      = link_to "join", user_path(:pg => "join", :ret => speech_path(:id => @speech.id, :anchor => "addcomment"))
       to post a public comment.
   / end .main
   .sidebar

@@ -3,19 +3,29 @@ ActionController::Routing::Routes.draw do |map|
   # TODO: Hardcoding house numbers below. Very nasty.
   map.representative 'mp', :controller => 'member', :action => 'show', :house => 1, :trailing_slash => true
   map.senators 'senators', :controller => 'member', :action => 'senators', :trailing_slash => true
-  map.connect 'mp/:name/:constituency', :controller => 'member', :action => 'show', :house => 1
-  map.connect 'senator/:name/:constituency', :controller => 'member', :action => 'show', :house => 2
+  map.representative_name 'mp/:name/:constituency', :controller => 'member', :action => 'show', :house => 1
+  map.senator 'senator/:name/:constituency', :controller => 'member', :action => 'show', :house => 2
+  
   map.debate 'debates', :controller => 'debate', :action => 'debate', :trailing_slash => true
   map.speech 'debate', :controller => 'debate', :action => 'speech', :trailing_slash => true
   map.hansard 'hansard', :controller => 'debate', :action => 'hansard', :trailing_slash => true
+  map.senate_debate 'senate', :controller => 'debate', :action => 'senate_debate', :trailing_slash => true
+  
   map.posts 'news', :controller => 'news', :action => 'index', :trailing_slash => true
   map.post 'news/archives/:year/:month/:day/:title', :controller => 'news', :action => 'show'
-  map.connect 'news/archives/:year/:month', :controller => 'news', :action => 'index'
+  map.posts_in_month 'news/archives/:year/:month', :controller => 'news', :action => 'index'
+  # This url does the same as 'news'. Dumb, I know.
+  map.posts_archives 'news/archives', :controller => 'news', :action => 'index', :trailing_slash => true
+  map.posts_rss 'news/index.rdf', :controller => 'news'
+
   map.recent_comments 'comments/recent', :controller => 'comments', :action => 'recent', :trailing_slash => true
   map.user 'user', :controller => 'user', :action => 'show', :trailing_slash => true
   map.login 'user/login', :controller => 'user', :action => 'login', :trailing_slash => true
   map.report 'report', :controller => 'comments', :action => 'report', :trailing_slash => true
   map.api 'api', :controller => 'api', :trailing_slash => true
+  map.add_comment 'user/prompt', :controller => 'comment', :action => 'new', :trailing_slash => true, :anchor => "addcomment"
+  map.alert 'alert', :controller => 'alert', :trailing_slash => true
+  map.search 'search', :controller => 'search', :trailing_slash => true
 
   # For rendering the static content pages
   map.help 'help', :controller => 'static', :action => 'help', :trailing_slash => true

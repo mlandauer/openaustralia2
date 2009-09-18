@@ -19,42 +19,33 @@
     %dl.big-debates
       %dt
         %a{ :name => "d1" }
-        %strong>
-          %a{ :href => "/debates/?id=2009-05-14.1.2" }> Section 2
+        %strong>= link_to "Section 2", debate_path(:id => "2009-05-14.1.2")
       %dd
-        %strong
-          %a{ :href => "/debates/?id=2009-05-14.1.2" } Subsection 2
+        %strong= link_to "Subsection 2", debate_path(:id => "2009-05-14.1.2")
         %small (2 speeches, 2 comments)
         %br
         Thursday, 14 May 2009
       %dt
         %a{:name => "d2", :id => "d2" }
-        %strong>
-          %a{ :href => "/debates/?id=2009-05-13.1.2" }> Section 1
+        %strong>= link_to "Section 1", debate_path(:id => "2009-05-13.1.2")
       %dd
-        %strong
-          %a{ :href => "/debates/?id=2009-05-13.1.2" } Subsection 1
+        %strong= link_to "Subsection 1", debate_path(:id => "2009-05-13.1.2")
         %small (1 speech)
         %br
         Wednesday, 13 May 2009
     %p
-      %strong
-        %a{ :href => "/debates/#d7" } See more debates
+      %strong= link_to "See more debates", debate_path(:anchor => "d7")
   / end .main
   .sidebar
     #help.block
-      %h4
-        %a{ :href => "/debates/#help" }
-          What are House debates?
+      %h4= link_to "What are House debates?", debate_path(:anchor => "help")
     / end .block
     .block
       %h4
         Recent debates
       .blockbody
         = calendar(2009, 5, Date.today, @recess, [Date.new(2009,5,13), Date.new(2009,5,14)])
-        %p
-          %a{ :href => "/debates/?y=2009" }
-            See all of 2009
+        %p= link_to "See all of 2009", debate_path(:y => 2009)
     / end .block
   / end .sidebar
   .break
@@ -64,15 +55,11 @@
     %h3
       Busiest Senate debates from the most recent week
     %p
-      %strong
-        %a{ :href => "/senate/#d7" }
-          See more debates
+      %strong= link_to "See more debates", senate_debate_path(:anchor => "d7")
   / end .main
   .sidebar
     #help.block
-      %h4
-        %a{ :href => "/senate/#help" }
-          What are Senate debates?
+      %h4= link_to "What are Senate debates?", senate_debate_path(:anchor => "help")
     / end .block
     .block
       %h4

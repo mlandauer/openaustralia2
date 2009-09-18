@@ -24,15 +24,15 @@
         = add_this("Share this", "http://dev.openaustralia.org/debate/?id=#{speech.id}")
         |
         - unless single_speech
-          %a.permalink{ :href => "/debate/?id=#{speech.id}", :title => "Copy this URL to link directly to this piece of text" } Link to this
+          = link_to "Link to this", speech_path(:id => speech.id), :class => "permalink", :title => "Copy this URL to link directly to this piece of text"
           |
-        %a{ :href => speech.source_url, :title => "The source of this piece of text" } Hansard source
+        = link_to "Hansard source", speech.source_url, :title => "The source of this piece of text"
       = speech.text_object.display_body
       - if single_speech
         %p
           %small
             %strong
-              %a.permalink{ :href => "/debates/?id=#{@speech.subsection.id}##{@speech.anchor}", :title => "See this speech within the entire debate"} See this speech in context
+              = link_to "See this speech in context", debate_path(:id => @speech.subsection.id, :anchor => @speech.anchor), :class => "permalink", :title => "See this speech within the entire debate"
   / end .main
   .sidebar
     - unless single_speech
@@ -42,10 +42,10 @@
           <em>#{first_comment.user.name}</em>:
           = first_comment.body
           - if speech.no_comments > 1
-            %a(href="/debate/?id=#{speech.id}#c#{first_comment.id}" title="See any comments posted about this") Read #{speech.no_comments - 1} more comment
+            = link_to "Read #{speech.no_comments - 1} more comment", speech_path(:id => speech.id, :anchor => "c#{first_comment.id}"), :title => "See any comments posted about this"
           %br
           %br
-        %a{ :href => "/user/prompt/?ret=%2Fdebate%2F%3Fid%3D#{speech.id}#addcomment", :title => "Comment on this" }
+        - link_to add_comment_path(:ret => "/debate/?id=#{speech.id}"), :title => "Comment on this" do
           %strong Add your comment
   / end .sidebar
   .break

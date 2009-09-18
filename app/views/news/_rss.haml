@@ -2,8 +2,7 @@
   %h4 RSS/XML
   .blockbody
     %p
-      %a{ :href => "/news/index.rdf" } RSS feed of recent posts
-      (
-      %a{ :href => "/help/#rss" }> ?
-      )
+      = link_to "RSS feed of recent posts", posts_rss_path
+      = surround('(', ')') do
+        = link_to "?", help_path(:anchor => "rss")
 / end .block
