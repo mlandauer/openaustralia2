@@ -7,7 +7,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect 'senator/:name/:constituency', :controller => 'member', :action => 'show', :house => 2
   map.connect 'debates', :controller => 'debate', :action => 'debate'
   map.speech 'debate', :controller => 'debate', :action => 'speech', :trailing_slash => true
-  map.connect 'hansard', :controller => 'debate', :action => 'hansard'
+  map.hansard 'hansard', :controller => 'debate', :action => 'hansard', :trailing_slash => true
   map.posts 'news', :controller => 'news', :action => 'index', :trailing_slash => true
   map.post 'news/archives/:year/:month/:day/:title', :controller => 'news', :action => 'show'
   map.connect 'news/archives/:year/:month', :controller => 'news', :action => 'index'
@@ -15,6 +15,7 @@ ActionController::Routing::Routes.draw do |map|
   map.user 'user', :controller => 'user', :action => 'show', :trailing_slash => true
   map.login 'user/login', :controller => 'user', :action => 'login', :trailing_slash => true
   map.report 'report', :controller => 'comments', :action => 'report', :trailing_slash => true
+  map.api 'api', :controller => 'api', :trailing_slash => true
 
   # For rendering the static content pages
   map.help 'help', :controller => 'static', :action => 'help', :trailing_slash => true

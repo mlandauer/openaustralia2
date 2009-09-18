@@ -40,10 +40,8 @@
         #bottommenu
           %ul
             %li= link_to_on_if_current "Home", {:controller => "home"}, {:title => "The front page of the site"}
-            %li
-              = link_to "News", posts_path, {:class => ("on" if @news_menu_on), :title => "News about changes to this website"}
-            %li
-              %a{:class => ("on" if @debates_menu_on), :href => "/hansard/", :title => "House of Representatives and Senate debates" }> Debates
+            %li= link_to "News", posts_path, {:class => ("on" if @news_menu_on), :title => "News about changes to this website"}
+            %li= link_to "Debates", hansard_path, :class => ("on" if @debates_menu_on), :title => "House of Representatives and Senate debates"
             %li= link_to_on_if_current "Recent comments", recent_comments_path, :title => "Recently posted comments"
             %li= link_to_on_if_current "Representatives", representatives_path, :title => "Your Representative and list of all Members of the House of Representatives"
             %li= link_to_on_if_current "Senators", senators_path, :title => "List of all Senators"
@@ -62,12 +60,12 @@
             &nbsp;&nbsp;&nbsp;
             = link_to_unless_current "House rules", house_rules_path
             &nbsp;&nbsp;&nbsp;
-            %a{ :href => "/api/" } API
+            = link_to "API", api_path
             \/
-            %a{ :href => "http://data.openaustralia.org" } XML
+            = link_to "XML", "http://data.openaustralia.org"
             &nbsp;&nbsp;&nbsp;
-            %a{ :href => "http://software.openaustralia.org" } Source code
+            = link_to "Source code", "http://software.openaustralia.org"
             &nbsp;&nbsp;&nbsp;
-            %a{ :href => "http://blog.openaustralia.org" } Blog
+            = link_to "Blog", "http://blog.openaustralia.org"
       / end #content
     / end #container
