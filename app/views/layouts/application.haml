@@ -43,7 +43,7 @@
           %ul
             %li= link_to_on_if_current "Home", {:controller => "home"}, {:title => "The front page of the site"}
             %li
-              = link_to "News", news_path, {:class => ("on" if @news_menu_on), :title => "News about changes to this website"}
+              = link_to "News", posts_path, {:class => ("on" if @news_menu_on), :title => "News about changes to this website"}
             %li
               %a{:class => ("on" if @debates_menu_on), :href => "/hansard/", :title => "House of Representatives and Senate debates" }> Debates
             %li= link_to_on_if_current "Recent comments", recent_comments_path, :title => "Recently posted comments"

@@ -14,7 +14,7 @@
       = post.content
       <p>Posted at #{post.timestamp.to_time.to_s(:seconds)} by #{post.user}
       \|
-      = link_to "Link to this", :action => "show", :year => post.year_param, :month => post.month_param, :day => post.day_param, :title => post.title_param
+      = link_to "Link to this", post_path(:year => post.year_param, :month => post.month_param, :day => post.day_param, :title => post.title_param)
   / end .main
   .sidebar
     = render :partial => "archives"

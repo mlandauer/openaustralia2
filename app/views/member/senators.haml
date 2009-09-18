@@ -5,9 +5,9 @@
     %table.people{ :cellspacing => "0", :border => "0", :cellpadding => "4", :width => "90%" }
       %thead
         %th Photo
-        %th= link_to "Name", :o => "n", :trailing_slash => true
-        %th= link_to "Party", :o => "p", :trailing_slash => true
-        %th= link_to "State", :o => "c", :trailing_slash => true
+        %th= link_to "Name", senators_path(:o => "n")
+        %th= link_to "Party", senators_path(:o => "p")
+        %th= link_to "State", senators_path(:o => "c")
         %th Positions
       %tbody
         - @members.each do |m|

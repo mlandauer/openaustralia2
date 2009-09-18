@@ -6,10 +6,10 @@ ActionController::Routing::Routes.draw do |map|
   map.connect 'mp', :controller => 'member', :action => 'show', :house => 1
   map.connect 'senator/:name/:constituency', :controller => 'member', :action => 'show', :house => 2
   map.connect 'debates', :controller => 'debate', :action => 'debate'
-  map.connect 'debate', :controller => 'debate', :action => 'speech'
+  map.speech 'debate', :controller => 'debate', :action => 'speech', :trailing_slash => true
   map.connect 'hansard', :controller => 'debate', :action => 'hansard'
-  map.news 'news', :controller => 'news', :action => 'index', :trailing_slash => true
-  map.connect 'news/archives/:year/:month/:day/:title', :controller => 'news', :action => 'show'
+  map.posts 'news', :controller => 'news', :action => 'index', :trailing_slash => true
+  map.post 'news/archives/:year/:month/:day/:title', :controller => 'news', :action => 'show'
   map.connect 'news/archives/:year/:month', :controller => 'news', :action => 'index'
   map.recent_comments 'comments/recent', :controller => 'comments', :action => 'recent', :trailing_slash => true
 

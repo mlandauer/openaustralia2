@@ -49,7 +49,7 @@
             Posted on #{comment.posted.to_date.to_s(:simple_short)}
             %a(href="/debate/?id=#{comment.speech.id}#c#{comment.id}" title="Link to this comment")= comment.posted.to_time.to_s(:time_12)
             (
-            %a(href="/report/?id=#{comment.id}&amp;ret=#{escape_path(url_for(:trailing_slash => true, :overwrite_params => {}) + '#c' + comment.id.to_s)}" title="Notify moderators that this comment should be deleted")> Report this comment
+            %a(href="/report/?id=#{comment.id}&amp;ret=#{escape_path(speech_path(:id => @speech.id, :anchor => "c#{comment.id}"))}" title="Notify moderators that this comment should be deleted")> Report this comment
             )
         %p.comment= comment.body
       / end .comment
