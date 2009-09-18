@@ -12,7 +12,7 @@
   .main
     %a{ :name => speech.anchor }
     %p.speaker
-      %a{ :href => "/mp/?m=#{member.id}", :title => "See more information about #{member.name}" }
+      - link_to representative_path(:m => member.id), :title => "See more information about #{member.name}" do
         = image_tag("mps/#{member.person_id}.jpg", :class => "portrait", :alt => "Photo of #{member.name}")
         %strong>= member.name
       %small

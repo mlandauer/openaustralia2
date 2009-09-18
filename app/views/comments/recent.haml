@@ -13,9 +13,9 @@
               = comment.body
               %small (#{time_ago_in_words(comment.posted)} ago)
               %br
-              %a(href="/debate/?id=#{comment.speech.id}#c#{comment.id}") Read comment
+              = link_to "Read comment", speech_path(:id => comment.speech.id, :anchor => "c#{comment.id}")
               \|
-              %a(href="/user/?u=#{comment.user.id}" title="See more information about this user") All by this user
+              = link_to "All by this user", user_path(:u => comment.user.id), :title => "See more information about this user"
     / end .block
   / end .main
   .sidebar

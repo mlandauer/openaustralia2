@@ -1,9 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
   map.representatives 'mps', :controller => 'member', :action => 'representatives', :trailing_slash => true
-  map.senators 'senators', :controller => 'member', :action => 'senators', :trailing_slash => true
   # TODO: Hardcoding house numbers below. Very nasty.
+  map.representative 'mp', :controller => 'member', :action => 'show', :house => 1, :trailing_slash => true
+  map.senators 'senators', :controller => 'member', :action => 'senators', :trailing_slash => true
   map.connect 'mp/:name/:constituency', :controller => 'member', :action => 'show', :house => 1
-  map.connect 'mp', :controller => 'member', :action => 'show', :house => 1
   map.connect 'senator/:name/:constituency', :controller => 'member', :action => 'show', :house => 2
   map.connect 'debates', :controller => 'debate', :action => 'debate'
   map.speech 'debate', :controller => 'debate', :action => 'speech', :trailing_slash => true
@@ -12,7 +12,8 @@ ActionController::Routing::Routes.draw do |map|
   map.post 'news/archives/:year/:month/:day/:title', :controller => 'news', :action => 'show'
   map.connect 'news/archives/:year/:month', :controller => 'news', :action => 'index'
   map.recent_comments 'comments/recent', :controller => 'comments', :action => 'recent', :trailing_slash => true
-
+  map.user 'user', :controller => 'user', :action => 'show', :trailing_slash => true
+  
   # For rendering the static content pages
   map.help 'help', :controller => 'static', :action => 'help', :trailing_slash => true
   map.about 'about', :controller => 'static', :action => 'about', :trailing_slash => true
