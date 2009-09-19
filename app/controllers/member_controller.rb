@@ -2,12 +2,16 @@ class MemberController < ApplicationController
   def index
     if params[:o].nil? || params[:o] == "l"
       @order = "last_name"
+      sql_order = "last_name, first_name"
     elsif params[:o] == "f"
       @order = "first_name"
+      sql_order = "first_name, last_name"
     elsif params[:o] == "p"
       @order = "party"
+      sql_order = "party, last_name, first_name, constituency"
     elsif params[:o] == "c"
       @order = "constituency"
+      sql_order = "constituency"
     else
       raise "unsupported order"
     end
@@ -20,7 +24,7 @@ class MemberController < ApplicationController
       raise "Unsupported house"
     end
     @title = "#{@extra_keywords} (OpenAustralia.org)"
-    @members = Member.all(:conditions => {:house => params[:house]}, :order => @order)
+    @members = Member.all(:conditions => {:house => params[:house]}, :order => sql_order)
 
     if params[:house] == 1
       render :representatives
