@@ -10,9 +10,9 @@
     %table.people{ :cellspacing => "0", :border => "0", :cellpadding => "4", :width => "90%" }
       %thead
         %th Photo
-        %th= "#{link_to "First", representatives_path(:o => "f")} \&amp; last name"
-        %th= link_to "Party", representatives_path(:o => "p")
-        %th= link_to "Constituency", representatives_path(:o => "c")
+        %th= "#{link_to_unless_current "First", representatives_path(:o => "f")} \&amp; #{link_to_if(@order != "last_name", "Last", representatives_path(:o => "l"))} name"
+        %th= link_to_unless_current "Party", representatives_path(:o => "p")
+        %th= link_to_unless_current "Constituency", representatives_path(:o => "c")
         %th Positions
       %tbody
         - @members.each do |m|

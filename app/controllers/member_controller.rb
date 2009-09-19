@@ -2,7 +2,18 @@ class MemberController < ApplicationController
   def representatives
     @extra_keywords = "Representatives"
     @title = "#{@extra_keywords} (OpenAustralia.org)"
-    @members = Member.find_all_by_house(1)
+    if params[:o].nil? || params[:o] == "l"
+      @order = "last_name"
+    elsif params[:o] == "f"
+      @order = "first_name"
+    elsif params[:o] == "p"
+      @order = "party"
+    elsif params[:o] == "c"
+      @order = "constituency"
+    else
+      raise "unsupported order"
+    end
+    @members = Member.all(:conditions => {:house => 1}, :order => @order)
   end
   
   def senators

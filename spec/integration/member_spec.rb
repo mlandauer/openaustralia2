@@ -49,6 +49,9 @@ describe "MembersController" do
   
   it "should render the representatives page exactly the same as the php version" do
     compare_with_php("/mps/", "mps")
+    compare_with_php("/mps/?o=f", "mps_order_by_first", true)
+    compare_with_php("/mps/?o=p", "mps_order_by_party", true)
+    compare_with_php("/mps/?o=c", "mps_order_by_constituency", true)
   end
   
   it "should render the senators page exactly the same as the php version" do

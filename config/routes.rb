@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  # Would like to use :defaults => {:o => "l"} in the route below, but this appears to be currently broken.
+  # See https://rails.lighthouseapp.com/projects/8994/tickets/2478-defaults-not-in-path-cause-no-matching-segment-exists-error
   map.representatives 'mps', :controller => 'member', :action => 'representatives', :trailing_slash => true
   # TODO: Hardcoding house numbers below. Very nasty.
   map.representative 'mp', :controller => 'member', :action => 'show', :house => 1, :trailing_slash => true
