@@ -3,21 +3,6 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 require 'hpricot'
 require 'open-uri'
 
-# Monkeypatch ahoy
-# Sort the outputted attributes into alphabetical order so that they can simply be compared
-module Hpricot
-  class STag < BaseEle
-    def attributes_as_html
-      if @raw_attributes
-        @raw_attributes.sort.map do |aname, aval|
-          " #{aname}" +
-            (aval ? "=\"#{aval}\"" : "")
-        end.join
-      end
-    end
-  end
-end
-
 describe "MembersController" do
   fixtures :member, :moffice, :personinfo, :hansard, :epobject, :users, :comments
 
