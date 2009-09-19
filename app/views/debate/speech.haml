@@ -4,9 +4,7 @@
     %h3= @speech.hdate.to_s(:simple_with_day)
   / end .main
   .sidebar
-    #help.block
-      %h4= link_to "What are House debates?", debate_path(:anchor => "help")
-    / end .block
+    = render :partial => "what_are_house_debates_teaser"
   / end .sidebar
   .break
 / end .stripe-*
