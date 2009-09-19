@@ -17,7 +17,7 @@ class MemberController < ApplicationController
     end
 
     if params[:house] == 1
-      @extra_keywords = "Representatives"
+      @extra_keywords = "All Members of the House of Representatives"
     elsif params[:house] == 2
       @extra_keywords = "All Senators"
     else
