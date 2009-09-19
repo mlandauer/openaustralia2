@@ -1,7 +1,5 @@
 class MemberController < ApplicationController
-  def representatives
-    @extra_keywords = "Representatives"
-    @title = "#{@extra_keywords} (OpenAustralia.org)"
+  def index
     if params[:o].nil? || params[:o] == "l"
       @order = "last_name"
     elsif params[:o] == "f"
@@ -13,15 +11,24 @@ class MemberController < ApplicationController
     else
       raise "unsupported order"
     end
-    @members = Member.all(:conditions => {:house => 1}, :order => @order)
+
+    if params[:house] == 1
+      @extra_keywords = "Representatives"
+    elsif params[:house] == 2
+      @extra_keywords = "All Senators"
+    else
+      raise "Unsupported house"
+    end
+    @title = "#{@extra_keywords} (OpenAustralia.org)"
+    @members = Member.all(:conditions => {:house => params[:house]}, :order => @order)
+
+    if params[:house] == 1
+      render :representatives
+    elsif params[:house] == 2
+      render :senators
+    end
   end
   
-  def senators
-    @extra_keywords = "All Senators"
-    @title = "#{@extra_keywords} (OpenAustralia.org)"
-    @members = Member.find_all_by_house(2)
-  end
-
   def show
     if params[:m]
       member = Member.find(params[:m].to_i)

@@ -1,10 +1,11 @@
 ActionController::Routing::Routes.draw do |map|
+  # TODO: Hardcoding house numbers below. Very nasty.
+
   # Would like to use :defaults => {:o => "l"} in the route below, but this appears to be currently broken.
   # See https://rails.lighthouseapp.com/projects/8994/tickets/2478-defaults-not-in-path-cause-no-matching-segment-exists-error
-  map.representatives 'mps', :controller => 'member', :action => 'representatives', :trailing_slash => true
-  # TODO: Hardcoding house numbers below. Very nasty.
+  map.representatives 'mps', :controller => 'member', :action => 'index', :house => 1, :trailing_slash => true
+  map.senators 'senators', :controller => 'member', :action => 'index', :house => 2, :trailing_slash => true
   map.representative 'mp', :controller => 'member', :action => 'show', :house => 1, :trailing_slash => true
-  map.senators 'senators', :controller => 'member', :action => 'senators', :trailing_slash => true
   map.representative_name 'mp/:name/:constituency', :controller => 'member', :action => 'show', :house => 1
   map.senator 'senator/:name/:constituency', :controller => 'member', :action => 'show', :house => 2
   
