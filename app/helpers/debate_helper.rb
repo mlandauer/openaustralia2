@@ -29,13 +29,12 @@ module DebateHelper
               (current_day..(current_day + 6)).each do |day|
                 if day > 0 && Date.valid_date?(year, month, day)
                   date = Date.new(year, month, day)
-                  if date == current_date
-                    atts = {:class => "on"}
-                  elsif recess.find {|r| r.include?(date)}
-                    atts = {:class => "no", :title => "recess"}
+                  if recess.find {|r| r.include?(date)}
+                    atts = {:title => "recess", :class => "no"}
                   else
                     atts = {}
                   end
+                  atts.merge!(:class => "on") if date == current_date
                   if linked.include?(date) && date != current_date
                     b.td(atts) { b.a({:href => debate_path(:d => date)}, day) }
                   else

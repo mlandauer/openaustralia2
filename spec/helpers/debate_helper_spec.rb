@@ -3,7 +3,8 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 describe DebateHelper do
   it "should render a cute little calendar for the month" do
     # Calendar for January 2009
-    b = Builder::XmlMarkup.new
+    expected = ""
+    b = Builder::XmlMarkup.new(:target => expected)
     # Dates in recess
     recess = [(Date.new(2009,1,1)..Date.new(2009,1,3)), (Date.new(2009,1,20)..Date.new(2009,1,22))]
     # Dates that should link off to individual days of debates
@@ -34,13 +35,12 @@ describe DebateHelper do
           end
           b.tr do
             b.td { b.a({:href => "/debates/?d=2009-01-12"}, 12) }
-            b.td 13
-            b.td({:class => "on"}, 14)
-            (15..18).each {|day| b.td day}
+            (13..18).each {|day| b.td day}
           end
           b.tr do
             b.td 19
-            (20..22).each {|day| b.td({:class => "no", :title => "recess"}, day)}
+            b.td({:class => "on", :title => "recess"}, 20)
+            (21..22).each {|day| b.td({:class => "no", :title => "recess"}, day)}
             (23..25).each {|day| b.td day}
           end
           b.tr do
@@ -53,6 +53,6 @@ describe DebateHelper do
     end
     b.comment! "end calendar"
     
-    helper.calendar(2009, 1, Date.new(2009,1,14), recess, linked).should == b
+    helper.calendar(2009, 1, Date.new(2009,1,20), recess, linked).should == expected
   end
 end
