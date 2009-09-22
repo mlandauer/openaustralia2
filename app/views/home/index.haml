@@ -30,9 +30,15 @@
               %li
                 %strong
                   The most recent
-                  #{link_to("House debates", "/debates/")}:
+                  #{link_to("House debates", debate_path)}:
                 %ul
                   %li= link_to "Section 2", debate_path(:id => "2009-05-14.1.1")
+              %li
+                %strong
+                  The most recent
+                  #{link_to("Senate debates", senate_debate_path)}:
+                %ul
+                  %li= link_to "Section 3", senate_debate_path(:id => "2009-05-13.1.1")
     / end .block
   / end .main
   .sidebar

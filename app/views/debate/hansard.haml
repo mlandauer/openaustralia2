@@ -51,7 +51,16 @@
 .stripe-side
   .main
     %h3
-      Busiest Senate debates from the most recent week
+      Busiest Senate debates from the most recent week      
+    %dl.big-debates
+      %dt
+        %a#d1(name="d1")
+        %strong>= link_to "Section 3", senate_debate_path(:id => "2009-05-13.1.2")
+      %dd
+        %strong= link_to "Subsection 3", senate_debate_path(:id => "2009-05-13.1.2")
+        %small (1 speech)
+        %br
+        Wednesday, 13 May 2009
     %p
       %strong= link_to "See more debates", senate_debate_path(:anchor => "d7")
   / end .main
@@ -63,10 +72,8 @@
       %h4
         Recent debates
       .blockbody
-        %p.error
-          Couldn't find the most recent date
-        %p
-          There is no data, sorry.
+        = calendar(2009, 5, Date.today, @recess, [Date.new(2009,5,13)]) { |date| senate_debate_path(:d => date) }
+        %p= link_to "See all of 2009", senate_debate_path(:y => 2009)
     / end .block
   / end .sidebar
   .break

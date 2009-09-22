@@ -109,4 +109,51 @@ dick_adams_1:
   minor: 0
   created: <%= DateTime.now %>
   modified: <%= DateTime.now %>
-  
+
+section_3:
+  epobject_id: 8
+  gid: uk.org.publicwhip/lords/2009-05-13.1.1
+  htype: 10
+  speaker_id: 0
+  major: 101
+  section_id: 0
+  subsection_id: 0
+  hpos: 1
+  hdate: 2009-05-13
+  htime: NULL
+  source_url: "http://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:chamber/hansards/2009-05-13/0000"
+  minor: 0
+  created: <%= DateTime.now %>
+  modified: <%= DateTime.now %>
+
+subsection_3:
+  epobject_id: 9
+  gid: uk.org.publicwhip/lords/2009-05-13.1.2
+  htype: 11
+  speaker_id: 0
+  major: 101
+  section_id: 8
+  subsection_id: 0
+  hpos: 2
+  hdate: 2009-05-13
+  htime: NULL
+  source_url: "http://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:chamber/hansards/2009-05-13/0000"
+  minor: 0
+  created: <%= DateTime.now %>
+  modified: <%= DateTime.now %>
+
+eric_abetz_1:
+  epobject_id: 10
+  gid: uk.org.publicwhip/lords/2009-05-13.2.1
+  htype: 12
+  speaker_id: 100001
+  major: 101
+  section_id: 8
+  subsection_id: 9
+  hpos: 3
+  hdate: 2009-05-13
+  htime: 09:00:00
+  source_url: "http://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:chamber/hansards/2009-05-13/0000"
+  minor: 0
+  created: <%= DateTime.now %>
+  modified: <%= DateTime.now %>

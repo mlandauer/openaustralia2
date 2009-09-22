@@ -53,3 +53,28 @@ dick_adams_1:
   type: 1
   created: 2009-05-27 11:21:55
   modified: 2009-05-27 11:21:55
+
+section_3:
+  epobject_id: 8
+  title: 
+  body: "Section 3"
+  type: 1
+  created: <%= DateTime.now %>
+  modified: <%= DateTime.now %>
+
+subsection_3:
+  epobject_id: 9
+  title: 
+  body: "Subsection 3"
+  type: 1
+  created: <%= DateTime.now %>
+  modified: <%= DateTime.now %>
+
+eric_abetz_1:
+  epobject_id: 10
+  title: 
+  body: '<p>And my name is Eric Abetz. Everybody else was talking, so I felt I had to as well.</p>'
+  type: 1
+  created: 2009-05-27 11:21:55
+  modified: 2009-05-27 11:21:55
+

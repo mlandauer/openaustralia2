@@ -34,9 +34,14 @@ module DebateHelper
                   else
                     atts = {}
                   end
+                  if block_given?
+                    url = yield(date)
+                  else
+                    url = debate_path(:d => date)
+                  end
                   atts.merge!(:class => "on") if date == current_date
                   if linked.include?(date) && date != current_date
-                    b.td(atts) { b.a({:href => debate_path(:d => date)}, day) }
+                    b.td(atts) { b.a({:href => url}, day) }
                   else
                     b.td(atts, day)
                   end
