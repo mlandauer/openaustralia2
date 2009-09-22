@@ -57,6 +57,12 @@ class DebateController < ApplicationController
     end
   end
   
+  def senate_debate
+    @extra_keywords = "Subsection 3: 13 May 2009"
+    @title = "#{@extra_keywords}: Senate debates (OpenAustralia.org)"
+    @debates_menu_on = true
+  end
+  
   # Display a single speech
   def speech
     @speech = Hansard.find_by_id(params[:id])

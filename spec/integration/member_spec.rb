@@ -148,5 +148,9 @@ describe "MembersController" do
   it "should render the home page" do
     compare_with_php("/", "home")
   end
+  
+  it "should render a senate debate" do
+    compare_with_php("/senate/?id=2009-05-13.1.2", "senate_debate_2009-05-13.1.2")
+  end
 end
 
