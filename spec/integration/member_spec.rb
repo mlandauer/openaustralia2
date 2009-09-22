@@ -49,9 +49,9 @@ describe "MembersController" do
   
   it "should render the representatives page exactly the same as the php version" do
     compare_with_php("/mps/", "mps")
-    compare_with_php("/mps/?o=f", "mps_order_by_first", true)
-    compare_with_php("/mps/?o=p", "mps_order_by_party", true)
-    compare_with_php("/mps/?o=c", "mps_order_by_constituency", true)
+    compare_with_php("/mps/?o=f", "mps_order_by_first")
+    compare_with_php("/mps/?o=p", "mps_order_by_party")
+    compare_with_php("/mps/?o=c", "mps_order_by_constituency")
   end
   
   it "should render the senators page exactly the same as the php version" do
@@ -59,15 +59,15 @@ describe "MembersController" do
   end
   
   it "should render the page of an individual senator the same as the php version" do
-    compare_with_php("/senator/eric_abetz/tasmania", "eric_abetz", true)
+    compare_with_php("/senator/eric_abetz/tasmania", "eric_abetz")
   end
   
   it "should render judith adam's page correctly" do
-    compare_with_php("/senator/judith_adams/wa", "judith_adams", true)
+    compare_with_php("/senator/judith_adams/wa", "judith_adams")
   end
   
   it "should render tony abbott's page correctly" do
-    compare_with_php("/mp/tony_abbott/warringah", "tony_abbott", true)
+    compare_with_php("/mp/tony_abbott/warringah", "tony_abbott")
   end
   
   it "should render a debate correctly" do
@@ -89,9 +89,7 @@ describe "MembersController" do
   end
   
   it "should render the calendar for the year 2009" do
-    # Because we're using a cached version to compare with we need to change the effective date
-    Date.stub!(:today).and_return(Date.new(2009,9,8))
-    compare_with_php("/debates/?y=2009", "debates_2009", true)
+    compare_with_php("/debates/?y=2009", "debates_2009")
   end
   
   it "should render the main debate page" do
@@ -103,14 +101,14 @@ describe "MembersController" do
   end
   
   it "should render an individual news item" do
-    compare_with_php("/news/archives/2009/05/12/our_new_home_on_", "news_2009_05_12", true)
-    compare_with_php("/news/archives/2009/05/06/opening_up_the_p", "news_2009_05_06", true)
+    compare_with_php("/news/archives/2009/05/12/our_new_home_on_", "news_2009_05_12")
+    compare_with_php("/news/archives/2009/05/06/opening_up_the_p", "news_2009_05_06")
   end
   
   it "should render the news archive for a month" do
-    compare_with_php("/news/archives/2009/05", "news_2009_05", true)
-    compare_with_php("/news/archives/2009/02", "news_2009_02", true)
-    compare_with_php("/news/archives/2008/06", "news_2008_06", true)
+    compare_with_php("/news/archives/2009/05", "news_2009_05")
+    compare_with_php("/news/archives/2009/02", "news_2009_02")
+    compare_with_php("/news/archives/2008/06", "news_2008_06")
   end
   
   it "should render recent comments" do
