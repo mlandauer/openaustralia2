@@ -122,7 +122,7 @@ describe "MembersController" do
   
   it "should redirect a link to a section to the first subsection" do
     get "/debates/?id=2009-05-14.1.1"
-    response.should redirect_to(:controller => "debate", :action => "debate", :id => "2009-05-14.1.2")
+    response.should redirect_to(:controller => "debate", :action => "representative_debate", :id => "2009-05-14.1.2")
   end
   
   it "should render the static help page" do

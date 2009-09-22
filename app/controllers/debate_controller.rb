@@ -9,7 +9,7 @@ class DebateController < ApplicationController
     @recess = Recess.dates
   end
   
-  def debate
+  def representative_debate
     @recess = Recess.dates
 
     # Hack to deal with not entirely consistent behaviour of "Debates" menu
