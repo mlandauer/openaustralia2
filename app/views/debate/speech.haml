@@ -16,7 +16,7 @@
   / end .main
   .sidebar
     %p.nextprev
-      %span.up= link_to "See the whole debate", debate_path(:id => @speech.subsection.id), :title => @speech.subsection
+      %span.up= link_to "See the whole debate", representatives_debate_path(:id => @speech.subsection.id), :title => @speech.subsection
       - if @previous_speech
         %span.prev= link_to "&laquo; Previous speaker", speech_path(:id => @previous_speech.id), :title => @previous_speech.speaker.name
       - if @next_speech

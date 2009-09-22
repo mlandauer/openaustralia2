@@ -32,7 +32,7 @@
         %p
           %small
             %strong
-              = link_to "See this speech in context", debate_path(:id => @speech.subsection.id, :anchor => @speech.anchor), :class => "permalink", :title => "See this speech within the entire debate"
+              = link_to "See this speech in context", representatives_debate_path(:id => @speech.subsection.id, :anchor => @speech.anchor), :class => "permalink", :title => "See this speech within the entire debate"
   / end .main
   .sidebar
     - unless single_speech

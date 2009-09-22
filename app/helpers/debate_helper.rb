@@ -37,7 +37,7 @@ module DebateHelper
                   if block_given?
                     url = yield(date)
                   else
-                    url = debate_path(:d => date)
+                    url = representatives_debate_path(:d => date)
                   end
                   atts.merge!(:class => "on") if date == current_date
                   if linked.include?(date) && date != current_date

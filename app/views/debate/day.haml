@@ -5,13 +5,13 @@
     %ul#hansard-day
       - Hansard.reps_sections_on_date(@date).each do |section|
         %li
-          - link_to debate_path(:id => section.id) do
+          - link_to representatives_debate_path(:id => section.id) do
             %strong= section
           %small (#{pluralize(section.no_speeches, 'speech')})
           %ul
             - Hansard.subsections_in_section(section).each do |subsection|
               %li
-                - link_to debate_path(:id => subsection.id) do
+                - link_to representatives_debate_path(:id => subsection.id) do
                   %strong= subsection
                 %small (#{pluralize(subsection.no_speeches, 'speech')}#{(", " + pluralize(subsection.no_comments, 'comment')) if subsection.no_comments > 0})
                 %br
@@ -20,16 +20,16 @@
   / end .main
   .sidebar
     %p.nextprev
-      %span.up= link_to "All of #{@date.year}'s debates", debate_path(:y => @date.year), :title => ""
+      %span.up= link_to "All of #{@date.year}'s debates", representatives_debate_path(:y => @date.year), :title => ""
       - if @previous_date
-        %span.prev= link_to "&laquo; Previous day", debate_path(:d => @previous_date), :title => @previous_date.to_s(:simple)
+        %span.prev= link_to "&laquo; Previous day", representatives_debate_path(:d => @previous_date), :title => @previous_date.to_s(:simple)
       - if @next_date
-        %span.next= link_to "Next day &raquo;", debate_path(:d => @next_date), :title => @next_date.to_s(:simple)
+        %span.next= link_to "Next day &raquo;", representatives_debate_path(:d => @next_date), :title => @next_date.to_s(:simple)
     .block
       %h4 Debates this month
       .blockbody
         = calendar(@date.year, @date.month, @date, @recess, [Date.new(2009,5,13), Date.new(2009,5,14)])
-        %p= link_to "See all of #{@date.year}", debate_path(:y => @date.year)
+        %p= link_to "See all of #{@date.year}", representatives_debate_path(:y => @date.year)
     / end .block
     = render :partial => "what_are_debates"
   / end .sidebar

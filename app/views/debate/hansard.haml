@@ -19,22 +19,22 @@
     %dl.big-debates
       %dt
         %a{ :name => "d1" }
-        %strong>= link_to "Section 2", debate_path(:id => "2009-05-14.1.2")
+        %strong>= link_to "Section 2", representatives_debate_path(:id => "2009-05-14.1.2")
       %dd
-        %strong= link_to "Subsection 2", debate_path(:id => "2009-05-14.1.2")
+        %strong= link_to "Subsection 2", representatives_debate_path(:id => "2009-05-14.1.2")
         %small (2 speeches, 2 comments)
         %br
         Thursday, 14 May 2009
       %dt
         %a{:name => "d2", :id => "d2" }
-        %strong>= link_to "Section 1", debate_path(:id => "2009-05-13.1.2")
+        %strong>= link_to "Section 1", representatives_debate_path(:id => "2009-05-13.1.2")
       %dd
-        %strong= link_to "Subsection 1", debate_path(:id => "2009-05-13.1.2")
+        %strong= link_to "Subsection 1", representatives_debate_path(:id => "2009-05-13.1.2")
         %small (1 speech)
         %br
         Wednesday, 13 May 2009
     %p
-      %strong= link_to "See more debates", debate_path(:anchor => "d7")
+      %strong= link_to "See more debates", representatives_debate_path(:anchor => "d7")
   / end .main
   .sidebar
     = render :partial => "what_are_house_debates_teaser"
@@ -43,7 +43,7 @@
         Recent debates
       .blockbody
         = calendar(2009, 5, Date.today, @recess, [Date.new(2009,5,13), Date.new(2009,5,14)])
-        %p= link_to "See all of 2009", debate_path(:y => 2009)
+        %p= link_to "See all of 2009", representatives_debate_path(:y => 2009)
     / end .block
   / end .sidebar
   .break
