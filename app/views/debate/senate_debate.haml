@@ -5,9 +5,7 @@
   / end .main
   .sidebar
     #help.block
-      %h4
-        %a{ :href => "/senate/#help" }
-          What are Senate debates?
+      %h4= link_to "What are Senate debates?", senate_debate_path(:anchor => "help")
     / end .block
   / end .sidebar
   .break
@@ -15,29 +13,22 @@
 .stripe-head-2
   .main
     = add_this_javascript
-    %h4
-      Section 3
-    %h5
-      Subsection 3
+    %h4 Section 3
+    %h5 Subsection 3
   / end .main
   .sidebar
     %p.nextprev
-      %span.up
-        %a{ :href => "/senate/?d=2009-05-13", :title => "" }
-          All Senate debates on 13 May 2009
-      %span.prev
-        %a{ :href => "/senate/?id=2009-05-13.1.1", :title => "Section 3" }
-          \&laquo; Previous debate
+      %span.up= link_to "All Senate debates on 13 May 2009", senate_debate_path(:d => "2009-05-13"), :title => ""
+      %span.prev= link_to "\&laquo; Previous debate", senate_debate_path(:id => "2009-05-13.1.1"), :title => "Section 3"
   / end .sidebar
   .break
 / end .stripe-*
 .stripe-time-2
   .main
-    %p
-      3:24 am
+    %p 3:24 am
   / end .main
   .sidebar
-    \&nbsp;
+    &nbsp;
   / end .sidebar
   .break
 / end .stripe-*
@@ -45,21 +36,21 @@
   .main
     %a{ :name => "g2.1" }
     %p.speaker
-      %a{ :href => "/senator/?m=100001", :title => "See more information about Eric Abetz" }
-        %img.portrait{ :src => "/images/mps/10003.jpg", :alt => "Photo of Eric Abetz" }
+      - link_to senator_path(:m => 100001), :title => "See more information about Eric Abetz" do
+        = image_tag("mps/10003.jpg", :alt => "Photo of Eric Abetz", :class => "portrait")
         %strong> Eric Abetz
       %small
         (Liberal Party, Deputy Leader of the Opposition in the Senate)
         = add_this("Share this", 'http://dev.openaustralia.org/senate/?gid=2009-05-13.2.1')
         \|
-        %a.permalink{ :href => "/senate/?gid=2009-05-13.2.1", :title => "Copy this URL to link directly to this piece of text" } Link to this
+        = link_to "Link to this", senate_debate_path(:gid => "2009-05-13.2.1"), :title => "Copy this URL to link directly to this piece of text", :class => "permalink"
         \|
-        %a{ :href => "http://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:chamber/hansards/2009-05-13/0000", :title => "The source of this piece of text" } Hansard source
+        = link_to "Hansard source", "http://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:chamber/hansards/2009-05-13/0000", :title => "The source of this piece of text"
       <p>And my name is Eric Abetz. Everybody else was talking, so I felt I had to as well.</p>
   / end .main
   .sidebar
     %p.comment-teaser
-      %a{ :href => "/user/prompt/?ret=%2Fsenate%2F%3Fgid%3D2009-05-13.2.1#addcomment", :title => "Comment on this" }
+      - link_to add_comment_path(:ret => senate_debate_path(:gid => "2009-05-13.2.1")), :title => "Comment on this" do
         %strong Add your comment
   / end .sidebar
   .break
@@ -78,9 +69,7 @@
   / end .main
   .sidebar
     %p.nextprev
-      %span.up
-        %a{ :href => "/senate/?d=2009-05-13", :title => "" } All Senate debates on 13 May 2009
-      %span.prev
-        %a{ :href => "/senate/?id=2009-05-13.1.1", :title => "Section 3" } &laquo; Previous debate
+      %span.up= link_to "All Senate debates on 13 May 2009", senate_debate_path(:d => "2009-05-13"), :title => ""
+      %span.prev= link_to "&laquo; Previous debate", senate_debate_path(:id => "2009-05-13.1.1"), :title => "Section 3"
   / end .sidebar
   .break

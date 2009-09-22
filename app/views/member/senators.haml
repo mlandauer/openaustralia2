@@ -14,7 +14,7 @@
           - row_class = cycle("row-1", "row-2")
           %tr
             %td.row= image_tag("mps/#{m.person_id}.jpg", :class => "portrait", :alt => "")
-            %td{ :class => row_class }= link_to m.name, senator_path(:name => m.name_param, :constituency => m.constituency_param)
+            %td{ :class => row_class }= link_to m.name, senator_name_path(:name => m.name_param, :constituency => m.constituency_param)
             %td{ :class => row_class }= m.party
             %td{ :class => row_class }= m.constituency
             %td{ :class => row_class }= nbsp_if_empty(m.current_minister_positions.join('<br>'))

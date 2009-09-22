@@ -6,8 +6,9 @@ ActionController::Routing::Routes.draw do |map|
   map.representatives 'mps', :controller => 'member', :action => 'index', :house => 1, :trailing_slash => true
   map.senators 'senators', :controller => 'member', :action => 'index', :house => 2, :trailing_slash => true
   map.representative 'mp', :controller => 'member', :action => 'show', :house => 1, :trailing_slash => true
+  map.senator 'senator', :controller => 'member', :action => 'show', :house => 2, :trailing_slash => true
   map.representative_name 'mp/:name/:constituency', :controller => 'member', :action => 'show', :house => 1
-  map.senator 'senator/:name/:constituency', :controller => 'member', :action => 'show', :house => 2
+  map.senator_name 'senator/:name/:constituency', :controller => 'member', :action => 'show', :house => 2
   
   map.representatives_debate 'debates', :controller => 'debate', :action => 'representative_debate', :trailing_slash => true
   map.senate_debate 'senate', :controller => 'debate', :action => 'senate_debate', :trailing_slash => true
