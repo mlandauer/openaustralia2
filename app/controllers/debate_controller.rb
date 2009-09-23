@@ -67,6 +67,8 @@ class DebateController < ApplicationController
     @house = 2
     @house_name = "Senate"
     @previous_debate = Hansard.find_by_id(@house, "2009-05-13.1.1")
+    @section = Hansard.find_by_id(@house, "2009-05-13.1.1")
+    @subsection = Hansard.find_by_id(@house, "2009-05-13.1.2")
   end
   
   # Display a single speech

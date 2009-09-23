@@ -1,18 +1,18 @@
 .stripe-head-1
   .main
     %h2 Senate debates
-    %h3 Wednesday, 13 May 2009
+    %h3= @date.to_s(:simple_with_day)
   / end .main
   .sidebar
-    = render :partial => "what_are_debates_teaser", :locals => {:house_name => "Senate", :house => 2}
+    = render :partial => "what_are_debates_teaser", :locals => {:house_name => @house_name, :house => @house}
   / end .sidebar
   .break
 / end .stripe-*
 .stripe-head-2
   .main
     = add_this_javascript
-    %h4 Section 3
-    %h5 Subsection 3
+    %h4= @section
+    %h5= @subsection
   / end .main
   .sidebar
     = render :partial => "navigate"
