@@ -5,7 +5,7 @@
   / end .main
   .sidebar
     #help.block
-      %h4= link_to "What are Senate debates?", senate_debate_path(:anchor => "help")
+      %h4= link_to "What are Senate debates?", debate_path(:anchor => "help", :house => 2)
     / end .block
   / end .sidebar
   .break
@@ -41,14 +41,14 @@
         (Liberal Party, Deputy Leader of the Opposition in the Senate)
         = add_this("Share this", 'http://dev.openaustralia.org/senate/?gid=2009-05-13.2.1')
         \|
-        = link_to "Link to this", senate_debate_path(:gid => "2009-05-13.2.1"), :title => "Copy this URL to link directly to this piece of text", :class => "permalink"
+        = link_to "Link to this", debate_path(:gid => "2009-05-13.2.1", :house => 2), :title => "Copy this URL to link directly to this piece of text", :class => "permalink"
         \|
         = link_to "Hansard source", "http://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:chamber/hansards/2009-05-13/0000", :title => "The source of this piece of text"
       <p>And my name is Eric Abetz. Everybody else was talking, so I felt I had to as well.</p>
   / end .main
   .sidebar
     %p.comment-teaser
-      - link_to add_comment_path(:ret => senate_debate_path(:gid => "2009-05-13.2.1")), :title => "Comment on this" do
+      - link_to add_comment_path(:ret => debate_path(:gid => "2009-05-13.2.1", :house => 2)), :title => "Comment on this" do
         %strong Add your comment
   / end .sidebar
   .break

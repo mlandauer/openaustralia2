@@ -45,4 +45,15 @@ module ApplicationHelper
     <!-- ADDTHIS JAVASCRIPT END -->
     EOF
   end
+  
+  def debate_path(args)
+    case args.delete(:house)
+    when 1
+      representatives_debate_path(args)
+    when 2
+      senate_debate_path(args)
+    else
+      raise "Unknown house"
+    end
+  end
 end
