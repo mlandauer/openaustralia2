@@ -1,3 +1,0 @@
-%p.nextprev
-  %span.up= link_to "All #{@house_name} debates on #{@date.to_s(:simple)}", debate_path(:d => @date, :house => @house), :title => ""
-  %span.prev= link_to "&laquo; Previous debate", debate_path(:id => @previous_debate.id, :house => @house), :title => @previous_debate
