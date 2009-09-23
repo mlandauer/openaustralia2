@@ -2,6 +2,8 @@ require 'Hpricot'
 
 class TextObject < ActiveRecord::Base
   set_table_name "epobject"
+  set_primary_key "epobject_id"
+  
   # Disabling inheritance_column because we are using "type" as a column name
   # TODO: rename "type" column to something else
   self.inheritance_column = nil

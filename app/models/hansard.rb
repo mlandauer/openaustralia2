@@ -30,13 +30,20 @@ class Hansard < ActiveRecord::Base
     read_attribute(:htime) unless htime_before_type_cast == "00:00:00"
   end
   
-  def Hansard.find_by_id(id)
-    find_by_gid("uk.org.publicwhip/debate/#{id}")
+  def Hansard.find_by_id(house, id)
+    if house == 1
+      house_id = "debate"
+    elsif house == 2
+      house_id = "lords"
+    else
+      raise "Unknown house"
+    end
+    find_by_gid("uk.org.publicwhip/#{house_id}/#{id}")
   end
   
   def id
-    if gid =~ /^uk.org.publicwhip\/debate\/(.*)/
-      $~[1]
+    if gid =~ /^uk.org.publicwhip\/(debate|lords)\/(.*)/
+      $~[2]
     else
       raise "Unexpected form for gid"
     end
@@ -44,8 +51,8 @@ class Hansard < ActiveRecord::Base
   
   # Anchor to identify this speech within a single day
   def anchor
-    if gid =~ /^uk.org.publicwhip\/debate\/[^.]+\.(.*)/
-      "g" + $~[1]
+    if gid =~ /^uk.org.publicwhip\/(debate|lords)\/[^.]+\.(.*)/
+      "g" + $~[2]
     else
       raise "Unexpected form for gid"
     end

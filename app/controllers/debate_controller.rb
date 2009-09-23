@@ -11,6 +11,8 @@ class DebateController < ApplicationController
   
   def representative_debate
     @recess = Recess.dates
+    @house = 1
+    @house_name = "House"
 
     # Hack to deal with not entirely consistent behaviour of "Debates" menu
     @debates_menu_on = true
@@ -34,7 +36,7 @@ class DebateController < ApplicationController
       @title = "#{@extra_keywords}: House debates (OpenAustralia.org)"
       render :year
     else
-      @subsection = Hansard.find_by_id(params[:id])
+      @subsection = Hansard.find_by_id(@house, params[:id])
       if @subsection.section?
         # Find the first subsection and redirect to it
         r = Hansard.first(:conditions => {:section_id => @subsection.epobject_id}, :order => "hpos")
@@ -47,9 +49,9 @@ class DebateController < ApplicationController
         @title = "#{@extra_keywords}: House debates (OpenAustralia.org)"
         # Temporary HACK
         if @date == Date.new(2009,5,13)
-          @previous_debate = Hansard.find_by_id("2009-05-13.1.1")
+          @previous_debate = Hansard.find_by_id(@house, "2009-05-13.1.1")
         elsif @date == Date.new(2009,5,14)
-          @previous_debate = Hansard.find_by_id("2009-05-14.1.1")
+          @previous_debate = Hansard.find_by_id(@house, "2009-05-14.1.1")
         end
       else
         raise "Only know currently how to handle sections and subsections"
@@ -58,14 +60,19 @@ class DebateController < ApplicationController
   end
   
   def senate_debate
-    @extra_keywords = "Subsection 3: 13 May 2009"
+    @date = Date.new(2009,5,13)
+    @extra_keywords = "Subsection 3: #{@date.to_s(:simple)}"
     @title = "#{@extra_keywords}: Senate debates (OpenAustralia.org)"
     @debates_menu_on = true
+    @house = 2
+    @house_name = "Senate"
+    @previous_debate = Hansard.find_by_id(@house, "2009-05-13.1.1")
   end
   
   # Display a single speech
   def speech
-    @speech = Hansard.find_by_id(params[:id])
+    @house = 1
+    @speech = Hansard.find_by_id(@house, params[:id])
     @previous_speech = @speech.previous_speech_within_subsection
     @next_speech = @speech.next_speech_within_subsection
     @extra_keywords = "#{truncate(@speech.just_text, :length => 38)}: #{@speech.hdate.to_s(:simple)}"
