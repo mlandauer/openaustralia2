@@ -1,7 +1,7 @@
 module DebateHelper
   include ApplicationHelper
 
-  def calendar(year, month, current_date, recess, linked)
+  def calendar(year, month, current_date, recess, linked, house)
     b = Builder::XmlMarkup.new
     b.div(:class => "calendar") do
       b.table(:border => 0) do
@@ -36,14 +36,9 @@ module DebateHelper
                   else
                     atts = {}
                   end
-                  if block_given?
-                    url = yield(date)
-                  else
-                    url = debate_path(:d => date, :house => 1)
-                  end
                   atts.merge!(:class => "on") if date == current_date
                   if linked.include?(date) && date != current_date
-                    b.td(atts) { b.a({:href => url}, day) }
+                    b.td(atts) { b.a({:href => debate_path(:d => date, :house => house)}, day) }
                   else
                     b.td(atts, day)
                   end

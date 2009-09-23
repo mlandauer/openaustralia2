@@ -28,7 +28,7 @@
     .block
       %h4 Debates this month
       .blockbody
-        = calendar(@date.year, @date.month, @date, @recess, [Date.new(2009,5,13), Date.new(2009,5,14)])
+        = calendar(@date.year, @date.month, @date, @recess, [Date.new(2009,5,13), Date.new(2009,5,14)], 1)
         %p= link_to "See all of #{@date.year}", debate_path(:house => 1, :y => @date.year)
     / end .block
     = render :partial => "what_are_debates"

@@ -42,7 +42,7 @@
       %h4
         Recent debates
       .blockbody
-        = calendar(2009, 5, Date.today, @recess, [Date.new(2009,5,13), Date.new(2009,5,14)])
+        = calendar(2009, 5, Date.today, @recess, [Date.new(2009,5,13), Date.new(2009,5,14)], 1)
         %p= link_to "See all of 2009", debate_path(:house => 1, :y => 2009)
     / end .block
   / end .sidebar
@@ -72,7 +72,7 @@
       %h4
         Recent debates
       .blockbody
-        = calendar(2009, 5, Date.today, @recess, [Date.new(2009,5,13)]) { |date| debate_path(:d => date, :house => 2) }
+        = calendar(2009, 5, Date.today, @recess, [Date.new(2009,5,13)], 2)
         %p= link_to "See all of 2009", debate_path(:y => 2009, :house => 2)
     / end .block
   / end .sidebar

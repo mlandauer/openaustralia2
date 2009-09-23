@@ -53,6 +53,6 @@ describe DebateHelper do
     end
     b.comment! "end calendar"
     
-    helper.calendar(2009, 1, Date.new(2009,1,20), recess, linked).should == expected
+    helper.calendar(2009, 1, Date.new(2009,1,20), recess, linked, 1).should == expected
   end
 end
