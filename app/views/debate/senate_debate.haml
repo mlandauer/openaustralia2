@@ -4,9 +4,7 @@
     %h3 Wednesday, 13 May 2009
   / end .main
   .sidebar
-    #help.block
-      %h4= link_to "What are Senate debates?", debate_path(:anchor => "help", :house => 2)
-    / end .block
+    = render :partial => "what_are_debates_teaser", :locals => {:house_name => "Senate", :house => 2}
   / end .sidebar
   .break
 / end .stripe-*

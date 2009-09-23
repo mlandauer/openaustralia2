@@ -4,7 +4,7 @@
     %h3= @speech.hdate.to_s(:simple_with_day)
   / end .main
   .sidebar
-    = render :partial => "what_are_debates_teaser"
+    = render :partial => "what_are_debates_teaser", :locals => {:house_name => @house_name, :house => @house}
   / end .sidebar
   .break
 / end .stripe-*
