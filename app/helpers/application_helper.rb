@@ -56,4 +56,16 @@ module ApplicationHelper
       raise "Unknown house"
     end
   end
+  
+  def member_path(args)
+    case args.delete(:house)
+    when 1
+      representative_path(args)
+    when 2
+      senator_path(args)
+    else
+      raise "Unknown house"
+    end
+  end
+
 end

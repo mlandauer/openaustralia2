@@ -12,7 +12,7 @@
   .main
     %a{ :name => speech.anchor }
     %p.speaker
-      - link_to representative_path(:m => member.id), :title => "See more information about #{member.name}" do
+      - link_to member_path(:house => @house, :m => member.id), :title => "See more information about #{member.name}" do
         = image_tag("mps/#{member.person_id}.jpg", :class => "portrait", :alt => "Photo of #{member.name}")
         %strong>= member.name
       %small
@@ -21,10 +21,12 @@
         - else
           -# Display only the first of the ministerial positions. I don't know if this is "correct".
           (#{member.constituency}, #{member.party}, #{member.current_minister_offices[0].position})
-        = add_this("Share this", "http://dev.openaustralia.org/debate/?id=#{speech.id}")
+        -# TODO: Fix inconsistent links below
+        - link_path = @house == 1 ? speech_path(:id => speech.id) : "/senate/?gid=#{speech.id}"
+        = add_this("Share this", "http://dev.openaustralia.org" + link_path)
         |
         - unless single_speech
-          = link_to "Link to this", speech_path(:id => speech.id), :class => "permalink", :title => "Copy this URL to link directly to this piece of text"
+          = link_to "Link to this", link_path, :class => "permalink", :title => "Copy this URL to link directly to this piece of text"
           |
         = link_to "Hansard source", speech.source_url, :title => "The source of this piece of text"
       = speech.text_object.display_body
@@ -32,7 +34,7 @@
         %p
           %small
             %strong
-              = link_to "See this speech in context", debate_path(:house => 1, :id => @speech.subsection.id, :anchor => @speech.anchor), :class => "permalink", :title => "See this speech within the entire debate"
+              = link_to "See this speech in context", debate_path(:house => @house, :id => @speech.subsection.id, :anchor => @speech.anchor), :class => "permalink", :title => "See this speech within the entire debate"
   / end .main
   .sidebar
     - unless single_speech
@@ -45,7 +47,7 @@
             = link_to "Read #{speech.no_comments - 1} more comment", speech_path(:id => speech.id, :anchor => "c#{first_comment.id}"), :title => "See any comments posted about this"
           %br
           %br
-        - link_to add_comment_path(:ret => "/debate/?id=#{speech.id}"), :title => "Comment on this" do
+        - link_to add_comment_path(:ret => link_path), :title => "Comment on this" do
           %strong Add your comment
   / end .sidebar
   .break
