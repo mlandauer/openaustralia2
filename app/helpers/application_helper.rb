@@ -46,6 +46,8 @@ module ApplicationHelper
     EOF
   end
   
+  # TODO: Would be nice if the following methods could be part of the routes.rb file where they really belong
+
   def debate_path(args)
     case args.delete(:house)
     when 1
