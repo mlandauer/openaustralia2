@@ -152,5 +152,9 @@ describe "MembersController" do
   it "should render a senate debate" do
     compare_with_php("/senate/?id=2009-05-13.1.2", "senate_debate_2009-05-13.1.2")
   end
+
+  it "should render a single senate speech" do
+    compare_with_php("/senate/?gid=2009-05-13.2.1", "senate_speech_2009-05-13.2.1")
+  end
 end
 

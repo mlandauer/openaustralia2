@@ -28,7 +28,7 @@
           |
         = link_to "Hansard source", speech.source_url, :title => "The source of this piece of text"
       = speech.text_object.display_body
-      - if single_speech
+      - if single_speech && @speech.subsection.no_speeches > 1
         %p
           %small
             %strong

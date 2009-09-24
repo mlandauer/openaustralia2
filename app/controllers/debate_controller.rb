@@ -1,5 +1,5 @@
 class DebateController < ApplicationController
-  include ActionView::Helpers::TextHelper
+  include ApplicationHelper
   
   def hansard
     @extra_keywords = "House of Representatives and Senate debates"
@@ -59,17 +59,29 @@ class DebateController < ApplicationController
     end
   end
   
+  # Could actually be a senate debate or a speech depending on whether id or gid is used as a parameter in the URL
   def senate_debate
-    @date = Date.new(2009,5,13)
-    @extra_keywords = "Subsection 3: #{@date.to_s(:simple)}"
-    @title = "#{@extra_keywords}: Senate debates (OpenAustralia.org)"
     @debates_menu_on = true
     @house = 2
     @house_name = "Senate"
-    @previous_debate = Hansard.find_by_id(@house, "2009-05-13.1.1")
-    @section = Hansard.find_by_id(@house, "2009-05-13.1.1")
-    @subsection = Hansard.find_by_id(@house, "2009-05-13.1.2")
-    @speeches = Hansard.speeches_in_subsection(@subsection)
+
+    if params[:id]
+      @date = Date.new(2009,5,13)
+      @extra_keywords = "Subsection 3: #{@date.to_s(:simple)}"
+      @title = "#{@extra_keywords}: Senate debates (OpenAustralia.org)"
+      @previous_debate = Hansard.find_by_id(@house, "2009-05-13.1.1")
+      @section = Hansard.find_by_id(@house, "2009-05-13.1.1")
+      @subsection = Hansard.find_by_id(@house, "2009-05-13.1.2")
+      @speeches = Hansard.speeches_in_subsection(@subsection)
+    elsif params[:gid]
+      @speech = Hansard.find_by_id(@house, params[:gid])
+      @comments = []
+      @extra_keywords = "#{truncate(@speech.just_text, :length => 38, :break_on_spaces => true)}: #{@speech.hdate.to_s(:simple)}"
+      @title = "#{@extra_keywords}: Senate debates (OpenAustralia.org)"
+      render :action => "speech"
+    else
+      raise "Unexpected parameters"
+    end
   end
   
   # Display a single speech
