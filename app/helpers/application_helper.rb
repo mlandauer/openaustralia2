@@ -68,4 +68,15 @@ module ApplicationHelper
     end
   end
 
+  def speech_path(args)
+    id = args.delete(:id)
+    case args.delete(:house)
+    when 1
+      representative_speech_path(args.merge(:id => id))
+    when 2
+      senate_debate_path(args.merge(:gid => id))
+    else
+      raise "Unknown house"
+    end
+  end
 end

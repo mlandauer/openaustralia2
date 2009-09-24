@@ -21,12 +21,10 @@
         - else
           -# Display only the first of the ministerial positions. I don't know if this is "correct".
           (#{member.constituency}, #{member.party}, #{member.current_minister_offices[0].position})
-        -# TODO: Fix inconsistent links below
-        - link_path = @house == 1 ? representative_speech_path(:id => speech.id) : "/senate/?gid=#{speech.id}"
-        = add_this("Share this", "http://dev.openaustralia.org" + link_path)
+        = add_this("Share this", "http://dev.openaustralia.org" + speech_path(:house => @house, :id => speech.id))
         |
         - unless single_speech
-          = link_to "Link to this", link_path, :class => "permalink", :title => "Copy this URL to link directly to this piece of text"
+          = link_to "Link to this", speech_path(:house => @house, :id => speech.id), :class => "permalink", :title => "Copy this URL to link directly to this piece of text"
           |
         = link_to "Hansard source", speech.source_url, :title => "The source of this piece of text"
       = speech.text_object.display_body
@@ -44,10 +42,10 @@
           <em>#{first_comment.user.name}</em>:
           = first_comment.body
           - if speech.no_comments > 1
-            = link_to "Read #{speech.no_comments - 1} more comment", representative_speech_path(:id => speech.id, :anchor => "c#{first_comment.id}"), :title => "See any comments posted about this"
+            = link_to "Read #{speech.no_comments - 1} more comment", speech_path(:house => @house, :id => speech.id, :anchor => "c#{first_comment.id}"), :title => "See any comments posted about this"
           %br
           %br
-        - link_to add_comment_path(:ret => link_path), :title => "Comment on this" do
+        - link_to add_comment_path(:ret => speech_path(:house => @house, :id => speech.id)), :title => "Comment on this" do
           %strong Add your comment
   / end .sidebar
   .break

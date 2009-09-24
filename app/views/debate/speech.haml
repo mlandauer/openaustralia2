@@ -18,9 +18,9 @@
     %p.nextprev
       %span.up= link_to "See the whole debate", debate_path(:house => 1, :id => @speech.subsection.id), :title => @speech.subsection
       - if @previous_speech
-        %span.prev= link_to "&laquo; Previous speaker", representative_speech_path(:id => @previous_speech.id), :title => @previous_speech.speaker.name
+        %span.prev= link_to "&laquo; Previous speaker", speech_path(:house => 1, :id => @previous_speech.id), :title => @previous_speech.speaker.name
       - if @next_speech
-        %span.next= link_to "Next speaker &raquo;", representative_speech_path(:id => @next_speech.id), :title => @next_speech.speaker.name
+        %span.next= link_to "Next speaker &raquo;", speech_path(:house => 1, :id => @next_speech.id), :title => @next_speech.speaker.name
   / end .sidebar
   .break
 / end .stripe-*
@@ -38,9 +38,9 @@
           %br
           %small
             Posted on #{comment.posted.to_date.to_s(:simple_short)}
-            = link_to comment.posted.to_time.to_s(:time_12), representative_speech_path(:id => comment.speech.id, :anchor => "c#{comment.id}"), :title => "Link to this comment"
+            = link_to comment.posted.to_time.to_s(:time_12), speech_path(:house => 1, :id => comment.speech.id, :anchor => "c#{comment.id}"), :title => "Link to this comment"
             = surround('(', ')') do
-              = link_to "Report this comment", report_path(:id => comment.id, :ret => representative_speech_path(:id => @speech.id, :anchor => "c#{comment.id}")), :title => "Notify moderators that this comment should be deleted"
+              = link_to "Report this comment", report_path(:id => comment.id, :ret => speech_path(:house => 1, :id => @speech.id, :anchor => "c#{comment.id}")), :title => "Notify moderators that this comment should be deleted"
         %p.comment= comment.body
       / end .comment
     - if @comments.empty?
@@ -55,9 +55,9 @@
 #addcomment.stripe-side
   .main
     %p
-      = link_to "Log in", login_path(:ret => representative_speech_path(:id => @speech.id, :anchor => "addcomment"))
+      = link_to "Log in", login_path(:ret => speech_path(:house => 1, :id => @speech.id, :anchor => "addcomment"))
       or
-      = link_to "join", user_path(:pg => "join", :ret => representative_speech_path(:id => @speech.id, :anchor => "addcomment"))
+      = link_to "join", user_path(:pg => "join", :ret => speech_path(:house => 1, :id => @speech.id, :anchor => "addcomment"))
       to post a public comment.
   / end .main
   .sidebar
