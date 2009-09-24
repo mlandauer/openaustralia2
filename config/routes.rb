@@ -12,7 +12,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.representatives_debate 'debates', :controller => 'debate', :action => 'representative_debate', :trailing_slash => true
   map.senate_debate 'senate', :controller => 'debate', :action => 'senate_debate', :trailing_slash => true
-  map.speech 'debate', :controller => 'debate', :action => 'speech', :trailing_slash => true
+  map.representative_speech 'debate', :controller => 'debate', :action => 'speech', :trailing_slash => true
   map.hansard 'hansard', :controller => 'debate', :action => 'hansard', :trailing_slash => true
   
   map.posts 'news', :controller => 'news', :action => 'index', :trailing_slash => true
