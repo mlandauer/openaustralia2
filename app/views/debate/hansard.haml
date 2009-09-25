@@ -1,21 +1,18 @@
 .stripe-head-1
   .main
-    %h2
-      House of Representatives and Senate debates
-    %h3
-      \&nbsp;
+    %h2 House of Representatives and Senate debates
+    %h3 &nbsp;
     %p
       %strong The Houses of Parliament are in recess from 18 Sep until 18 Oct 2009.
   / end .main
   .sidebar
-    \&nbsp;
+    &nbsp;
   / end .sidebar
   .break
 / end .stripe-*
 .stripe-side
   .main
-    %h3
-      Busiest House of Representatives debates from the most recent week
+    %h3 Busiest House of Representatives debates from the most recent week
     = render :partial => "representatives_busiest"
     %p
       %strong= link_to "See more debates", debate_path(:house => 1, :anchor => "d7")
@@ -23,8 +20,7 @@
   .sidebar
     = render :partial => "what_are_debates_teaser", :locals => {:house => 1, :house_name => "House"}
     .block
-      %h4
-        Recent debates
+      %h4 Recent debates
       .blockbody
         = calendar(2009, 5, Date.today, @recess, [Date.new(2009,5,13), Date.new(2009,5,14)], 1)
         %p= link_to "See all of 2009", debate_path(:house => 1, :y => 2009)
@@ -34,19 +30,10 @@
 / end .stripe-*
 .stripe-side
   .main
-    %h3
-      Busiest Senate debates from the most recent week      
-    %dl.big-debates
-      %dt
-        %a#d1(name="d1")
-        %strong>= link_to "Section 3", debate_path(:id => "2009-05-13.1.2", :house => 2)
-      %dd
-        %strong= link_to "Subsection 3", debate_path(:id => "2009-05-13.1.2", :house => 2)
-        %small (1 speech)
-        %br
-        Wednesday, 13 May 2009
+    %h3 Busiest Senate debates from the most recent week
+    = render :partial => "senate_busiest"
     %p
-      %strong= link_to "See more debates", debate_path(:anchor => "d7", :house => 2)
+      %strong= link_to "See more debates", debate_path(:house => 2, :anchor => "d7")
   / end .main
   .sidebar
     = render :partial => "what_are_debates_teaser", :locals => {:house => 2, :house_name => "Senate"}
@@ -55,7 +42,7 @@
         Recent debates
       .blockbody
         = calendar(2009, 5, Date.today, @recess, [Date.new(2009,5,13)], 2)
-        %p= link_to "See all of 2009", debate_path(:y => 2009, :house => 2)
+        %p= link_to "See all of 2009", debate_path(:house => 2, :y => 2009)
     / end .block
   / end .sidebar
   .break
