@@ -1,0 +1,138 @@
+.stripe-side
+  .main
+    %h2 House of Representatives and Senate debates
+    %h3 House debates
+    %h4 Busiest debates from the most recent week
+    %dl.big-debates
+      %dt
+        %a{ :name => "d1" }>
+        %strong>
+          %a{ :href => "/debates/?id=2009-05-14.1.2" }> Section 2
+      %dd
+        %strong
+          %a{ :href => "/debates/?id=2009-05-14.1.2" } Subsection 2
+        %small (2 speeches, 2 comments)
+        %br
+        Thursday, 14 May 2009
+      %dt
+        %a{ :name => "d2" }>
+        %strong>
+          %a{ :href => "/debates/?id=2009-05-13.1.2" }> Section 1
+      %dd
+        %strong
+          %a{ :href => "/debates/?id=2009-05-13.1.2" } Subsection 1
+        %small (1 speech)
+        %br
+        Wednesday, 13 May 2009
+  / end .main
+  .sidebar
+    %p.nextprev
+    .block
+      %h4 Recent debates
+      .blockbody
+        .calendar
+          %table{ :border => "0" }
+            %caption
+              May 2009
+            %thead
+              %tr
+                %th
+                  Mon
+                %th
+                  Tue
+                %th
+                  Wed
+                %th
+                  Thu
+                %th
+                  Fri
+                %th
+                  Sat
+                %th
+                  Sun
+            %tbody
+              %tr
+                %td{ :colspan => "4" }
+                  \&nbsp;
+                %td.no{ :title => "recess" }
+                  1
+                %td.no{ :title => "recess" }
+                  2
+                %td.no{ :title => "recess" }
+                  3
+              %tr
+                %td.no{ :title => "recess" }
+                  4
+                %td.no{ :title => "recess" }
+                  5
+                %td.no{ :title => "recess" }
+                  6
+                %td.no{ :title => "recess" }
+                  7
+                %td.no{ :title => "recess" }
+                  8
+                %td.no{ :title => "recess" }
+                  9
+                %td.no{ :title => "recess" }
+                  10
+              %tr
+                %td.no{ :title => "recess" }
+                  11
+                %td
+                  12
+                %td
+                  %a{ :href => "/debates/?d=2009-05-13" }
+                    13
+                %td
+                  %a{ :href => "/debates/?d=2009-05-14" }
+                    14
+                %td.no{ :title => "recess" }
+                  15
+                %td.no{ :title => "recess" }
+                  16
+                %td.no{ :title => "recess" }
+                  17
+              %tr
+                %td.no{ :title => "recess" }
+                  18
+                %td.no{ :title => "recess" }
+                  19
+                %td.no{ :title => "recess" }
+                  20
+                %td.no{ :title => "recess" }
+                  21
+                %td.no{ :title => "recess" }
+                  22
+                %td.no{ :title => "recess" }
+                  23
+                %td.no{ :title => "recess" }
+                  24
+              %tr
+                %td
+                  25
+                %td
+                  26
+                %td
+                  27
+                %td
+                  28
+                %td
+                  29
+                %td
+                  30
+                %td
+                  31
+        / end calendar
+        %p
+          %a{ :href => "/debates/?y=2009" }
+            See all of 2009
+    / end .block
+    = render :partial => "what_are_debates"
+    .block
+      %h4 RSS feed
+      %p
+        %a{ :href => "/debates/debates.rss" }
+          %img{ :src => "/images/rss.gif", :border => "0", :align => "middle", :alt => "RSS feed" }
+        %a{ :href => "/debates/debates.rss" } RSS feed of most recent debates
+  / end .sidebar
+  .break

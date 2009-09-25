@@ -35,7 +35,7 @@ class DebateController < ApplicationController
       @extra_keywords = "Debates for  #{@year}"
       @title = "#{@extra_keywords}: House debates (OpenAustralia.org)"
       render :year
-    else
+    elsif params[:id]
       @subsection = Hansard.find_by_id(@house, params[:id])
       if @subsection.section?
         # Find the first subsection and redirect to it
@@ -57,6 +57,11 @@ class DebateController < ApplicationController
       else
         raise "Only know currently how to handle sections and subsections"
       end
+    else
+      @extra_keywords = "House debates"
+      @title = "#{@extra_keywords}: House of Representatives and Senate debates (OpenAustralia.org)"
+      @rss = "http://dev.openaustralia.org/debates/debates.rss"
+      render :representatives_busiest
     end
   end
   
