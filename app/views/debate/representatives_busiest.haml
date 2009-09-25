@@ -3,27 +3,7 @@
     %h2 House of Representatives and Senate debates
     %h3 House debates
     %h4 Busiest debates from the most recent week
-    %dl.big-debates
-      %dt
-        %a{ :name => "d1" }>
-        %strong>
-          %a{ :href => "/debates/?id=2009-05-14.1.2" }> Section 2
-      %dd
-        %strong
-          %a{ :href => "/debates/?id=2009-05-14.1.2" } Subsection 2
-        %small (2 speeches, 2 comments)
-        %br
-        Thursday, 14 May 2009
-      %dt
-        %a{ :name => "d2" }>
-        %strong>
-          %a{ :href => "/debates/?id=2009-05-13.1.2" }> Section 1
-      %dd
-        %strong
-          %a{ :href => "/debates/?id=2009-05-13.1.2" } Subsection 1
-        %small (1 speech)
-        %br
-        Wednesday, 13 May 2009
+    = render :partial => "representatives_busiest"
   / end .main
   .sidebar
     %p.nextprev

@@ -1,0 +1,17 @@
+%dl.big-debates
+  %dt
+    %a{ :name => "d1" }
+    %strong>= link_to "Section 2", debate_path(:house => 1, :id => "2009-05-14.1.2")
+  %dd
+    %strong= link_to "Subsection 2", debate_path(:house => 1, :id => "2009-05-14.1.2")
+    %small (2 speeches, 2 comments)
+    %br
+    Thursday, 14 May 2009
+  %dt
+    %a{:name => "d2", :id => "d2" }
+    %strong>= link_to "Section 1", debate_path(:house => 1, :id => "2009-05-13.1.2")
+  %dd
+    %strong= link_to "Subsection 1", debate_path(:house => 1, :id => "2009-05-13.1.2")
+    %small (1 speech)
+    %br
+    Wednesday, 13 May 2009
