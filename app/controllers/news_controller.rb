@@ -1,6 +1,6 @@
 class NewsController < ApplicationController
   def index
-    @rss = true
+    @rss = "http://dev.openaustralia.org/news/index.rdf"
     @news_menu_on = true
     @months = News.all.map{|p| [p.timestamp.year, p.timestamp.month]}.uniq.map{|a| Date.new(a[0],a[1],1)}.sort.reverse
 
@@ -22,7 +22,7 @@ class NewsController < ApplicationController
   end
   
   def show
-    @rss = true
+    @rss = "http://dev.openaustralia.org/news/index.rdf"
     @news_menu_on = true
     posts = News.all
     @months = News.all.map{|p| [p.timestamp.year, p.timestamp.month]}.uniq.map{|a| Date.new(a[0],a[1],1)}.sort.reverse

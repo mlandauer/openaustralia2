@@ -16,7 +16,7 @@
       ~ "          @import url(/style/default/global_non_ns4.css);"
     %link{ :href => "/style/default/print.css", :rel => "stylesheet", :type => "text/css", :media => "print" }
     - if @rss
-      %link{ :href => "http://dev.openaustralia.org/news/index.rdf", :rel => "alternate", :title => "OpenAustralia RSS", :type => "application/rss+xml"}
+      %link{ :href => @rss, :rel => "alternate", :title => "OpenAustralia RSS", :type => "application/rss+xml"}
   %body
     #container
       %a{ :name => "top" }
