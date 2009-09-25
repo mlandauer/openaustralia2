@@ -53,6 +53,7 @@ class DebateController < ApplicationController
         elsif @date == Date.new(2009,5,14)
           @previous_debate = Hansard.find_by_id(@house, "2009-05-14.1.1")
         end
+        render :debate
       else
         raise "Only know currently how to handle sections and subsections"
       end
@@ -73,12 +74,13 @@ class DebateController < ApplicationController
       @section = Hansard.find_by_id(@house, "2009-05-13.1.1")
       @subsection = Hansard.find_by_id(@house, "2009-05-13.1.2")
       @speeches = Hansard.speeches_in_subsection(@subsection)
+      render :debate
     elsif params[:gid]
       @speech = Hansard.find_by_id(@house, params[:gid])
       @comments = []
       @extra_keywords = "#{truncate(@speech.just_text, :length => 38, :break_on_spaces => true)}: #{@speech.hdate.to_s(:simple)}"
       @title = "#{@extra_keywords}: Senate debates (OpenAustralia.org)"
-      render :action => "speech"
+      render :speech
     else
       raise "Unexpected parameters"
     end
